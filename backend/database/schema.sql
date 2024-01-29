@@ -1,4 +1,29 @@
-create table item (
-  id int unsigned primary key auto_increment not null,
-  title varchar(255) not null
+DROP DATABASE IF EXISTS library;
+
+CREATE DATABASE library;
+
+USE library;
+
+CREATE TABLE user (
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    pseudo VARCHAR(80) NOT NULL,
+    email VARCHAR(80) NOT NULL,
+    hashed_password VARCHAR(255) NOT NULL,
+    avatar VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE book (
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    image VARCHAR(255) NOT NULL,
+    titre VARCHAR(80) NOT NULL,
+    auteur VARCHAR(80) NOT NULL,
+    nombre_pages VARCHAR(80) NOT NULL,
+    date DATE NOT NULL,
+    categorie VARCHAR(80) NOT NULL,
+    description VARCHAR(255) NULL,
+    commentaire VARCHAR(255) NULL,
+    lu BOOLEAN NOT NULL DEFAULT FALSE,
+    user_id INT DEFAULT NULL,
+    CONSTRAINT fk_book_user FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE ON UPDATE NO ACTION
 );
