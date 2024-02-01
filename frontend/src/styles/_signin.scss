@@ -1,148 +1,327 @@
 .container-signin {
-    
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding-left: 25%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding-left: 25%;
 
-    .signin-wrapper {
-        
+  .signin-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-image: linear-gradient(
+      120deg,
+      rgba(81, 130, 113, 1) 0%,
+      rgba(150, 193, 131, 1) 100%
+    );
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.863);
+    height: 70vh;
+    width: 60vh;
+
+    h1 {
+      text-align: center;
+      font-family: var(--font-style-text);
+      font-size: 2.3rem;
+      color: var(--primary-color);
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.2rem;
+    }
+    a {
+      text-decoration: none;
+      color: #000000;
+      font-weight: bold;
+    }
+    a:hover {
+      color: white;
+    }
+
+    .form-signin {
       display: flex;
+      align-items: center;
       flex-direction: column;
-      justify-content: space-around;
-      background-image: linear-gradient(
-        120deg,
-        rgba(81, 130, 113, 1) 0%,
-        rgba(150, 193, 131, 1) 100%
-      );
-      border-radius: 10px;
-      border: 2px solid rgba(255, 255, 255, 0.863);
-      height: 70vh;
-      width: 60vh;
+
+      p {
+        font-family: var(--font-style-text);
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      .name,
+      .email,
+      .password {
+        background-color: #e5ebe5;
+        border: none;
+        height: 5vh;
+        font-size: 1.5rem;
+        padding: 10px;
+        border-radius: 8px;
+        width: 40vh;
+        margin-bottom: 10px;
+      }
+
+      .container-button {
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+
+        .btn-inscription {
+          position: relative;
+          display: inline-block;
+          font-family: var(--font-style-text);
+          background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 1),
+            rgba(49, 46, 46, 0.85)
+          );
+          color: white;
+          width: 12vw;
+          font-weight: bold;
+          font-size: 1.6rem;
+          border: none;
+          border-radius: 30px;
+          padding: 14px 30px;
+          cursor: pointer;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+          animation: button-shimmer 2s infinite;
+          transition: all 0.3s ease-in-out;
+        }
+
+        .btn-inscription:hover {
+          background: linear-gradient(to bottom, #000000, rgba(0, 0, 0, 0.749));
+          animation: button-particles 1s ease-in-out infinite;
+          transform: translateY(-2px);
+        }
+        .btn-inscription:active {
+          transform: scale(0.95);
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes button-shimmer {
+          0% {
+            background-position: left top;
+          }
+
+          100% {
+            background-position: right bottom;
+          }
+        }
+
+        @keyframes button-particles {
+          0% {
+            background-position: left top;
+          }
+
+          100% {
+            background-position: right bottom;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1585px) {
+  .container-signin {
+    margin-right: 20%;
+    position: relative;
+    .signin-wrapper {
+      height: 55vh;
+      width: 40vh;
 
       h1 {
-        text-align: center;
-        font-family: var(--font-style-text);
-        font-size: 2.3rem;
-        color: var(--primary-color);
+        font-size: 1.4rem;
       }
 
       p {
-        text-align: center;
-        font-size: 1.2rem;
-      }
-      a {
-        text-decoration: none;
-        color: #000000;
-        font-weight: bold;
-      }
-      a:hover {
-        color: white;
+        font-size: 0.8rem;
       }
 
       .form-signin {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-
-
         p {
-          font-family: var(--font-style-text);
-          font-size: 1.2rem;
+          font-size: 0.8rem;
           margin-bottom: 10px;
         }
 
         .name,
         .email,
         .password {
-          background-color: #E5EBE5;
-          border: none;
-          height: 5vh;
-          font-size: 1.5rem;
-          padding: 10px;
-          border-radius: 8px;
-          width: 40vh;
-          margin-bottom: 10px;
-        }
-        .mdp-container {
-          position: relative;
-          align-items: center;
-          flex-direction: column;
-          .mdp {
-            width: 25px;
-            position: absolute;
-            right: 10px;
-            bottom: 15px;
-            cursor: pointer;
-          }
+          height: 4vh;
+          font-size: 1rem;
+
+          width: 30vh;
+          margin-bottom: 20px;
         }
 
         .container-button {
-          width: 100%;
-          padding-top: 60px;
-          display: flex;
-          justify-content: center;
-          text-decoration: none;
-
           .btn-inscription {
-            position: relative;
-            display: inline-block;
-            font-family: var(--font-style-text);
-            background: linear-gradient(
-              to bottom,
-              rgba(0, 0, 0, 1),
-              rgba(49, 46, 46, 0.85)
-            );
-            color: white;
-            width: 12vw;
-            font-weight: bold;
-            font-size: 1.6rem;
-            border: none;
-            border-radius: 30px;
-            padding: 14px 30px;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            animation: button-shimmer 2s infinite;
-            transition: all 0.3s ease-in-out;
-          }
+            padding: 12px;
 
-          .btn-inscription:hover {
-            background: linear-gradient(
-                to bottom,
-                #000000,
-                rgba(0, 0, 0, 0.749)
-              );
-            animation: button-particles 1s ease-in-out infinite;
-            transform: translateY(-2px);
-          }
-          .btn-inscription:active {
-            transform: scale(0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-          }
-
-          @keyframes button-shimmer {
-            0% {
-              background-position: left top;
-            }
-
-            100% {
-              background-position: right bottom;
-            }
-          }
-
-          @keyframes button-particles {
-            0% {
-              background-position: left top;
-            }
-
-            100% {
-              background-position: right bottom;
-            }
+            font-size: 0.8rem;
           }
         }
       }
     }
   }
+}
 
+@media screen and (max-width: 1400px) {
+  .container-signin {
+    margin-right: 20%;
+    position: relative;
+    .signin-wrapper {
+      height: 60vh;
+      width: 40vh;
+
+      h1 {
+        font-size: 1.4rem;
+      }
+
+      p {
+        font-size: 0.8rem;
+      }
+
+      .form-signin {
+        p {
+          font-size: 0.8rem;
+        }
+
+        .name,
+        .email,
+        .password {
+          height: 3.5vh;
+          font-size: 1rem;
+          width: 30vh;
+        }
+
+        .container-button {
+          .btn-inscription {
+            padding: 10px;
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .container-signin {
+    .signin-wrapper {
+      height: 55vh;
+      width: 40vh;
+
+      h1 {
+        font-size: 1.3rem;
+      }
+
+      p {
+        font-size: 0.6rem;
+      }
+
+      .form-login {
+        p {
+          font-size: 0.7rem;
+        }
+
+        .name,
+        .password {
+          height: 3vh;
+          font-size: 1rem;
+
+          width: 30vh;
+          margin-bottom: 40px;
+        }
+
+        .container-button {
+          .btn-inscription {
+            width: 40vw;
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container-signin {
+    .signin-wrapper {
+      height: 50vh;
+      width: 35vh;
+
+      h1 {
+        font-size: 1rem;
+      }
+
+      p {
+        font-size: 0.6rem;
+      }
+
+      .form-signin {
+        p {
+          font-size: 0.7rem;
+        }
+
+        .name,
+        .email,
+        .password {
+          height: 3vh;
+          font-size: 1rem;
+          width: 30vh;
+        }
+
+        .container-button {
+          .btn-inscription {
+            width: 30vw;
+            font-size: 0.7rem;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  .container-signin {
+    .signin-wrapper {
+      padding: 10%;
+      height: 45vh;
+      width: 35vh;
+
+      h1 {
+        font-size: 0.8rem;
+      }
+
+      p {
+        font-size: 0.6rem;
+      }
+
+      .form-login {
+        p {
+          font-size: 0.7rem;
+        }
+
+        .name,
+        .password {
+          height: 3vh;
+          font-size: 1rem;
+          width: 25vh;
+        }
+
+        .container-button {
+          padding-top: 5%;
+
+          .btn-inscription {
+            padding: 12px;
+            font-size: 0.7rem;
+          }
+        }
+      }
+    }
+  }
+}
