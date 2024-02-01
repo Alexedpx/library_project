@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, NavLink, useNavigate } from "react-router-dom";
 
+
 import NavBar from "../components/NavBar";
 
 export default function BookById() {
@@ -139,8 +140,6 @@ export default function BookById() {
                 </>
               ) : (
                 <form id="form" className="edit-book" onSubmit={handleSubmit}>
-            
-
                   <div className="header-details">
                     <h1>{bookDetails.titre}</h1>
                     <h2>{bookDetails.auteur}</h2>

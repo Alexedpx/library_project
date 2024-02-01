@@ -6,6 +6,14 @@ class bookManager extends AbstractManager {
     super({ table: "book" });
   }
 
+  async readByUserId(userId) {
+    const [rows] = await this.database.query(
+      `SELECT  * FROM ${this.table} WHERE user_id=?`,
+      [userId]
+    );
+    return rows;
+  }
+
   // The C of CRUD - Create operation
   insert(
     image,
@@ -45,11 +53,24 @@ class bookManager extends AbstractManager {
     categorie,
     description,
     lu,
+    userId,
   }) {
+    console.info(userId);
     const [result] = await this.database.query(
-      `insert into ${this.table} (
-        image, titre, auteur, nombre_pages, date, categorie, description, lu  ) values (?,?,?,?,?,?,?,?)`,
-      [image, titre, auteur, nombre_pages, date, categorie, description, lu]
+      `INSERT INTO ${this.table} (
+            image, titre, auteur, nombre_pages, date, categorie, description, lu, user_id
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        image,
+        titre,
+        auteur,
+        nombre_pages,
+        date,
+        categorie,
+        description,
+        lu,
+        userId,
+      ]
     );
 
     return result;
@@ -63,14 +84,6 @@ class bookManager extends AbstractManager {
       [id]
     );
     return result;
-  }
-
-  async readByUserId(userId) {
-    const [rows] = await this.database.query(
-      `SELECT  * FROM ${this.table} WHERE user_id=?`,
-      [userId]
-    );
-    return rows;
   }
 
   async readAll() {

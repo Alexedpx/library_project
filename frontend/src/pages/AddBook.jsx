@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
+import userContext from "../context/userContext";
 
 export default function AddBook() {
+  const { userConnected } = useContext(userContext);
   const [titleBook, setTitleBook] = useState("");
   const [autorBook, setAutorBook] = useState("");
   const [dateBook, setDateBook] = useState("");
@@ -39,11 +41,12 @@ export default function AddBook() {
       data.append("description", descriptionBook);
       data.append("lu", isRead ? "1" : "0");
       data.append("a_lire", isToRead ? "1" : "0");
-
+      data.append("userId", userConnected.id);
       const res = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/books/addbook`,
         data
       );
+
       navigate("/library");
     } catch (err) {
       console.error(err);

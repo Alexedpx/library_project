@@ -60,7 +60,6 @@ const edit = async (req, res, next) => {
     if (existingBook == null) {
       res.status(404).send("Book not found");
     } else {
-      
       const luValue = lu ? 1 : 0;
 
       const rest = await tables.book.update({
@@ -136,6 +135,9 @@ const getUploadImage = async (req, res, next) => {
       userId,
       image: `/images/book/${req.body.url}`,
     };
+
+    console.info(req.body);
+    console.info(newBook);
 
     // Insert the book into the database
     const insertId = await tables.book.create(newBook);

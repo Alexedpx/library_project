@@ -27,7 +27,7 @@ export default function HomePage() {
     };
 
     getBooks();
-  }, [id]);
+  }, []);
 
   const handleInput = (event) => {
     const { name, value } = event.target;
