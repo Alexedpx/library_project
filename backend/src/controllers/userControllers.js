@@ -50,7 +50,7 @@ const edit = async (req, res, next) => {
       res.status(404).send("Users not found");
     } else {
       const result = await tables.user.update(updatedUsers);
-      result.status(200).json(updatedUsers);
+      res.status(200).json(updatedUsers);
     }
   } catch (err) {
     next(err);

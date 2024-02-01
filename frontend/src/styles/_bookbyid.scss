@@ -1,0 +1,141 @@
+.info-container {
+  margin-top: 6%;
+  background-color: rgba(0, 0, 0, 0.732);
+  height: 60vh;
+  margin-left: 20vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 3%;
+
+  img {
+    border: 2px solid white;
+    width: 20%;
+    border-radius: 5px;
+  }
+
+  .book-information {
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+    height: 100%;
+
+    .header-details {
+      width: 80%;
+      height: 15vh;
+
+      .icon-action {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .icon-info {
+          display: flex;
+          justify-content: space-between;
+          padding: 5px;
+          width: 15%;
+
+          .edit,
+          .delete {
+            border: none;
+            width: 1.8vw;
+            cursor: pointer;
+          }
+        }
+      }
+      h1 {
+        color: var(--secondary-color);
+        font-size: 2.2rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-style: italic;
+        padding-top: 5px;
+        font-size: 1.1rem;
+      }
+    }
+
+    .description-book {
+      width: 80%;
+
+      p {
+        font-size: 1.2rem;
+        text-align: justify;
+      }
+    }
+
+    .category-note {
+      p {
+        padding: 5px;
+        font-size: 1.2rem;
+        text-align: justify;
+      }
+    }
+
+    .btn-return {
+      display: flex;
+      justify-content: end;
+      padding-right: 20%;
+      .return {
+        cursor: pointer;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 1rem;
+        font-family: var(--font-style-text);
+        border: none;
+        background-image: linear-gradient(
+          120deg,
+          rgba(81, 130, 113, 1) 0%,
+          rgba(150, 193, 131, 1) 100%
+        );
+        box-shadow:
+          3px 3px 6px rgba(0, 0, 0, 0.5),
+          -1px -1px 4px rgba(105, 105, 105, 0.5);
+        width: 15vw;
+        padding: 15px;
+        border-radius: 30px;
+        color: var(--primary-color);
+      }
+    }
+  }
+  
+
+  .category-note {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    .information-book {
+      display: flex;
+      align-items: center;
+
+      input {
+        background-color: #e5ebe5;
+        border: none;
+        border-radius: 20px;
+        width: 30vw;
+        padding: 8px;
+      }
+    }
+
+    .save-btn {
+      display: flex;
+      align-items: center;
+      padding-top: 5px;
+
+      .save {
+        background-color: black;
+        border: 1px solid var(--primary-color);
+        color: var(--primary-color);
+        margin-left: 7%;
+        font-family: var(--font-style-text);
+        width: 10vw;
+        padding: 5px;
+      }
+    }
+    
+  }
+}

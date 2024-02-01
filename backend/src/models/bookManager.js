@@ -7,8 +7,7 @@ class bookManager extends AbstractManager {
   }
 
   // The C of CRUD - Create operation
-
-  async create({
+  insert(
     image,
     titre,
     auteur,
@@ -18,11 +17,10 @@ class bookManager extends AbstractManager {
     description,
     commentaire,
     lu,
-    user_id,
-  }) {
-    const [result] = await this.database.query(
-      `insert into ${this.table} ( pseudo,
-        image, titre, auteur, nombre_pages, date, categorie, description, commentaire, lu, user_id ) values (?,?,?,?,?,?,?,?,?,?)`,
+    userId
+  ) {
+    return this.database.query(
+      `INSERT INTO ${this.table} (image, titre, auteur, nombre_pages, date, categorie, description, commentaire, user_id, lu) VALUES (?,?,?,?,?,?,?,?,?,?)`,
       [
         image,
         titre,
@@ -33,8 +31,25 @@ class bookManager extends AbstractManager {
         description,
         commentaire,
         lu,
-        user_id,
+        userId,
       ]
+    );
+  }
+
+  async create({
+    image,
+    titre,
+    auteur,
+    nombre_pages,
+    date,
+    categorie,
+    description,
+    lu,
+  }) {
+    const [result] = await this.database.query(
+      `insert into ${this.table} (
+        image, titre, auteur, nombre_pages, date, categorie, description, lu  ) values (?,?,?,?,?,?,?,?)`,
+      [image, titre, auteur, nombre_pages, date, categorie, description, lu]
     );
 
     return result;
@@ -50,6 +65,14 @@ class bookManager extends AbstractManager {
     return result;
   }
 
+  async readByUserId(userId) {
+    const [rows] = await this.database.query(
+      `SELECT  * FROM ${this.table} WHERE user_id=?`,
+      [userId]
+    );
+    return rows;
+  }
+
   async readAll() {
     const [result] = await this.database.query(`select * from ${this.table}`);
     return result;
@@ -57,38 +80,13 @@ class bookManager extends AbstractManager {
 
   // The U of CRUD - Update operation
 
-  async update({
-    id,
-    image,
-    titre,
-    auteur,
-    nombre_pages,
-    date,
-    categorie,
-    description,
-    commentaire,
-    lu,
-    user_id,
-  }) {
+  async update({ id, commentaire, lu }) {
     const [result] = await this.database.query(
-      `UPDATE ${this.table} SET image=?, titre=?, auteur=?, nombre_page=?, date=?, categorie=?, description=?, commentaire=?, lu=?,  WHERE id=?`,
-      [
-        image,
-        titre,
-        auteur,
-        nombre_pages,
-        date,
-        categorie,
-        description,
-        commentaire,
-        lu,
-        user_id,
-        id,
-      ]
+      `UPDATE ${this.table} SET commentaire=?, lu=? WHERE id=?`,
+      [commentaire, lu, id]
     );
     return result;
   }
-
   // The D of CRUD - Delete operation
 
   async delete(id) {

@@ -16,6 +16,15 @@ const browse = async (req, res, next) => {
   }
 };
 
+const readByUserId = async (req, res, next) => {
+  try {
+    const books = await tables.book.readByUserId(req.params.id);
+    res.json(books);
+  } catch (err) {
+    next(err);
+  }
+};
+
 // The R of BREAD - Read operation
 const read = async (req, res, next) => {
   try {
@@ -38,36 +47,31 @@ const read = async (req, res, next) => {
 // The E of BREAD - Edit (Update) operation
 // This operation is not yet implemented
 const edit = async (req, res, next) => {
-  const {
-    image,
-    titre,
-    auteur,
-    nombre_pages,
-    date,
-    categorie,
-    description,
-    commentaire,
-    lu,
-  } = req.body;
-  const updatedBooks = {
+  const { commentaire, lu } = req.body;
+
+  const updatedBook = {
     id: req.params.id,
-    image,
-    titre,
-    auteur,
-    nombre_pages,
-    date,
-    categorie,
-    description,
     commentaire,
     lu,
   };
+
   try {
-    const existingBooks = await tables.book.read(req.params.id);
-    if (existingBooks == null) {
-      res.status(404).send("Books not found");
+    const existingBook = await tables.book.read(req.params.id);
+    if (existingBook == null) {
+      res.status(404).send("Book not found");
     } else {
-      const result = await tables.user.update(updatedBooks);
-      result.status(200).json(updatedBooks);
+      
+      const luValue = lu ? 1 : 0;
+
+      const rest = await tables.book.update({
+        ...existingBook,
+        id: req.params.id,
+        commentaire,
+        lu: luValue,
+      });
+
+      const updatedBook = await tables.book.read(req.params.id);
+      res.status(200).json(updatedBook);
     }
   } catch (err) {
     next(err);
@@ -105,6 +109,45 @@ const destroy = async (req, res, next) => {
   }
 };
 
+const getUploadImage = async (req, res, next) => {
+  try {
+    const {
+      titre,
+      auteur,
+      nombre_pages,
+      date,
+      categorie,
+      description,
+      commentaire,
+      lu,
+      userId,
+    } = req.body;
+
+    // Create a new book object
+    const newBook = {
+      titre,
+      auteur,
+      nombre_pages,
+      date,
+      categorie,
+      description,
+      commentaire,
+      lu,
+      userId,
+      image: `/images/book/${req.body.url}`,
+    };
+
+    // Insert the book into the database
+    const insertId = await tables.book.create(newBook);
+
+    // Respond with HTTP 201 (Created) and the ID of the newly inserted book
+    res.status(201).json({ insertId });
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 // Ready to export the controller functions
 module.exports = {
   browse,
@@ -112,4 +155,6 @@ module.exports = {
   edit,
   add,
   destroy,
+  getUploadImage,
+  readByUserId,
 };

@@ -11,6 +11,7 @@ const { hashPassword } = require("./services/auth");
 const userControllers = require("./controllers/userControllers");
 const bookControllers = require("./controllers/bookControllers");
 const authControllers = require("./controllers/authControllers");
+const uploadBook = require("./middlewares/uploadBook");
 
 // Route to get a list of items
 router.get("/users", userControllers.browse);
@@ -19,10 +20,12 @@ router.get("/books", bookControllers.browse);
 // Route to get a specific item by ID
 router.get("/users/:id", userControllers.read);
 router.get("/books/:id", bookControllers.read);
+router.get("/books/book-by-user/:id", bookControllers.readByUserId);
 
 // Route to add a new item
 router.post("/users", userControllers.add);
 router.post("/books", bookControllers.add);
+router.post("/books/addbook", uploadBook, bookControllers.getUploadImage);
 router.post("/login", authControllers.login);
 router.post("/signin", hashPassword, authControllers.signin);
 

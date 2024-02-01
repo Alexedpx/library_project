@@ -19,8 +19,6 @@
   --font-size-title: calc(var(--font-size-standard) * 2);
 }
 
-
-
 * {
   margin: 0;
   padding: 0;
@@ -28,7 +26,9 @@
 
 }
 body {
+  overflow-y: hidden;
+  overflow-y: hidden;
   font-family: var(--font-style-text);
   color: var(--primary-color);
- 
+  background-image: linear-gradient(to top, #242323 0%, black 100%);
 }
