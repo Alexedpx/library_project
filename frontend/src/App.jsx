@@ -1,42 +1,50 @@
-import Counter from "./components/Counter";
-import logo from "./assets/logo.svg";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { useState, useMemo } from "react";
+import userContext from "./context/userContext";
+import HomePage from "./pages/HomePage";
+import Login from "./pages/Login";
+import Signin from "./pages/Signin";
+import Profil from "./pages/Profil";
+import BookById from "./pages/BookById";
+import AddBook from "./pages/AddBook";
+import "./styles/index.scss";
 
-import "./App.css";
+export default function App() {
+  const [userConnected, setUserConnected] = useState(null);
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Login />,
+    },
 
-function App() {
+    { path: "/signin", element: <Signin /> },
+    {
+      path: "/library",
+      element: <HomePage />,
+    },
+
+    {
+      path: "/profil",
+      element: <Profil />,
+    },
+    {
+      path: "/book/:id",
+      element: <BookById />,
+    },
+    {
+      path: "/addbook",
+      element: <AddBook />,
+    },
+  ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React !</p>
-
-        <Counter />
-
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {" | "}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
+    <userContext.Provider
+      value={useMemo(
+        () => ({ userConnected, setUserConnected }),
+        [userConnected, setUserConnected]
+      )}
+    >
+      <RouterProvider router={router} />
+    </userContext.Provider>
   );
 }
-
-export default App;
