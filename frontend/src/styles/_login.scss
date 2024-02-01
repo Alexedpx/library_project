@@ -89,29 +89,15 @@
         background-color: #e5ebe5;
         border: none;
         height: 5vh;
-
         font-size: 1.5rem;
-padding: 10px;
+        padding: 10px;
         border-radius: 8px;
         width: 40vh;
-        margin-bottom: 10px;
-      }
-      .mdp-container {
-        position: relative;
-        align-items: center;
-        flex-direction: column;
-        .mdp {
-          width: 25px;
-          position: absolute;
-          right: 10px;
-          bottom: 15px;
-          cursor: pointer;
-        }
+        margin-bottom: 45px;
       }
 
       .container-button {
         width: 100%;
-        padding-top: 90px;
         display: flex;
         justify-content: center;
         text-decoration: none;
@@ -165,6 +151,398 @@ padding: 10px;
 
           100% {
             background-position: right bottom;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1730px) {
+  .header {
+    background-image: url("images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 1585px) {
+  .header {
+    background-image: url("images/background.jpg");
+    background-size: contain;
+    position: absolute;
+
+    h1 {
+      font-size: 2rem;
+    }
+    .catching-title {
+      padding-left: 15%;
+
+      span,
+      h2 {
+        font-size: 1.6rem;
+      }
+    }
+  }
+  .presentation-text {
+    width: 20%;
+    height: 50%;
+    h3 {
+      font-size: 1rem;
+    }
+  }
+
+  .container-login {
+    margin-right: 20%;
+    position: relative;
+    .login-wrapper {
+      height: 55vh;
+      width: 40vh;
+
+      h1 {
+        font-size: 1.7rem;
+      }
+
+      p {
+        font-size: 0.8rem;
+      }
+
+      .form-login {
+        p {
+          font-size: 0.8rem;
+          margin-bottom: 10px;
+        }
+
+        .name,
+        .password {
+          height: 4vh;
+          font-size: 1rem;
+
+          width: 30vh;
+          margin-bottom: 30px;
+        }
+
+        .container-button {
+          .btn-inscription {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .header {
+    background-image: url("images/background.jpg");
+    background-size: cover;
+    position: absolute;
+
+    h1 {
+      font-size: 2rem;
+    }
+    .catching-title {
+      justify-content: end;
+      display: flex;
+
+      padding-left: 10%;
+
+      span,
+      h2 {
+        font-size: 1.8rem;
+      }
+    }
+  }
+  .presentation-text {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+
+    width: 100%;
+    height: 50%;
+    h3 {
+      font-size: 1.3rem;
+    }
+  }
+
+  .container-login {
+    margin-right: 20%;
+    position: relative;
+    .login-wrapper {
+      height: 55vh;
+      width: 40vh;
+
+      h1 {
+        font-size: 1.7rem;
+      }
+
+      p {
+        font-size: 0.8rem;
+      }
+
+      .form-login {
+        p {
+          font-size: 0.8rem;
+          margin-bottom: 10px;
+        }
+
+        .name,
+        .password {
+          height: 4vh;
+          font-size: 1rem;
+
+          width: 30vh;
+          margin-bottom: 30px;
+        }
+
+        .container-button {
+          .btn-inscription {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .header {
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    .catching-title {
+      padding-left: 10%;
+
+      span,
+      h2 {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  .presentation-text {
+    width: 100%;
+    height: 60%;
+    h3 {
+      font-size: 1.2rem;
+    }
+  }
+
+  .container-login {
+    .login-wrapper {
+      height: 50vh;
+      width: 40vh;
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 0.6rem;
+      }
+
+      .form-login {
+        p {
+          font-size: 0.7rem;
+        }
+
+        .name,
+        .password {
+          height: 3vh;
+          font-size: 1rem;
+
+          width: 30vh;
+          margin-bottom: 40px;
+        }
+
+        .container-button {
+          .btn-inscription {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .header {
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    .catching-title {
+      padding-left: 10%;
+
+      span,
+      h2 {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  .presentation-text {
+    margin-top: 10%;
+    h3 {
+      font-size: 1rem;
+    }
+  }
+
+  .container-login {
+    .login-wrapper {
+      height: 45vh;
+      width: 35vh;
+
+      h1 {
+        font-size: 1rem;
+      }
+
+      p {
+        font-size: 0.5rem;
+      }
+
+      .form-login {
+        p {
+          font-size: 0.7rem;
+        }
+
+        .name,
+        .password {
+          height: 3vh;
+          font-size: 1rem;
+          width: 30vh;
+        }
+
+        .container-button {
+          .btn-inscription {
+            padding: 12px;
+            font-size: 0.7rem;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 450px) {
+  .header {
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    .catching-title {
+      padding-left: 10%;
+
+      span,
+      h2 {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  .presentation-text {
+    margin-top: 10%;
+    h3 {
+      
+      font-size: 0.8rem;
+    }
+  }
+
+  .container-login {
+    .login-wrapper {
+      padding: 10%;
+      height: 45vh;
+      width: 35vh;
+
+      h1 {
+        
+        font-size: 1.2rem;
+      }
+
+      p {
+        font-size: 0.6rem;
+      }
+
+      .form-login {
+        p {
+          
+          font-size: 0.7rem;
+        }
+
+        .name,
+        .password {
+          height: 3vh;
+          font-size: 1rem;
+          width: 25vh;
+        }
+
+        .container-button {
+         padding-top: 5%;
+
+          .btn-inscription {
+            padding: 12px;
+            font-size: 0.7rem;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 360px) {
+  .header {
+    h1 {
+      font-size: 1.3rem;
+    }
+
+    .catching-title {
+      padding-left: 10%;
+
+      span,
+      h2 {
+        font-size: 1rem;
+      }
+    }
+  }
+  .presentation-text {
+    margin-top: 10%;
+    h3 {
+      
+      font-size: 0.7rem;
+    }
+  }
+
+  .container-login {
+    .login-wrapper {
+      padding: 10%;
+      height: 45vh;
+      width: 35vh;
+
+      h1 {
+        
+        font-size: 1.2rem;
+      }
+
+      p {
+        font-size: 0.6rem;
+      }
+
+      .form-login {
+        p {
+          
+          font-size: 0.7rem;
+        }
+
+        .name,
+        .password {
+          height: 3vh;
+          font-size: 1rem;
+          width: 25vh;
+        }
+
+        .container-button {
+         padding-top: 5%;
+
+          .btn-inscription {
+            padding: 12px;
+            font-size: 0.7rem;
           }
         }
       }
