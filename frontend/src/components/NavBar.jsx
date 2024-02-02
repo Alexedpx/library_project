@@ -1,6 +1,8 @@
 import { useNavigate, NavLink } from "react-router-dom";
 import { useContext } from "react";
+import { slide as Menu } from "react-burger-menu";
 import userContext from "../context/userContext";
+
 
 export default function Navbar() {
   const navigate = useNavigate();
