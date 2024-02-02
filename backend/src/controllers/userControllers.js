@@ -87,6 +87,25 @@ const destroy = async (req, res, next) => {
     next(err);
   }
 };
+const getByToken = async (req, res) => {
+  const userInfo = req.auth;
+
+  try {
+    if (userInfo && userInfo.sub) {
+      const user = await tables.user.read(userInfo.sub);
+
+      if (user == null) {
+        res.sendStatus(404);
+      } else {
+        res.json(user);
+      }
+    } else {
+      res.status(404).send("User not found. Auth doesn't exist");
+    }
+  } catch (e) {
+    res.status(500).send(`Internal server error : ${e}`);
+  }
+};
 
 // Ready to export the controller functions
 module.exports = {
@@ -95,4 +114,5 @@ module.exports = {
   edit,
   add,
   destroy,
+  getByToken,
 };

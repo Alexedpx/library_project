@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, NavLink, useNavigate } from "react-router-dom";
 
-
 import NavBar from "../components/NavBar";
 
 export default function BookById() {
@@ -19,9 +18,15 @@ export default function BookById() {
   };
 
   const handleDeleteBook = async () => {
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       await axios.delete(
-        `${import.meta.env.VITE_BACKEND_URL}/api/books/${bookDetails.id}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/books/${bookDetails.id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
 
       setBookDetails({});
@@ -35,9 +40,15 @@ export default function BookById() {
 
   useEffect(() => {
     const getBookDetails = async () => {
+      const user = JSON.parse(localStorage.getItem("token"));
       try {
         const book = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/books/${id}`
+          `${import.meta.env.VITE_BACKEND_URL}/api/books/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
         );
         setBookDetails(book.data[0]);
       } catch (error) {
@@ -50,7 +61,7 @@ export default function BookById() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       setBookDetails({
         ...bookDetails,
@@ -60,7 +71,12 @@ export default function BookById() {
 
       const updatedBook = await axios.put(
         `${import.meta.env.VITE_BACKEND_URL}/api/books/${id}`,
-        bookUpdate
+        bookUpdate,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
 
       setIsEditing(false);

@@ -29,7 +29,7 @@ export default function AddBook() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       const data = new FormData();
       data.append("image", file);
@@ -44,7 +44,12 @@ export default function AddBook() {
       data.append("userId", userConnected.id);
       const res = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/books/addbook`,
-        data
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
 
       navigate("/library");

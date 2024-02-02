@@ -7,6 +7,7 @@ import Signin from "./pages/Signin";
 import Profil from "./pages/Profil";
 import BookById from "./pages/BookById";
 import AddBook from "./pages/AddBook";
+import ProtectedRoute from "./components/ProtectedRoute";
 import "./styles/index.scss";
 
 export default function App() {
@@ -20,20 +21,36 @@ export default function App() {
     { path: "/signin", element: <Signin /> },
     {
       path: "/library",
-      element: <HomePage />,
+      element: (
+        <ProtectedRoute>
+          <HomePage />
+        </ProtectedRoute>
+      ),
     },
 
     {
       path: "/profil",
-      element: <Profil />,
+      element: (
+        <ProtectedRoute>
+          <Profil />
+        </ProtectedRoute>
+      ),
     },
     {
       path: "/book/:id",
-      element: <BookById />,
+      element: (
+        <ProtectedRoute>
+          <BookById />
+        </ProtectedRoute>
+      ),
     },
     {
       path: "/addbook",
-      element: <AddBook />,
+      element: (
+        <ProtectedRoute>
+          <AddBook />
+        </ProtectedRoute>
+      ),
     },
   ]);
 

@@ -14,20 +14,27 @@ export default function HomePage() {
 
   useEffect(() => {
     const getBooks = async () => {
+      const user = JSON.parse(localStorage.getItem("token"));
       try {
         const dataBooks = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}/api/books/book-by-user/${
             userConnected.id
-          }`
+          }`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
         );
         setBooks(dataBooks.data);
       } catch (error) {
         console.error("Error fetching books:", error);
       }
     };
-
-    getBooks();
-  }, []);
+    if (userConnected) {
+      getBooks();
+    }
+  }, [userConnected]);
 
   const handleInput = (event) => {
     const { name, value } = event.target;
