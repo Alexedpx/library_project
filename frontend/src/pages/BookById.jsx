@@ -8,7 +8,11 @@ export default function BookById() {
   const navigate = useNavigate();
   const [bookDetails, setBookDetails] = useState({});
   const [deleteBook, setDeleteBook] = useState([]);
-  const [bookUpdate, setBookUpdate] = useState("");
+
+  const [bookUpdate, setBookUpdate] = useState({
+    commentaire: bookDetails.commentaire,
+    lu: bookDetails.lu,
+  });
 
   const [isEditing, setIsEditing] = useState(false);
   const { id } = useParams();
@@ -63,21 +67,26 @@ export default function BookById() {
     e.preventDefault();
     const user = JSON.parse(localStorage.getItem("token"));
     try {
-      setBookDetails({
-        ...bookDetails,
+      const updatedBookData = {
         commentaire: bookUpdate.commentaire,
-        lu: bookUpdate.lu,
-      });
-
+        lu: bookUpdate.lu === undefined ? bookDetails.lu : bookUpdate.lu,
+      };
+      console.log("Updated Book Data:", updatedBookData);
       const updatedBook = await axios.put(
         `${import.meta.env.VITE_BACKEND_URL}/api/books/${id}`,
-        bookUpdate,
+        updatedBookData,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
           },
         }
       );
+      console.log("Updated Book:", updatedBook);
+      setBookDetails((prevBookDetails) => ({
+        ...prevBookDetails,
+        commentaire: bookUpdate.commentaire,
+        lu: bookUpdate.lu,
+      }));
 
       setIsEditing(false);
     } catch (err) {
@@ -148,14 +157,33 @@ export default function BookById() {
                     </p>
                     <div className="information-book">
                       <p>
-                        <span style={{ fontWeight: "bold" }}>Note</span> :{" "}
-                        {bookDetails.commentaire}
+                        <span style={{ fontWeight: "bold" }}>
+                          Note personnelle
+                        </span>{" "}
+                        : {bookDetails.commentaire}
                       </p>
                     </div>
                   </div>
                 </>
               ) : (
                 <form id="form" className="edit-book" onSubmit={handleSubmit}>
+                  {isEditing && bookDetails.lu === 0 && (
+                    <div className="isread">
+                      <button
+                        type="button"
+                        className="btn-read"
+                        onClick={() =>
+                          setBookUpdate((prevBookUpdate) => ({
+                            ...prevBookUpdate,
+                            lu: !prevBookUpdate.lu,
+                          }))
+                        }
+                      >
+                        Marquer comme lu ?
+                      </button>
+                    </div>
+                  )}
+
                   <div className="header-details">
                     <h1>{bookDetails.titre}</h1>
                     <h2>{bookDetails.auteur}</h2>
@@ -174,7 +202,10 @@ export default function BookById() {
                     </p>
                     <div className="information-book">
                       <p>
-                        <span style={{ fontWeight: "bold" }}>Note</span> :{" "}
+                        <span style={{ fontWeight: "bold" }}>
+                          Note personnelle
+                        </span>{" "}
+                        :{" "}
                         <input
                           type="text"
                           value={bookUpdate.commentaire}

@@ -1,7 +1,7 @@
 .info-container {
   margin-top: 6%;
   background-color: rgba(0, 0, 0, 0.732);
-  height: 60vh;
+  height: 65vh;
   margin-left: 20vw;
   display: flex;
   justify-content: center;
@@ -41,6 +41,10 @@
             border: none;
             width: 1.8vw;
             cursor: pointer;
+            transition: transform 0.3s ease;
+          }
+          img:hover {
+            transform: scale(1.2);
           }
         }
       }
@@ -75,6 +79,35 @@
       }
     }
 
+    .edit-book {
+      .isread {
+        display: flex;
+        justify-content: flex-end;
+        width: 80%;
+
+        .btn-read {
+          width: 10vw;
+          padding: 5px;
+          border-radius: 5px;
+          font-family: var(--font-style-text);
+          font-size: 1rem;
+          background-color: rgba(255, 255, 255, 0.804);
+          border: none;
+          cursor: pointer;
+          transition:
+            background-color 0.2s,
+            color 0.2s;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-read:hover {
+          background-color: var(--secondary-color);
+          color: white;
+          transform: scale(1.1);
+        }
+      }
+    }
+
     .btn-return {
       display: flex;
       justify-content: end;
@@ -98,44 +131,59 @@
         padding: 15px;
         border-radius: 30px;
         color: var(--primary-color);
+        transition: transform 0.3s ease;
+      }
+      .return:hover {
+        transform: scale(1.1);
       }
     }
   }
-  
 
   .category-note {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+    padding-top: 2%;
+
     .information-book {
       display: flex;
+
       align-items: center;
 
       input {
-        background-color: #e5ebe5;
+        background-color: #ffffff9f;
         border: none;
-        border-radius: 20px;
-        width: 30vw;
+        border-radius: 5px;
+        width: 37vw;
+        height: 4vh;
+        padding: 2px;
+        font-style: italic;
+        font-size: 1rem;
         padding: 8px;
+        border: 1px solid white;
+        font-family: var(--font-style-text);
+        color: rgba(0, 0, 0, 0.79);
       }
     }
-
     .save-btn {
       display: flex;
       align-items: center;
       padding-top: 5px;
 
       .save {
+        cursor: pointer;
         background-color: black;
         border: 1px solid var(--primary-color);
         color: var(--primary-color);
-        margin-left: 7%;
         font-family: var(--font-style-text);
         width: 10vw;
         padding: 5px;
+        transition: transform 0.3s ease;
+      }
+
+      .save:hover {
+        transform: scale(1.1);
       }
     }
-    
   }
 }
