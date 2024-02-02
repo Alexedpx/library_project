@@ -1,4 +1,5 @@
 /* eslint-disable camelcase */
+const jwt = require("jsonwebtoken");
 const argon2 = require("argon2");
 const tables = require("../tables");
 
@@ -14,11 +15,21 @@ const login = async (req, res, next) => {
       users[0].hashed_password,
       req.body.password
     );
-
     if (verified) {
+      // Respond with the user in JSON format (but without the hashed password)
       delete users[0].hashed_password;
 
-      res.status(200).json(users[0]);
+      const token = await jwt.sign(
+        { sub: users[0].id },
+        process.env.APP_SECRET,
+        {
+          expiresIn: "1h",
+        }
+      );
+      res.json({
+        token,
+        user: users[0],
+      });
     } else {
       res.sendStatus(422);
     }
@@ -37,15 +48,27 @@ const signin = async (req, res, next) => {
       hashed_password,
       avatar,
     });
-    if (result.insertId) {
+    if (result) {
       const newUser = {
-        id: result.insertId,
+        id: result,
         pseudo,
         email,
         hashed_password,
         avatar,
       };
-      res.status(201).json(newUser);
+      const token = await jwt.sign(
+        { sub: newUser.id },
+        process.env.APP_SECRET,
+        {
+          expiresIn: "1h",
+        }
+      );
+      res.status(201).json({
+        token,
+        pseudo: newUser.pseudo,
+        email: newUser.email,
+        avatar: newUser.avatar,
+      });
     } else {
       res.sendStatus(400);
     }

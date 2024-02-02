@@ -16,11 +16,18 @@ export default function Profil() {
   };
 
   const handleDeleteProfil = async () => {
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       const deletedUser = await axios.delete(
-        `${import.meta.env.VITE_BACKEND_URL}/api/users/${deleteUser.id}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/users/${deleteUser.id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
       setDeleteUser(deleteUser.id);
+      localStorage.removeItem("token");
     } catch (err) {
       console.error(err);
     }
@@ -28,10 +35,16 @@ export default function Profil() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const user = JSON.parse(localStorage.getItem("token"));
     try {
       const userUpdated = await axios.put(
         `${import.meta.env.VITE_BACKEND_URL}/api/users/${userUpdate.id}`,
-        userUpdate
+        userUpdate,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
       );
 
       setUserConnected(userUpdated.data);

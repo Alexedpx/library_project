@@ -3,20 +3,24 @@ import { useContext } from "react";
 import { slide as Menu } from "react-burger-menu";
 import userContext from "../context/userContext";
 
-
 export default function Navbar() {
   const navigate = useNavigate();
   const { userConnected, setUserConnected } = useContext(userContext);
 
+  const removeToken = () => {
+    localStorage.removeItem("token");
+  };
+
   const handlelogout = () => {
-    setUserConnected(false);
+    removeToken();
+    setUserConnected(null);
     navigate("/");
   };
 
   return (
     <div className="container-navbar">
       <div className="login-container">
-        {userConnected.avatar && (
+        {userConnected && userConnected.avatar && (
           <img
             src={`${import.meta.env.VITE_BACKEND_URL}${userConnected.avatar}`}
             alt="avataruser"
@@ -24,7 +28,9 @@ export default function Navbar() {
           />
         )}
         <div className="user-profile">
-          <p>{userConnected.pseudo}</p>
+          {userConnected && userConnected.pseudo && (
+            <p>{userConnected.pseudo}</p>
+          )}
           <div className="logout-button">
             <button type="submit" className="logout" onClick={handlelogout}>
               Se déconnecter

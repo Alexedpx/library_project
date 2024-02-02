@@ -8,7 +8,6 @@ export default function Login() {
   const [inputPseudo, setInputPseudo] = useState("");
   const [inputPassword, setInputPassword] = useState("");
   const { setUserConnected } = useContext(userContext);
-  
 
   const handleInputClick = (e) => {
     e.stopPropagation();
@@ -21,12 +20,22 @@ export default function Login() {
       password: inputPassword,
     };
     try {
-      const dataUser = await axios.post(
+      const res = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/login/`,
         userLogin
       );
 
-      setUserConnected(dataUser.data);
+      setUserConnected(res .data);
+      const userLocal = {
+        ...res .data.user,
+        token: res .data.token,
+      };
+      localStorage.setItem(
+        "token",
+        JSON.stringify({
+          ...userLocal,
+        })
+      );
       navigate("/library");
     } catch (error) {
       alert("identifiants incorrect, veuillez réessayer");
@@ -42,7 +51,8 @@ export default function Login() {
 
         <div className="catching-title">
           <h2>
-            Read <span style={{ color: "#719a6b" }}>books,</span><br></br>
+            Read <span style={{ color: "#719a6b" }}>books,</span>
+            <br></br>
             Love <span style={{ color: "#719a6b" }}>books.</span>
           </h2>
         </div>

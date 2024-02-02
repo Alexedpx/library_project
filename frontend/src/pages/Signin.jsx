@@ -1,11 +1,13 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import userContext from "../context/userContext";
 
 export default function Signin() {
   const navigate = useNavigate();
   const [inputPseudo, setInputPseudo] = useState("");
   const [inputEmail, setInputEmail] = useState("");
+  const { setUserConnected } = useContext(userContext);
   const [inputPassword, setInputPassword] = useState("");
 
   const handleInscription = async (e) => {
@@ -22,11 +24,22 @@ export default function Signin() {
         userSignin
       );
 
+      setUserConnected(dataUser.data);
+      const userLocal = {
+        ...dataUser.data,
+        token: dataUser.data.token,
+      };
+      localStorage.setItem(
+        "token",
+        JSON.stringify({
+          ...userLocal,
+        })
+      );
+
       if (dataUser.status === 201) {
         alert("Inscription réussie !");
-        setTimeout(() => {
-          navigate("/");
-        }, 1800);
+
+        navigate("/");
       }
     } catch (error) {
       console.error(error.message);
@@ -42,7 +55,8 @@ export default function Signin() {
 
         <div className="catching-title">
           <h2>
-            Read <span style={{ color: "#719a6b" }}>books,</span><br></br>
+            Read <span style={{ color: "#719a6b" }}>books,</span>
+            <br></br>
             Love <span style={{ color: "#719a6b" }}>books.</span>
           </h2>
         </div>
