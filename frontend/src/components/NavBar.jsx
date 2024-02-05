@@ -1,6 +1,6 @@
 import { useNavigate, NavLink } from "react-router-dom";
 import { useContext } from "react";
-import { slide as Menu } from "react-burger-menu";
+
 import userContext from "../context/userContext";
 
 export default function Navbar() {
@@ -49,6 +49,12 @@ export default function Navbar() {
           <img src=" /images/add.png" alt="add" />
           <NavLink to="/addbook">
             <h1>AJOUTER UN LIVRE</h1>
+          </NavLink>
+        </div>
+        <div className="accueil-container">
+          <img src=" /images/favorite.png" alt="avatar" />
+          <NavLink to="/favoritebook">
+            <h1>MES LIVRES FAVORIS</h1>
           </NavLink>
         </div>
         <div className="accueil-container">

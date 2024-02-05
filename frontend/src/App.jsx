@@ -7,6 +7,7 @@ import Signin from "./pages/Signin";
 import Profil from "./pages/Profil";
 import BookById from "./pages/BookById";
 import AddBook from "./pages/AddBook";
+import FavoriteBook from "./pages/FavoriteBook";
 import ProtectedRoute from "./components/ProtectedRoute";
 import "./styles/index.scss";
 
@@ -49,6 +50,14 @@ export default function App() {
       element: (
         <ProtectedRoute>
           <AddBook />
+        </ProtectedRoute>
+      ),
+    },
+    {
+      path: "/favoritebook",
+      element: (
+        <ProtectedRoute>
+          <FavoriteBook />
         </ProtectedRoute>
       ),
     },

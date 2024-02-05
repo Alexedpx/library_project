@@ -5,16 +5,20 @@ CREATE DATABASE library;
 USE library;
 
 CREATE TABLE user (
-    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL, pseudo VARCHAR(80) NOT NULL, email VARCHAR(80) NOT NULL, hashed_password VARCHAR(255) NOT NULL, avatar VARCHAR(80) NOT NULL
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL, pseudo VARCHAR(80) NOT NULL, email VARCHAR(80) NOT NULL, hashed_password VARCHAR(255) NOT NULL, avatar VARCHAR(80) NOT NULL, style_favoris VARCHAR(80) NULL
 );
 
 CREATE TABLE book (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL, image VARCHAR(255) NULL, titre VARCHAR(80) NOT NULL, auteur VARCHAR(80) NOT NULL, nombre_pages INT NOT NULL, date DATE NOT NULL, categorie VARCHAR(80) NOT NULL, description VARCHAR(750) NULL, commentaire VARCHAR(255) NULL, lu BOOLEAN NOT NULL DEFAULT FALSE, user_id INT, CONSTRAINT fk_book_user FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE ON UPDATE NO ACTION
 );
 
+CREATE TABLE favoris (
+    user_id INT, book_id INT, CONSTRAINT pk_favoris_book_user PRIMARY KEY (user_id, book_id), CONSTRAINT fk_favorite_user FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE ON UPDATE NO ACTION, CONSTRAINT fk_favorite_book FOREIGN KEY (book_id) REFERENCES book (id) ON DELETE CASCADE ON UPDATE NO ACTION
+);
+
 INSERT INTO
     user (
-        pseudo, email, hashed_password, avatar
+        pseudo, email, hashed_password, avatar, style_favoris
     )
 
 VALUES ( 
@@ -22,7 +26,8 @@ VALUES (
     "Alexe",
     "alexe@mail.com",
     "$argon2id$v=19$m=19456,t=2,p=1$gWObmHZS7rgNOWKBgjk6XA$+LgiRcEh1raCasFsV9bqRXahgiNdZdW1ww+v2WOP8Mc",
-    "/images/avatar.jpg"
+    "/images/avatar.jpg",
+    "Thriller"
 );
 
 INSERT INTO book ( 
@@ -128,3 +133,4 @@ VALUES (
 
 
 );
+

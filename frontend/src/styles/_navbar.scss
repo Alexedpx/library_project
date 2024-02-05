@@ -66,9 +66,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    height: 80%;
+    height: 70%;
     width: 100%;
-    padding: 10%;
+    padding: 15%;
 
     .accueil-container {
       display: flex;
@@ -91,6 +91,137 @@
       a:hover {
         transform: scale(1.1);
         color: var(--secondary-color);
+      }
+    }
+  }
+ 
+
+}
+
+@media screen and (max-width: 1400px) {
+  .container-navbar {
+    .login-container {
+      .logout-button {
+        .logout {
+          font-size: 0.6rem;
+          width: 8vw;
+          padding: 12px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .container-navbar {
+    .login-container {
+      padding: 6%;
+
+      img {
+        width: 7vw;
+      }
+
+      .logout-button {
+        .logout {
+          width: 9vw;
+          padding: 10px;
+          font-size: 0.6rem;
+        }
+      }
+      .user-profile {
+        p {
+          font-size: 1rem;
+        }
+      }
+      a {
+        font-size: 1.3rem;
+      }
+    }
+
+    .navlink {
+      .accueil-container {
+        h1 {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1070px) {
+  .container-navbar {
+    .login-container {
+      padding: 8%;
+
+      img {
+        width: 7vw;
+      }
+
+      .logout-button {
+        .logout {
+          width: 9vw;
+          padding: 10px;
+          font-size: 0.5rem;
+        }
+      }
+      .user-profile {
+        p {
+          font-size: 0.8rem;
+        }
+      }
+      a {
+        font-size: 1rem;
+      }
+    }
+
+    .navlink {
+      .accueil-container {
+        h1 {
+          font-size: 0.6rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .container-navbar {
+    width: 25vw;
+    .login-container {
+      .logout-button {
+        .logout {
+          width: 11vw;
+          padding: 10px;
+          font-size: 0.5rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 750px) {
+  .container-navbar {
+    width: 30vw;
+    .login-container {
+      .logout-button {
+        .logout {
+          width: 13vw;
+          padding: 10px;
+          font-size: 0.5rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 560px) {
+  .container-navbar {
+    width: 10vw;
+    .login-container {
+      .logout-button {
+        .logout {
+          width: 15vw;
+          padding: 10px;
+          font-size: 0.3rem;
+        }
       }
     }
   }

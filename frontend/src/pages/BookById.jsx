@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useParams, NavLink, useNavigate } from "react-router-dom";
+import userContext from "../context/userContext";
 
 import NavBar from "../components/NavBar";
 
@@ -8,6 +9,10 @@ export default function BookById() {
   const navigate = useNavigate();
   const [bookDetails, setBookDetails] = useState({});
   const [deleteBook, setDeleteBook] = useState([]);
+  const { userConnected } = useContext(userContext);
+  const [userFavorite, setUserFavorite] = useState([]);
+  const [isFavorite, setIsFavorite] = useState(false);
+  const param = useParams();
 
   const [bookUpdate, setBookUpdate] = useState({
     commentaire: bookDetails.commentaire,
@@ -19,6 +24,82 @@ export default function BookById() {
 
   const handleEdit = () => {
     setIsEditing(true);
+  };
+
+  const favoriteUser = async () => {
+    if (userConnected) {
+      const user = JSON.parse(localStorage.getItem("token"));
+      try {
+        const favorite = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/user/favoris/${
+            userConnected.id
+          }`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
+        );
+        setUserFavorite(favorite.data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
+  useEffect(() => {
+    favoriteUser();
+  }, []);
+
+  useEffect(() => {
+    if (userFavorite.length > 0) {
+      const resultat = userFavorite.find(
+        (book) => book.bookId.toString() === param.id
+      );
+      if (resultat) {
+        setIsFavorite(true);
+      } else {
+        setIsFavorite(false);
+      }
+    }
+  }, [userFavorite]);
+  const handleFavoriteClick = async (bookIdSelected) => {
+    const user = JSON.parse(localStorage.getItem("token"));
+    if (isFavorite) {
+      try {
+        const userId = userConnected.id;
+        await axios.delete(
+          `${
+            import.meta.env.VITE_BACKEND_URL
+          }/api/favoris/${userId}/${bookIdSelected}`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
+        );
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      const NewFavorite = {
+        bookId: bookIdSelected,
+        userId: userConnected.id,
+      };
+      try {
+        await axios.post(
+          `${import.meta.env.VITE_BACKEND_URL}/api/favoris`,
+          NewFavorite,
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
+        );
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    favoriteUser();
   };
 
   const handleDeleteBook = async () => {
@@ -123,6 +204,19 @@ export default function BookById() {
                     <div className="icon-action">
                       <h1>{bookDetails.titre}</h1>
                       <div className="icon-info">
+                        {userFavorite && (
+                          <img
+                            onClick={() => handleFavoriteClick(param.id)}
+                            role="presentation"
+                            className="favorite"
+                            src={
+                              isFavorite
+                                ? "/images/heartfavorite.png"
+                                : "/images//heartnotfavorite.png"
+                            }
+                            alt=""
+                          />
+                        )}
                         <img
                           src="/images/Edit.png"
                           alt="edit"

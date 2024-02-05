@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 // Import access to database tables
 const tables = require("../tables");
 
@@ -34,15 +35,52 @@ const read = async (req, res, next) => {
   }
 };
 
+const getFavorites = async (req, res, next) => {
+  try {
+    // Fetch a specific item from the database based on the provided ID
+    const users = await tables.user.getFavorites(req.params.id);
+
+    // If the item is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the item in JSON format
+    if (users == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(users);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
+const getFavoritesBooks = async (req, res, next) => {
+  try {
+    // Fetch a specific item from the database based on the provided ID
+    const users = await tables.user.getFavoritesBooks(req.params.id);
+
+    // If the item is not found, respond with HTTP 404 (Not Found)
+    // Otherwise, respond with the item in JSON format
+    if (users == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(users);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 // The E of BREAD - Edit (Update) operation
 // This operation is not yet implemented
 const edit = async (req, res, next) => {
-  const { pseudo, email, avatar } = req.body;
+  const { pseudo, email, avatar, style_favoris } = req.body;
   const updatedUsers = {
     id: req.params.id,
     pseudo,
     email,
     avatar,
+    style_favoris,
   };
   try {
     const existingUsers = await tables.user.read(req.params.id);
@@ -115,4 +153,6 @@ module.exports = {
   add,
   destroy,
   getByToken,
+  getFavorites,
+  getFavoritesBooks,
 };

@@ -8,13 +8,13 @@ class userManager extends AbstractManager {
 
   // The C of CRUD - Create operation
 
-  async create({ pseudo, email, hashed_password, avatar }) {
+  async create({ pseudo, email, hashed_password, avatar, style_favoris }) {
     const [result] = await this.database.query(
       `insert into ${this.table} ( pseudo,
         email,
         hashed_password,  
-        avatar ) values (?,?,?,?)`,
-      [pseudo, email, hashed_password, avatar]
+        avatar, style_favoris ) values (?,?,?,?,?)`,
+      [pseudo, email, hashed_password, avatar, style_favoris]
     );
 
     return result;
@@ -37,10 +37,10 @@ class userManager extends AbstractManager {
 
   // The U of CRUD - Update operation
 
-  async update({ id, pseudo, email, avatar }) {
+  async update({ id, pseudo, email, avatar, style_favoris }) {
     const [result] = await this.database.query(
-      `UPDATE ${this.table} SET pseudo=?, email=?,  avatar=?  WHERE id=?`,
-      [pseudo, email, avatar, id]
+      `UPDATE ${this.table} SET pseudo=?, email=?, avatar=?, style_favoris=?  WHERE id=?`,
+      [pseudo, email, avatar, style_favoris, id]
     );
     return result;
   }
@@ -59,6 +59,28 @@ class userManager extends AbstractManager {
     const [result] = await this.database.query(
       `SELECT * FROM ${this.table} WHERE pseudo = ?`,
       [pseudo]
+    );
+    return result;
+  }
+
+  async getFavorites(id) {
+    const [result] = await this.database.query(
+      `SELECT user_id AS userId, book_id AS bookId FROM favoris
+      JOIN ${this.table} ON ${this.table}.id = favoris.user_id
+      WHERE user_id = ?`,
+      [id]
+    );
+    return result;
+  }
+
+  async getFavoritesBooks(id) {
+    const [result] = await this.database.query(
+      `SELECT favoris.user_id AS userId, favoris.book_id AS bookId, book.titre, book.auteur, book.commentaire, book.date, book.image, book.description 
+       FROM favoris
+       JOIN ${this.table} ON ${this.table}.id = favoris.user_id
+       JOIN book ON book.id = favoris.book_id
+       WHERE favoris.user_id = ?`,
+      [id]
     );
     return result;
   }
