@@ -53,6 +53,7 @@ export default function Profil() {
       console.error(err);
     }
   };
+
   return (
     <>
       <NavBar />
@@ -67,7 +68,7 @@ export default function Profil() {
           <div className="profil-wrapper">
             {userConnected ? (
               <div className="user-profile">
-                {userConnected.avatar && (
+                {userConnected && (
                   <img
                     src={`${import.meta.env.VITE_BACKEND_URL}${
                       userConnected.avatar
@@ -87,6 +88,8 @@ export default function Profil() {
                     <p>{userConnected.pseudo}</p>
                     <p>{userConnected.email}</p>
 
+                    <p>Catégorie préférée: {userConnected.style_favoris}</p>
+
                     <button className="edit" type="button" onClick={handleEdit}>
                       Editer mon profil
                     </button>
@@ -104,7 +107,7 @@ export default function Profil() {
                         })
                       }
                     />
-                     <input
+                    <input
                       className="input-edit"
                       type="text"
                       value={userUpdate.email}
@@ -112,6 +115,18 @@ export default function Profil() {
                         setUserUpdate({
                           ...userUpdate,
                           email: event.target.value,
+                        })
+                      }
+                    />
+
+                    <input
+                      className="input-edit"
+                      type="text"
+                      value={userUpdate.style_favoris}
+                      onChange={(event) =>
+                        setUserUpdate({
+                          ...userUpdate,
+                          style_favoris: event.target.value,
                         })
                       }
                     />

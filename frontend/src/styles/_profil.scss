@@ -28,6 +28,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      
       height: 100%;
 
       .avatar {
@@ -44,11 +45,12 @@
         padding-top: 5%;
         display: flex;
         flex-direction: column;
+     align-items: center;
         justify-content: space-around;
         height: 50%;
 
         p {
-          font-size: 1.6rem;
+          font-size: 1.4rem;
         }
 
         .edit {
@@ -63,7 +65,8 @@
           font-size: 1.3rem;
           border: none;
           border-radius: 30px;
-          padding: 14px 50px;
+          padding: 14px;
+          width: 15vw;
           cursor: pointer;
         }
       }
@@ -96,7 +99,7 @@
           font-size: 1rem;
           border: none;
           border-radius: 30px;
-          padding: 14px 50px;
+          padding: 14px 30px;
           cursor: pointer;
         }
       }

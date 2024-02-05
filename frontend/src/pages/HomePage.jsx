@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import axios from "axios";
 import userContext from "../context/userContext";
 import NavBar from "../components/NavBar";
@@ -10,7 +10,6 @@ export default function HomePage() {
   const [books, setBooks] = useState([]);
   const [filterName, setFilterName] = useState("");
   const [selectedCategorie, setSelectedCategorie] = useState("");
-  const { id } = useParams();
 
   useEffect(() => {
     const getBooks = async () => {
@@ -82,6 +81,7 @@ export default function HomePage() {
 
         <div className="container-books">
           <h2>MES LIVRES LUS</h2>
+
           <div className="livres-lus">
             {books
               .filter((book) => {
@@ -110,6 +110,7 @@ export default function HomePage() {
                 </div>
               ))}
           </div>
+
           <h2>MES LIVRES A LIRE</h2>
           <div className="livres-nonlus">
             {books

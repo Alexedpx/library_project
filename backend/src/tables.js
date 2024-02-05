@@ -6,8 +6,9 @@
 
 const userManager = require("./models/userManager");
 const bookManager = require("./models/bookManager");
+const favorisManager = require("./models/favorisManager");
 
-const managers = [userManager, bookManager];
+const managers = [userManager, bookManager, favorisManager];
 
 // Create an empty object to hold data managers for different tables
 const tables = {};
