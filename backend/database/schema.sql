@@ -9,7 +9,7 @@ CREATE TABLE user (
 );
 
 CREATE TABLE book (
-    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL, image VARCHAR(255) NULL, titre VARCHAR(80) NOT NULL, auteur VARCHAR(80) NOT NULL, nombre_pages INT NOT NULL, date DATE NOT NULL, categorie VARCHAR(80) NOT NULL, description VARCHAR(750) NULL, commentaire VARCHAR(255) NULL, lu BOOLEAN NOT NULL DEFAULT FALSE, user_id INT, CONSTRAINT fk_book_user FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE ON UPDATE NO ACTION
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL, image VARCHAR(255) NULL, titre VARCHAR(80) NOT NULL, auteur VARCHAR(80) NOT NULL, nombre_pages INT NOT NULL, date DATE NOT NULL, categorie VARCHAR(80) NOT NULL, description VARCHAR(750) NULL, commentaire VARCHAR(255) NULL, statut ENUM('Non lu', 'En cours', 'Lu') NOT NULL DEFAULT 'Non lu', user_id INT, CONSTRAINT fk_book_user FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE ON UPDATE NO ACTION
 );
 
 CREATE TABLE favoris (
@@ -40,7 +40,7 @@ date,
 categorie,
 description,
 commentaire,
-lu,
+statut,
 user_id
 
 ) 
@@ -55,7 +55,7 @@ VALUES (
 "Le jour de ses onze ans, Harry Potter, un orphelin élevé par un oncle et une tante qui le détestent, voit son existence bouleversée. Un géant vient le chercher pour l'emmener à Poudlard, une école de sorcellerie ! Voler en balai, jeter des sorts, combattre les trolls : Harry se révèle un sorcier doué. Mais un mystère entoure sa naissance et l'effroyable V., le mage dont personne n'ose prononcer le nom.",
 
 
-"Le livre de mon enfance!", 1, 1
+"Le livre de mon enfance!", "Lu", 1
 
 ), 
 
@@ -68,7 +68,7 @@ VALUES (
 "Fantastique",
 "Harry Potter fait une deuxième rentrée fracassante en voiture volante à l'école des sorciers. Cette deuxième année ne s'annonce pas de tout repos... surtout depuis qu'une étrange malédiction s'est abattue sur les élèves. Entre les cours de potion magique, les matchs de Quidditch et les combats de mauvais sorts, Harry trouvera-t-il le temps de percer le mystère de la Chambre des Secrets ? Un livre magique pour sorciers et sorcières confirmés !",
 "",
-0,
+"Non lu",
 1
 
 
@@ -83,7 +83,7 @@ VALUES (
 "Biographie",
 "Comment devient-on le plus jeune Français à partir vers la Station spatiale ? Comment passer de sa Normandie natale aux pas de tir de Baïkonour et de Cap Canaveral ? Pour la première fois, Thomas Pesquet se raconte sans détour, dans un récit très personnel aussi drôle que surprenant. Il nous entraîne des coulisses de l'école des astronautes jusqu'au frisson du décollage, partage le quotidien de ses 396 jours à bord de l'ISS et l'émerveillement de découvrir, flottant dans le vide intersidéral, notre planète si fragile. Une autobiographie aux allures de roman d'aventures, dont le héros est devenu l'une des personnalités préférées des Français.",
 "",
-1,
+"Lu",
 1
 
 
@@ -98,7 +98,7 @@ VALUES (
 "Scolaire",
 "Ce livre vous montre tout ce qu'il faut savoir sur la programmation JavaScript de manière simple sans que vous soyez submergé par trop d'informations.",
 "",
-1,
+"Lu",
 1
 
 
@@ -113,7 +113,7 @@ VALUES (
 "Thriller",
 "Dans une jolie maison victorienne d'une petite ville du Midwest, Emily et Rodney Harris, anciens professeurs d'université, mènent une vie de retraités actifs. Malgré leur grand âge, les années semblent n'avoir pas avoir de prise sur eux.À quelques pas de leur demeure, on a retrouvé le vélo de Bonnie Dahl, récemment disparue. Elle n'est pas la première à se volatiliser dans ce périmètre. Chose étrange : à chaque fois, il s'agit de jeunes gens.Quels secrets inavouables cachent les murs tapissés de livres des époux Harris ?",
 "",
-0,
+"Non lu",
 1
 
 
@@ -128,9 +128,23 @@ VALUES (
 "Fantastique",
 "Les Premiers Jours du Monde étaient à peine passés quand Fëanor, le plus doué des Elfes, créa les trois Silmarils. Ces bijoux renfermaient la Lumière des Deux Arbres de Valinor. Morgoth, le premier Prince de la Nuit, était encore sur la Terre du Milieu, et il fut fâché d'apprendre que la Lumière allait se perpétuer. Alors il enleva les Silmarils, les fit sertir dans son diadème et garder dans la forteresse d'Angband. Les Elfes prirent les armes pour reprendre les joyaux et ce fut la première de toutes les guerres. Longtemps, longtemps après, lors de la Guerre de l'Anneau, Elrond et Galadriel en parlaient encore.",
 "",
-1,
+"Lu",
+1
+
+
+), 
+
+(
+    "/images/Interstellar.jpg",
+"Interstellar",
+"Christopher Nolan",
+400,
+"2014-11-14",
+"Science-Fiction",
+"In Interstellar a group of explorers make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
+"",
+"Non lu",
 1
 
 
 );
-

@@ -95,7 +95,36 @@ export default function HomePage() {
                   (book.categorie?.toLowerCase() || "") ===
                     selectedCategorie.toLowerCase();
 
-                const isRead = book.lu === 1;
+                const isRead = book.statut === "Lu";
+
+                return nameFilter && categorieFilter && isRead;
+              })
+              .map((book) => (
+                <div key={book.id} className="book-list">
+                  <NavLink to={`/book/${book.id}`}>
+                    <img
+                      src={`${import.meta.env.VITE_BACKEND_URL}${book.image}`}
+                      alt={book.titre}
+                    />
+                  </NavLink>
+                </div>
+              ))}
+          </div>
+          <h2>EN COURS DE LECTURE</h2>
+          <div className="livres-encours">
+            {books
+              .filter((book) => {
+                const nameFilter =
+                  filterName === "" ||
+                  (book.titre?.toLowerCase() || "").includes(
+                    filterName.toLowerCase()
+                  );
+                const categorieFilter =
+                  selectedCategorie === "" ||
+                  (book.categorie?.toLowerCase() || "") ===
+                    selectedCategorie.toLowerCase();
+
+                const isRead = book.statut === "En cours";
 
                 return nameFilter && categorieFilter && isRead;
               })
@@ -125,7 +154,7 @@ export default function HomePage() {
                   (book.categorie?.toLowerCase() || "") ===
                     selectedCategorie.toLowerCase();
 
-                const isRead = book.lu === 0;
+                const isRead = book.statut === "Non lu";
 
                 return nameFilter && categorieFilter && isRead;
               })

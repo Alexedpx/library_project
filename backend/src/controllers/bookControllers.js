@@ -47,12 +47,12 @@ const read = async (req, res, next) => {
 // The E of BREAD - Edit (Update) operation
 // This operation is not yet implemented
 const edit = async (req, res, next) => {
-  const { commentaire, lu } = req.body;
+  const { commentaire, statut } = req.body;
 
   const updatedBook = {
     id: req.params.id,
     commentaire,
-    lu,
+    statut,
   };
 
   try {
@@ -60,13 +60,11 @@ const edit = async (req, res, next) => {
     if (existingBook == null) {
       res.status(404).send("Book not found");
     } else {
-      const luValue = lu ? 1 : 0;
-
       const rest = await tables.book.update({
         ...existingBook,
         id: req.params.id,
         commentaire,
-        lu: luValue,
+        statut,
       });
 
       const updatedBook = await tables.book.read(req.params.id);
@@ -118,7 +116,7 @@ const getUploadImage = async (req, res, next) => {
       categorie,
       description,
       commentaire,
-      lu,
+      statut,
       userId,
     } = req.body;
 
@@ -131,7 +129,7 @@ const getUploadImage = async (req, res, next) => {
       categorie,
       description,
       commentaire,
-      lu,
+      statut,
       userId,
       image: `/images/book/${req.body.url}`,
     };

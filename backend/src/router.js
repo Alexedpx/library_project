@@ -47,4 +47,5 @@ router.delete("/favoris/:userId/:bookId", favorisControllers.destroy);
 
 /* ************************************************************************* */
 router.get("/userbytoken", userControllers.getByToken);
+
 module.exports = router;
