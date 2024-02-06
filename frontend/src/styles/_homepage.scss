@@ -1,9 +1,10 @@
 .background {
   background-image: url("/images/bg.png");
   width: 100%;
-  height: 100vh;
   background-size: cover;
-  background-repeat: no-repeat;
+
+  
+ 
 
   .header-title {
     h1 {
@@ -26,6 +27,8 @@
       padding: 12px;
       border-radius: 20px;
       border: 3px solid var(--secondary-color);
+      font-size: 1rem;
+      font-family: var(--font-style-text);
       background-color: rgb(241, 241, 230);
   
       &::placeholder {
@@ -35,6 +38,8 @@
         font-family: var(--font-style-text);
         color: rgba(86, 85, 85, 0.309);
       }
+
+     
     }
 
   select {
@@ -65,17 +70,17 @@
       font-size: 1.6rem;
     }
     .livres-lus,
-    .livres-nonlus {
+    .livres-nonlus,
+    .livres-encours {
       display: flex;
       align-items: center;
-
       gap: 20px;
       background-color: rgba(0, 0, 0, 0.732);
       height: 36%;
       width: 100%;
 
       .book-list {
-        height: 100%;
+        
         display: flex;
         justify-content: center;
         align-items: center;

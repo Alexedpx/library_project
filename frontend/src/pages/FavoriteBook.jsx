@@ -45,11 +45,25 @@ export default function FavoriteBook() {
         <div className="display-favorite">
           <div className="livre-favoris">
             {userFavorite.map((book) => (
-              <div className="book-list" key={book.bookId}>
-                <img
-                  src={`${import.meta.env.VITE_BACKEND_URL}/${book.image}`}
-                  alt={book.titre}
-                />
+              <div className="book-fav" key={book.bookId}>
+                <div className="img-container">
+                  <img
+                    src={`${import.meta.env.VITE_BACKEND_URL}/${book.image}`}
+                    alt={book.titre}
+                  />
+                  <div className="displayinfo">
+                    <h1>{book.titre}</h1>
+                    <h2>{book.auteur}</h2>
+                    <h3>{book.categorie}</h3>
+                  </div>
+                  <div className="btn-details">
+                    <NavLink to={`/book/${book.bookId}`}>
+                      <button className="details" type="button">
+                        Voir les détails du livre
+                      </button>
+                    </NavLink>
+                  </div>
+                </div>
               </div>
             ))}
           </div>

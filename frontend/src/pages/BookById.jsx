@@ -16,7 +16,7 @@ export default function BookById() {
 
   const [bookUpdate, setBookUpdate] = useState({
     commentaire: bookDetails.commentaire,
-    lu: bookDetails.lu,
+    statut: bookDetails.statut,
   });
 
   const [isEditing, setIsEditing] = useState(false);
@@ -150,9 +150,12 @@ export default function BookById() {
     try {
       const updatedBookData = {
         commentaire: bookUpdate.commentaire,
-        lu: bookUpdate.lu === undefined ? bookDetails.lu : bookUpdate.lu,
+        statut:
+          bookUpdate.statut === "Non lu"
+            ? bookUpdate.statut
+            : bookUpdate.statut,
       };
-      console.log("Updated Book Data:", updatedBookData);
+
       const updatedBook = await axios.put(
         `${import.meta.env.VITE_BACKEND_URL}/api/books/${id}`,
         updatedBookData,
@@ -162,11 +165,11 @@ export default function BookById() {
           },
         }
       );
-      console.log("Updated Book:", updatedBook);
+
       setBookDetails((prevBookDetails) => ({
         ...prevBookDetails,
         commentaire: bookUpdate.commentaire,
-        lu: bookUpdate.lu,
+        statut: bookUpdate.statut,
       }));
 
       setIsEditing(false);
@@ -261,7 +264,7 @@ export default function BookById() {
                 </>
               ) : (
                 <form id="form" className="edit-book" onSubmit={handleSubmit}>
-                  {isEditing && bookDetails.lu === 0 && (
+                  {isEditing && bookDetails.statut === "En cours" && (
                     <div className="isread">
                       <button
                         type="button"
@@ -269,11 +272,27 @@ export default function BookById() {
                         onClick={() =>
                           setBookUpdate((prevBookUpdate) => ({
                             ...prevBookUpdate,
-                            lu: !prevBookUpdate.lu,
+                            statut: "Lu",
                           }))
                         }
                       >
                         Marquer comme lu ?
+                      </button>
+                    </div>
+                  )}
+                  {isEditing && bookDetails.statut === "Non lu" && (
+                    <div className="isread">
+                      <button
+                        type="button"
+                        className="btn-read"
+                        onClick={() =>
+                          setBookUpdate((prevBookUpdate) => ({
+                            ...prevBookUpdate,
+                            statut: "En cours",
+                          }))
+                        }
+                      >
+                        En cours de lecture ?
                       </button>
                     </div>
                   )}

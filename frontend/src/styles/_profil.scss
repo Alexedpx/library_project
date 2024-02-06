@@ -1,16 +1,10 @@
-.background {
-  h4 {
-    margin-left: 25vw;
-    font-size: 2rem;
-  }
-}
 
 .container-profil {
   display: flex;
-  align-items: center;
-  justify-content: center;
   margin-top: 3%;
+  justify-content: center;
   margin-left: 20vw;
+  height: 100vh;
 
   .profil-wrapper {
     background-image: linear-gradient(

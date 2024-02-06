@@ -12,19 +12,21 @@ export default function AddBook() {
   const [pageBook, setPageBook] = useState("");
   const [categoryBook, setCategoryBook] = useState("");
   const [descriptionBook, setDescriptionBook] = useState("");
-  const [isRead, setIsRead] = useState(true);
-  const [isToRead, setIsToRead] = useState(false);
+  const [statutBook, setStatutBook] = useState("");
   const [file, setFile] = useState(undefined);
   const navigate = useNavigate();
 
   const handleReadChange = () => {
-    setIsRead(!isRead);
-    setIsToRead(false);
+    setStatutBook("Lu");
   };
 
+  const handleInReadChange = () => {
+    setStatutBook("En cours");
+  };
+
+
   const handleToReadChange = () => {
-    setIsToRead(!isToRead);
-    setIsRead(false);
+    setStatutBook("Non lu");
   };
 
   const handleSubmit = async (event) => {
@@ -39,8 +41,7 @@ export default function AddBook() {
       data.append("date", dateBook);
       data.append("categorie", categoryBook);
       data.append("description", descriptionBook);
-      data.append("lu", isRead ? "1" : "0");
-      data.append("a_lire", isToRead ? "1" : "0");
+      data.append("statut", statutBook);
       data.append("userId", userConnected.id);
       const res = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/books/addbook`,
@@ -119,14 +120,19 @@ export default function AddBook() {
                 <input
                   type="checkbox"
                   className="lu"
-                  checked={isRead}
                   onChange={handleReadChange}
+                />
+
+                <p>En cours</p>
+                <input
+                  type="checkbox"
+                  className="encours"
+                  onChange={handleInReadChange}
                 />
                 <p>Livre à lire</p>
                 <input
                   type="checkbox"
                   className="alire"
-                  checked={isToRead}
                   onChange={handleToReadChange}
                 />
               </div>

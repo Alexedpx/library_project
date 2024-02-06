@@ -24,11 +24,11 @@ class bookManager extends AbstractManager {
     categorie,
     description,
     commentaire,
-    lu,
+    statut,
     userId
   ) {
     return this.database.query(
-      `INSERT INTO ${this.table} (image, titre, auteur, nombre_pages, date, categorie, description, commentaire, user_id, lu) VALUES (?,?,?,?,?,?,?,?,?,?)`,
+      `INSERT INTO ${this.table} (image, titre, auteur, nombre_pages, date, categorie, description, commentaire, user_id, statut) VALUES (?,?,?,?,?,?,?,?,?,?)`,
       [
         image,
         titre,
@@ -38,7 +38,7 @@ class bookManager extends AbstractManager {
         categorie,
         description,
         commentaire,
-        lu,
+        statut,
         userId,
       ]
     );
@@ -52,13 +52,13 @@ class bookManager extends AbstractManager {
     date,
     categorie,
     description,
-    lu,
+    statut,
     userId,
   }) {
     console.info(userId);
     const [result] = await this.database.query(
       `INSERT INTO ${this.table} (
-            image, titre, auteur, nombre_pages, date, categorie, description, lu, user_id
+            image, titre, auteur, nombre_pages, date, categorie, description, statut, user_id
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         image,
@@ -68,7 +68,7 @@ class bookManager extends AbstractManager {
         date,
         categorie,
         description,
-        lu,
+        statut,
         userId,
       ]
     );
@@ -93,10 +93,10 @@ class bookManager extends AbstractManager {
 
   // The U of CRUD - Update operation
 
-  async update({ id, commentaire, lu }) {
+  async update({ id, commentaire, statut }) {
     const [result] = await this.database.query(
-      `UPDATE ${this.table} SET commentaire=?, lu=? WHERE id=?`,
-      [commentaire, lu, id]
+      `UPDATE ${this.table} SET commentaire=?, statut=? WHERE id=?`,
+      [commentaire, statut, id]
     );
     return result;
   }
