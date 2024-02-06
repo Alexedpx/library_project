@@ -17,6 +17,7 @@ export default function Signin() {
       email: inputEmail,
       password: inputPassword,
       avatar: `/images/avatar.jpg`,
+      style_favoris: "",
     };
     try {
       const dataUser = await axios.post(

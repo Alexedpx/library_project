@@ -8,7 +8,13 @@ import NavBar from "../components/NavBar";
 export default function Profil() {
   const { userConnected, setUserConnected } = useContext(userContext);
   const [deleteUser, setDeleteUser] = useState(userConnected);
-  const [userUpdate, setUserUpdate] = useState(userConnected);
+  const [userUpdate, setUserUpdate] = useState({
+    pseudo: userConnected.pseudo,
+    email: userConnected.email,
+
+    avatar: userConnected.avatar,
+    style_favoris: userConnected.style_favoris,
+  });
   const [isEditing, setIsEditing] = useState(false);
 
   const handleEdit = () => {
@@ -33,7 +39,11 @@ export default function Profil() {
     }
   };
 
+  console.log("userConnected:", userConnected);
+
   const handleSubmit = async (e) => {
+    console.log("userConnected:", userConnected);
+    console.log("userUpdate:", userUpdate);
     e.preventDefault();
     const user = JSON.parse(localStorage.getItem("token"));
     try {
@@ -54,6 +64,7 @@ export default function Profil() {
     }
   };
 
+  console.log("userUpdate:", userUpdate);
   return (
     <>
       <NavBar />
@@ -85,8 +96,8 @@ export default function Profil() {
                     className="pseudo-user"
                     onSubmit={handleSubmit}
                   >
-                    <p>{userConnected.pseudo}</p>
-                    <p>{userConnected.email}</p>
+                    {userConnected.pseudo && <p>{userConnected.pseudo}</p>}
+                    {userConnected.email && <p>{userConnected.email}</p>}
 
                     <p>Catégorie préférée: {userConnected.style_favoris}</p>
 

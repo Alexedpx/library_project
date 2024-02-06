@@ -20,7 +20,7 @@
 
       .logout {
         cursor: pointer;
-        font-weight: bold;
+        font-weight: 400;
         color: var(--text-color);
         text-decoration: none;
         font-size: 0.8rem;
@@ -51,14 +51,7 @@
         font-size: 1.3rem;
       }
     }
-    a {
-      font-size: 1.8rem;
-      text-decoration: none;
-      transition: transform 0.3s ease;
-    }
-    a:hover {
-      transform: scale(1.1);
-    }
+   
   }
 
   .navlink {

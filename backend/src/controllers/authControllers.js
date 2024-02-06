@@ -47,6 +47,7 @@ const signin = async (req, res, next) => {
       email,
       hashed_password,
       avatar,
+      
     });
     if (result) {
       const newUser = {

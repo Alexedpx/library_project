@@ -4,6 +4,9 @@ import { NavLink } from "react-router-dom";
 import axios from "axios";
 import userContext from "../context/userContext";
 import NavBar from "../components/NavBar";
+import { BsBookmarkStarFill } from "react-icons/bs";
+import { MdBookmarkAdded } from "react-icons/md";
+import { MdBookmarkAdd } from "react-icons/md";
 
 export default function HomePage() {
   const { userConnected } = useContext(userContext);
@@ -54,6 +57,7 @@ export default function HomePage() {
             My Little <span style={{ color: "#719a6b" }}>Library</span>
           </h1>
         </div>
+
         <div className="search">
           <input
             type="text"
@@ -78,10 +82,44 @@ export default function HomePage() {
             <option value="Fantastique">Fantastique</option>
           </select>
         </div>
+        <div className="inread-container">
+          <div className="livres-encours">
+            <div className="icon-mark">
+              <BsBookmarkStarFill size={30}  />
+            </div>
+            <h2>LECTURE DU MOMENT </h2>
+            {books
+              .filter((book) => {
+                const nameFilter =
+                  filterName === "" ||
+                  (book.titre?.toLowerCase() || "").includes(
+                    filterName.toLowerCase()
+                  );
+                const categorieFilter =
+                  selectedCategorie === "" ||
+                  (book.categorie?.toLowerCase() || "") ===
+                    selectedCategorie.toLowerCase();
+
+                const isRead = book.statut === "En cours";
+
+                return nameFilter && categorieFilter && isRead;
+              })
+              .map((book) => (
+                <div key={book.id} className="book-list">
+                  <NavLink to={`/book/${book.id}`}>
+                    <img
+                      src={`${import.meta.env.VITE_BACKEND_URL}${book.image}`}
+                      alt={book.titre}
+                    />
+                  </NavLink>
+                </div>
+              ))}
+          </div>
+        </div>
 
         <div className="container-books">
-          <h2>MES LIVRES LUS</h2>
-
+          <h2>MES LIVRES LUS <MdBookmarkAdded  size={25}/></h2>
+        
           <div className="livres-lus">
             {books
               .filter((book) => {
@@ -110,37 +148,8 @@ export default function HomePage() {
                 </div>
               ))}
           </div>
-          <h2>EN COURS DE LECTURE</h2>
-          <div className="livres-encours">
-            {books
-              .filter((book) => {
-                const nameFilter =
-                  filterName === "" ||
-                  (book.titre?.toLowerCase() || "").includes(
-                    filterName.toLowerCase()
-                  );
-                const categorieFilter =
-                  selectedCategorie === "" ||
-                  (book.categorie?.toLowerCase() || "") ===
-                    selectedCategorie.toLowerCase();
 
-                const isRead = book.statut === "En cours";
-
-                return nameFilter && categorieFilter && isRead;
-              })
-              .map((book) => (
-                <div key={book.id} className="book-list">
-                  <NavLink to={`/book/${book.id}`}>
-                    <img
-                      src={`${import.meta.env.VITE_BACKEND_URL}${book.image}`}
-                      alt={book.titre}
-                    />
-                  </NavLink>
-                </div>
-              ))}
-          </div>
-
-          <h2>MES LIVRES A LIRE</h2>
+          <h2>MES LIVRES A LIRE <MdBookmarkAdd size={25} /></h2>
           <div className="livres-nonlus">
             {books
               .filter((book) => {
