@@ -39,32 +39,32 @@ export default function Profil() {
     }
   };
 
-  console.log("userConnected:", userConnected);
-
   const handleSubmit = async (e) => {
-    console.log("userConnected:", userConnected);
-    console.log("userUpdate:", userUpdate);
     e.preventDefault();
     const user = JSON.parse(localStorage.getItem("token"));
-    try {
-      const userUpdated = await axios.put(
-        `${import.meta.env.VITE_BACKEND_URL}/api/users/${userUpdate.id}`,
-        userUpdate,
-        {
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-          },
-        }
-      );
+    if (userConnected && userConnected.id) {
+      const userId = userConnected.id;
 
-      setUserConnected(userUpdated.data);
-      setIsEditing(false);
-    } catch (err) {
-      console.error(err);
+      try {
+        const userUpdated = await axios.put(
+          `${import.meta.env.VITE_BACKEND_URL}/api/users/${userId}`,
+          userUpdate,
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
+        );
+
+        setUserConnected(userUpdated.data);
+        setIsEditing(false);
+      } catch (err) {
+        console.error(err);
+      }
+    } else {
+      console.error("L'ID de l'utilisateur est indéfini ou incorrect.");
     }
   };
-
-  console.log("userUpdate:", userUpdate);
   return (
     <>
       <NavBar />

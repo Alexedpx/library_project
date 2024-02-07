@@ -24,7 +24,6 @@ export default function AddBook() {
     setStatutBook("En cours");
   };
 
-
   const handleToReadChange = () => {
     setStatutBook("Non lu");
   };
@@ -129,6 +128,7 @@ export default function AddBook() {
                   className="encours"
                   onChange={handleInReadChange}
                 />
+
                 <p>Livre à lire</p>
                 <input
                   type="checkbox"
