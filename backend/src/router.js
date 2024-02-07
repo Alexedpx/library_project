@@ -13,6 +13,7 @@ const bookControllers = require("./controllers/bookControllers");
 const authControllers = require("./controllers/authControllers");
 const favorisControllers = require("./controllers/favorisControllers");
 const uploadBook = require("./middlewares/uploadBook");
+const uploadAvatar = require("./middlewares/uploadAvatar");
 
 router.post("/login", authControllers.login);
 router.post("/signin", hashPassword, authControllers.signin);
@@ -33,6 +34,11 @@ router.get("/books/book-by-user/:id", bookControllers.readByUserId);
 router.post("/users", userControllers.add);
 router.post("/books", bookControllers.add);
 router.post("/books/addbook", uploadBook, bookControllers.getUploadImage);
+router.post(
+  "/users/image",
+  uploadAvatar.single("image"),
+  userControllers.getUploadImage
+);
 router.post("/favoris", favorisControllers.add);
 
 // Route to modify an item

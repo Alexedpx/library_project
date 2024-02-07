@@ -13,7 +13,7 @@ class userManager extends AbstractManager {
       `INSERT INTO ${this.table} (pseudo, email, hashed_password, avatar) VALUES (?, ?, ?, ?)`,
       [pseudo, email, hashed_password, avatar]
     );
-  
+
     return result;
   }
 
@@ -80,6 +80,13 @@ class userManager extends AbstractManager {
       [id]
     );
     return result;
+  }
+
+  insert(avatar, userId) {
+    return this.database.query(
+      `UPDATE ${this.table} SET avatar = ? WHERE id = ?`,
+      [avatar, userId]
+    );
   }
 }
 

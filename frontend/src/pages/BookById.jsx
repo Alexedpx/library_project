@@ -13,23 +13,6 @@ export default function BookById() {
   const [userFavorite, setUserFavorite] = useState([]);
   const [isFavorite, setIsFavorite] = useState(false);
   const param = useParams();
-  const storedRating = localStorage.getItem("rating");
-  const [rating, setRating] = useState(
-    storedRating ? parseInt(storedRating, 10) : 0
-  );
-
-  const handleRatingChange = (value) => {
-    if (value === rating) {
-      setRating(0);
-      localStorage.removeItem("rating");
-    } else {
-      setRating(value);
-      localStorage.setItem("rating", value.toString());
-    }
-  };
-  useEffect(() => {
-    localStorage.setItem("rating", rating.toString());
-  }, [rating]);
 
   const [bookUpdate, setBookUpdate] = useState({
     commentaire: bookDetails.commentaire,
@@ -276,19 +259,6 @@ export default function BookById() {
                         </span>{" "}
                         : {bookDetails.commentaire}
                       </p>
-                    </div>
-                    <div className="star-rating">
-                      <p>Note :</p>
-                      {[1, 2, 3, 4, 5].map((value) => (
-                        <span
-                          key={value}
-                          className="star"
-                          onClick={() => handleRatingChange(value)}
-                          role="presentation"
-                        >
-                          {value <= rating ? "★" : "☆"}
-                        </span>
-                      ))}
                     </div>
                   </div>
                 </>
