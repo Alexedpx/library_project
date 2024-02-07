@@ -7,8 +7,6 @@
   justify-content: center;
   align-items: center;
   padding-left: 3%;
-  
-  
 
   img {
     border: 2px solid white;
@@ -21,34 +19,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
-    .star-rating {
-      display: flex;
-      
-
-      p {
-        font-weight: bold;
-      }
-    
-      .star {
-        cursor: pointer;
-        font-size: 24px;
-        color: #ffd856;
-        margin-right: 5px;
-        transition: transform 0.3s ease;
-    
-        &:hover,
-        &:hover ~ .star,
-        &.selected,
-        .selected ~ .star {
-          color:#ffd856;
-          transform: scale(1.1);
-        }
-
-        
-      }
-    }
-    
 
     .header-details {
       width: 80%;

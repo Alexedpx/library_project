@@ -16,7 +16,7 @@ export default function Signin() {
       pseudo: inputPseudo,
       email: inputEmail,
       password: inputPassword,
-      avatar: `/images/avatar.jpg`,
+      avatar: `/images/Avatar.png`,
       style_favoris: "",
     };
     try {

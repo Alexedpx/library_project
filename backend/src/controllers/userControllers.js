@@ -73,6 +73,7 @@ const getFavoritesBooks = async (req, res, next) => {
 
 // The E of BREAD - Edit (Update) operation
 // This operation is not yet implemented
+
 const edit = async (req, res, next) => {
   const { pseudo, email, avatar, style_favoris } = req.body;
   const updatedUsers = {
@@ -125,6 +126,23 @@ const destroy = async (req, res, next) => {
     next(err);
   }
 };
+
+const getUploadImage = async (req, res, next) => {
+  try {
+    const [result] = await tables.user.insert(
+      `/images/avatar/${req.body.url}`,
+      req.auth.sub
+    );
+    if (result.affectedRows) {
+      res.sendStatus(204);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 const getByToken = async (req, res) => {
   const userInfo = req.auth;
 
@@ -155,4 +173,5 @@ module.exports = {
   getByToken,
   getFavorites,
   getFavoritesBooks,
+  getUploadImage,
 };

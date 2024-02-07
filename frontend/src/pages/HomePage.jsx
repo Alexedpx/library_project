@@ -85,7 +85,7 @@ export default function HomePage() {
         <div className="inread-container">
           <div className="livres-encours">
             <div className="icon-mark">
-              <BsBookmarkStarFill size={30}  />
+              <BsBookmarkStarFill size={30} style={{ color: "#E3B422" }} />
             </div>
             <h2>LECTURE DU MOMENT </h2>
             {books
@@ -118,8 +118,8 @@ export default function HomePage() {
         </div>
 
         <div className="container-books">
-          <h2>MES LIVRES LUS <MdBookmarkAdded  size={25}/></h2>
-        
+          <h2>MES LIVRES LUS</h2>
+
           <div className="livres-lus">
             {books
               .filter((book) => {
@@ -149,7 +149,7 @@ export default function HomePage() {
               ))}
           </div>
 
-          <h2>MES LIVRES A LIRE <MdBookmarkAdd size={25} /></h2>
+          <h2>MES LIVRES A LIRE</h2>
           <div className="livres-nonlus">
             {books
               .filter((book) => {
