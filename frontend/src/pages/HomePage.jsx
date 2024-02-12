@@ -5,8 +5,7 @@ import axios from "axios";
 import userContext from "../context/userContext";
 import NavBar from "../components/NavBar";
 import { BsBookmarkStarFill } from "react-icons/bs";
-import { MdBookmarkAdded } from "react-icons/md";
-import { MdBookmarkAdd } from "react-icons/md";
+
 
 export default function HomePage() {
   const { userConnected } = useContext(userContext);
@@ -74,7 +73,7 @@ export default function HomePage() {
             onChange={handleInput}
             className="selectcategory"
           >
-            <option value="">Catégorie</option>
+            <option value="">Toutes les catégories</option>
             <option value="Science-Fiction">Science-Fiction</option>
             <option value="Biographie">Biographie</option>
             <option value="Scolaire">Scolaire</option>

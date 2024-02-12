@@ -266,34 +266,36 @@ export default function BookById() {
                 <form id="form" className="edit-book" onSubmit={handleSubmit}>
                   {isEditing && bookDetails.statut === "En cours" && (
                     <div className="isread">
-                      <button
-                        type="button"
-                        className="btn-read"
-                        onClick={() =>
-                          setBookUpdate((prevBookUpdate) => ({
-                            ...prevBookUpdate,
-                            statut: "Lu",
-                          }))
-                        }
-                      >
-                        Marquer comme lu ?
-                      </button>
+                      <p>Marquer comme lu ?</p>
+                      <label class="container">
+                        <input
+                          type="checkbox"
+                          onClick={() =>
+                            setBookUpdate((prevBookUpdate) => ({
+                              ...prevBookUpdate,
+                              statut: "Lu",
+                            }))
+                          }
+                        />
+                        <div class="checkmark"></div>
+                      </label>
                     </div>
                   )}
                   {isEditing && bookDetails.statut === "Non lu" && (
                     <div className="isread">
-                      <button
-                        type="button"
-                        className="btn-read"
-                        onClick={() =>
-                          setBookUpdate((prevBookUpdate) => ({
-                            ...prevBookUpdate,
-                            statut: "En cours",
-                          }))
-                        }
-                      >
-                        En cours de lecture ?
-                      </button>
+                      <p>En cours de lecture ?</p>
+                      <label class="container">
+                        <input
+                          type="checkbox"
+                          onClick={() =>
+                            setBookUpdate((prevBookUpdate) => ({
+                              ...prevBookUpdate,
+                              statut: "En cours",
+                            }))
+                          }
+                        />
+                        <div class="checkmark"></div>
+                      </label>
                     </div>
                   )}
 
@@ -316,7 +318,7 @@ export default function BookById() {
                     <div className="information-book">
                       <p>
                         <span style={{ fontWeight: "bold" }}>
-                          Note personnelle
+                          Commentaire personnel
                         </span>{" "}
                         :{" "}
                         <input

@@ -1,6 +1,6 @@
 import { useNavigate, NavLink } from "react-router-dom";
 import { useContext } from "react";
-
+import { MdOutlineBookmarkAdd } from "react-icons/md";
 import userContext from "../context/userContext";
 
 export default function Navbar() {
@@ -46,7 +46,7 @@ export default function Navbar() {
           </NavLink>
         </div>
         <div className="accueil-container">
-          <img src=" /images/add.png" alt="add" />
+          <MdOutlineBookmarkAdd   />
           <NavLink to="/addbook">
             <h1>AJOUTER UN LIVRE</h1>
           </NavLink>
@@ -54,7 +54,7 @@ export default function Navbar() {
         <div className="accueil-container">
           <img src=" /images/favorite.png" alt="avatar" />
           <NavLink to="/favoritebook">
-            <h1>MES LIVRES FAVORIS</h1>
+            <h1>MES FAVORIS</h1>
           </NavLink>
         </div>
         <div className="accueil-container">

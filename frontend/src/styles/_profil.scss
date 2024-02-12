@@ -13,7 +13,7 @@
     );
     border-radius: 10px;
     border: 2px solid rgba(255, 255, 255, 0.863);
-    height: 65vh;
+    height: 70vh;
     width: 55vh;
 
     .user-profile {
@@ -31,117 +31,171 @@
       }
 
       .pseudo-user {
-        padding-top: 5%;
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: space-around;
-        height: 50%;
+        height: 60%;
 
-        p {
-          font-size: 1.4rem;
+        h1 {
+          text-align: center;
+          font-size: 1.3rem;
         }
 
-        .edit {
-          margin-top: 15%;
-          font-family: var(--font-style-text);
-          background-color: rgba(29, 29, 29, 0.941);
-          box-shadow:
-            3px 3px 6px rgba(0, 0, 0, 0.5),
-            -1px -1px 4px rgba(105, 105, 105, 0.5);
-          color: white;
-          font-weight: bold;
-          font-size: 1.3rem;
-          border: none;
-          border-radius: 30px;
-          padding: 14px;
-          width: 15vw;
-          cursor: pointer;
+        .user-info {
+          padding: 10px;
+
+          h2 {
+            color: #516d4d;
+            margin-top: 5%;
+
+            font-size: 1.2rem;
+          }
+          p {
+            margin-top: 3%;
+            font-weight: 500;
+            font-size: 1.1rem;
+          }
+        }
+
+        .handle-edit {
+          display: flex;
+          justify-content: center;
+          .edit {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-style-text);
+            background-color: rgba(29, 29, 29, 0.941);
+            box-shadow:
+              3px 3px 6px rgba(0, 0, 0, 0.5),
+              -1px -1px 4px rgba(105, 105, 105, 0.5);
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 30px;
+            padding: 15px;
+            width: 15vw;
+            cursor: pointer;
+          }
         }
       }
     }
 
     .upload {
       form {
-        border: 1px solid yellow;
         width: 20vw;
-        height: 40px;
+        height: 50px;
         display: flex;
+        justify-content: center;
         align-items: center;
 
         .input-file {
           display: none;
         }
 
-        .label-file {
-          cursor: pointer;
-        }
-
         .upload-avatar {
-          background-color: rgba(127, 255, 212, 0);
-          border: none;
-          cursor: pointer;
+          padding-top: 5%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 75%;
+          .label-file {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            border: 1px white dashed;
+            padding: 8px;
+            width: 10vw;
+            font-size: 0.7rem;
+            cursor: pointer;
+          }
 
-          img {
-            width: 30%;
+          .save-avatar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-right: 1px dashed white;
+            border-top: 1px dashed white;
+            border-bottom: 1px dashed white;
+            border-left: none;
+            background-color: rgba(29, 29, 29, 0);
+            color: var(--primary-color);
+            padding: 8px;
+            width: 2vw;
+
+            cursor: pointer;
           }
         }
       }
     }
     .edit-user {
-      padding-top: 5%;
+      width: 100%;
+      height: 50%;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      height: 50%;
 
-      .input-edit {
-        width: 15vw;
-        padding: 10px;
-        background-color: #e5ebe5;
-        border: none;
-        border-radius: 20px;
-        font-family: var(--font-style-text);
-        font-weight: 500;
+      p {
+        padding: 8px;
+        align-self: flex-start;
+        margin-left: 70px;
         font-size: 1rem;
       }
 
+      .input-edit {
+        color: rgba(0, 0, 0, 0.733);
+        width: 18vw;
+        padding: 8px;
+        background-color: #e5ebe5;
+        border: none;
+        border-radius: 8px;
+        font-family: var(--font-style-text);
+        font-weight: 500;
+        font-size: 0.9rem;
+      }
+
       .edit-profil {
-        padding-top: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding-top: 5%;
+        width: 100%;
         .saveprofil {
+          display: flex;
+          align-items: center;
+          justify-content: center;
           font-family: var(--font-style-text);
           background-color: rgba(29, 29, 29, 0.941);
           box-shadow:
             3px 3px 6px rgba(0, 0, 0, 0.5),
             -1px -1px 4px rgba(105, 105, 105, 0.5);
           color: white;
-          font-weight: bold;
+          font-weight: 500;
+          width: 15vw;
           font-size: 1rem;
           border: none;
           border-radius: 30px;
-          padding: 14px 35px;
+          padding: 10px;
           cursor: pointer;
         }
-      }
-      .delete-user-profile {
+
         .delete {
           font-family: var(--font-style-text);
-          background-color: rgba(29, 29, 29, 0.941);
-          box-shadow:
-            3px 3px 6px rgba(0, 0, 0, 0.5),
-            -1px -1px 4px rgba(105, 105, 105, 0.5);
-
-          font-weight: bold;
-          font-size: 1rem;
+          background-color: rgba(116, 115, 115, 0);
+          font-weight: 500;
+          font-size: 0.9rem;
+          padding-top: 3%;
           border: none;
-          border-radius: 30px;
-          padding: 14px 50px;
           cursor: pointer;
 
           a {
-            color: white;
+            color: rgba(77, 77, 77, 0.89);
             text-decoration: none;
+            cursor: pointer;
           }
         }
       }

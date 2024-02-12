@@ -15,13 +15,9 @@
     height: 80vh;
     width: 30vw;
 
-    h1 {
-      font-size: 1.5rem;
-      text-align: center;
-    }
     .uploadbook {
       padding: 8px;
-      margin-top: 3%;
+      margin-top: 4%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -37,49 +33,159 @@
         background-color: #e5ebe5;
         font-family: var(--font-style-text);
         font-weight: 500;
-        font-size: 1rem;
+        font-size: 0.8rem;
         border: none;
         padding: 10px;
         border-radius: 10px;
-        cursor: pointer;
+   
+        &:focus {
+          outline: none; 
+          border: 2px solid rgba(150, 193, 131, 0.906);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+      }
+        
+      }
+
+      .cat::placeholder {
+        font-style: italic;
+        color: rgba(0, 0, 0, 0.219);
       }
       .desc {
         background-color: #e5ebe5;
         border: none;
         padding: 5px;
         border-radius: 10px;
+
+        &:focus {
+          outline: none; 
+          border: 2px solid rgba(150, 193, 131, 0.906);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+      }
       }
 
-      input::file-selector-button {
-        cursor: pointer;
-        margin-top: 5%;
-        margin-left: 10%;
-        font-family: var(--font-style-text);
-        font-weight: 500;
-        color: var(--primary-color);
-        padding: 8px;
-        width: 10vw;
-        border: 1px solid white;
-        background-color: rgba(29, 29, 29, 0.941);
+      .img-container {
+        display: flex;
+        align-items: center;
+
+        img {
+          position: absolute;
+          transform: translateX(180%);
+          width: 15px;
+          height: 15px;
+        }
+
+        .input-file {
+          margin-left: 5%;
+          border-left: none;
+          border: 1px dashed white;
+
+          padding: 8px;
+          width: 18vw;
+          font-size: 0.7rem;
+
+          &:focus {
+            outline: none; 
+            border: 2px dashed rgba(150, 193, 131, 0.906);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+        }
+        }
+        input[type="file"] {
+          &::file-selector-button {
+            background-color: rgb(184, 169, 150);
+            border: none;
+          
+          }
+
+          &::-webkit-file-upload-button {
+            font-size: 0;
+            background-color: rgba(0, 0, 0, 0);
+          }
+          &::before {
+            content: "Ajouter une image de couverture";
+            color: rgb(58, 92, 80);
+            font-weight: bold;
+            font-family: var(--font-style-text);
+            cursor: pointer;
+            margin-left: 20px;
+          }
+        }
       }
 
       p {
         padding: 2px;
-        font-size: 1.2rem;
+        font-size: 1rem;
       }
 
       .onread {
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 10%;
         gap: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+    
+
+        .container input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+        }
+        
+        .container {
+          display: block;
+          position: relative;
+          cursor: pointer;
+          font-size: 20px;
+          user-select: none;
+        }
+        
+        /* Create a custom checkbox */
+        .checkmark {
+          position: relative;
+          top: 0;
+          left: 0;
+          height: 0.8em;
+          width: 0.8em;
+          background-color: #e5e5e5;
+          border-radius: 20%;
+          transition: background-color 0.3s, transform 0.3s; /* Ajout de la transition ici */
+        }
+        
+        /* When the checkbox is checked, add a blue background and trigger transition */
+        .container input:checked ~ .checkmark {
+          background-color: rgba(0, 0, 0, 0.678);
+          transform: scale(1.2); /* Effet de coche au ralenti */
+        }
+        
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+          content: "";
+          position: absolute;
+          display: none;
+        }
+        
+        /* Show the checkmark when checked */
+        .container input:checked ~ .checkmark:after {
+          display: block;
+        }
+        
+        /* Style the checkmark/indicator */
+        .checkmark:after {
+          left: 0.30em;
+          top: 0.10em;
+          width: 0.15em;
+          height: 0.4em;
+          border: solid white;
+          border-width: 0 0.10em 0.10em 0;
+          transform: rotate(45deg);
+          transition: border-color 0.3s;
+        }
+        
 
         p {
-          margin-right: 10px;
-          font-size: 1rem;
-          font-weight: bold;
+          font-size: 0.9rem;
+          font-weight: 500;
         }
       }
     }
@@ -91,6 +197,9 @@
     align-items: center;
 
     .upload {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-family: var(--font-style-text);
       background-color: rgba(29, 29, 29, 0.941);
       box-shadow:
@@ -98,10 +207,11 @@
         -1px -1px 4px rgba(105, 105, 105, 0.5);
       color: white;
       font-weight: bold;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       border: none;
       border-radius: 30px;
-      padding: 15px 70px;
+      width: 15vw;
+      padding: 15px;
       cursor: pointer;
       transition: transform 0.3s ease;
     }

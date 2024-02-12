@@ -46,7 +46,6 @@
           justify-content: space-between;
           padding: 5px;
           gap: 30px;
-          width: 15%;
 
           .edit,
           .delete,
@@ -61,9 +60,10 @@
           }
         }
       }
+
       h1 {
         color: var(--secondary-color);
-        font-size: 2.2rem;
+        font-size: 2.1rem;
       }
       h2 {
         font-size: 1.5rem;
@@ -98,35 +98,88 @@
         justify-content: flex-end;
         width: 80%;
 
-        .btn-read {
-          width: 10vw;
-          padding: 5px;
-          border-radius: 5px;
-          font-family: var(--font-style-text);
-          font-size: 1rem;
-          background-color: rgba(255, 255, 255, 0.804);
-          border: none;
-          cursor: pointer;
-          transition:
-            background-color 0.2s,
-            color 0.2s;
-          transition: transform 0.3s ease;
+        p {
+          margin-right: 3%;
         }
 
-        .btn-read:hover {
-          background-color: var(--secondary-color);
-          color: white;
-          transform: scale(1.1);
+        .container input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
         }
+        
+        .container {
+          display: block;
+          position: relative;
+          cursor: pointer;
+          font-size: 20px;
+          user-select: none;
+        }
+        
+        /* Create a custom checkbox */
+        .checkmark {
+          position: relative;
+          top: 0;
+          left: 0;
+          height: 1em;
+          width: 1em;
+          background-color: #e5e5e5;
+          border-radius: 20%;
+          transition: background-color 0.3s;
+        }
+        
+        /* When the checkbox is checked, add a blue background and trigger animation */
+        .container input:checked ~ .checkmark {
+          background-color: var(--secondary-color);
+          animation: pop 0.3s ease-out; /* Ajout de l'animation ici */
+        }
+        
+        /* Define the pop animation */
+        @keyframes pop {
+          0% { transform: scale(1); }
+          25% { transform: scale(1.2); }
+          50% { transform: scale(0.8); }
+          75% { transform: scale(1.1); }
+          100% { transform: scale(1); }
+        }
+        
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+          content: "";
+          position: absolute;
+          display: none;
+        }
+        
+        /* Show the checkmark when checked */
+        .container input:checked ~ .checkmark:after {
+          display: block;
+        }
+        
+        /* Style the checkmark/indicator */
+        .checkmark:after {
+          left: 0.30em;
+          top: 0.10em;
+          width: 0.25em;
+          height: 0.5em;
+          border: solid white;
+          border-width: 0 0.15em 0.15em 0;
+          transform: rotate(45deg);
+          transition: border-color 0.3s;
+        }
+        
       }
     }
 
     .btn-return {
       display: flex;
       justify-content: end;
+      align-items: center;
       padding-right: 20%;
       .return {
         cursor: pointer;
+
         font-weight: 500;
         text-decoration: none;
         font-size: 1rem;
@@ -142,7 +195,7 @@
           -1px -1px 4px rgba(105, 105, 105, 0.5);
         width: 15vw;
         padding: 15px;
-        border-radius: 30px;
+        border-radius: 10px;
         color: var(--primary-color);
         transition: transform 0.3s ease;
       }
@@ -166,7 +219,7 @@
         background-color: #ffffff9f;
         border: none;
         border-radius: 5px;
-        width: 37vw;
+        width: 32.5vw;
         height: 4vh;
         padding: 2px;
         font-style: italic;

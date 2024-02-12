@@ -2,6 +2,12 @@ import axios from "axios";
 import { NavLink } from "react-router-dom";
 import { useContext, useState } from "react";
 import userContext from "../context/userContext";
+import { FaCheck } from "react-icons/fa6";
+import { IoImage } from "react-icons/io5";
+import { MdEdit } from "react-icons/md";
+import { GiSaveArrow } from "react-icons/gi";
+import { MdOutlineSaveAlt } from "react-icons/md";
+
 import NavBar from "../components/NavBar";
 
 export default function Profil() {
@@ -124,14 +130,26 @@ export default function Profil() {
 
                 {!isEditing ? (
                   <form id="form" className="pseudo-user">
-                    {userConnected.pseudo && <p>{userConnected.pseudo}</p>}
-                    {userConnected.email && <p>{userConnected.email}</p>}
+                    <h1>Informations du profil</h1>
+                    <div className="user-info">
+                      <h2>Pseudo</h2>
+                      {userConnected.pseudo && <p>{userConnected.pseudo}</p>}
+                      <h2>E-mail</h2>
+                      {userConnected.email && <p>{userConnected.email}</p>}
+                      <h2>Catégorie préférée</h2>
+                      <p>{userConnected.style_favoris}</p>
+                    </div>
 
-                    <p>Catégorie préférée: {userConnected.style_favoris}</p>
-
-                    <button className="edit" type="button" onClick={handleEdit}>
-                      Editer mon profil
-                    </button>
+                    <div className="handle-edit">
+                      <button
+                        className="edit"
+                        type="button"
+                        onClick={handleEdit}
+                      >
+                        <MdEdit size={18} style={{ marginRight: "5px" }} />{" "}
+                        Editer mon profil
+                      </button>
+                    </div>
                   </form>
                 ) : (
                   <>
@@ -145,13 +163,16 @@ export default function Profil() {
                           id="file"
                           className="input-file"
                         />
-                        <label htmlFor="file" className="label-file">
-                          Choisir un avatar
-                        </label>
+                        <div className="upload-avatar">
+                          <label htmlFor="file" className="label-file">
+                            <IoImage size={18} style={{ marginRight: "5px" }} />{" "}
+                            Choisir un avatar
+                          </label>
 
-                        <button type="submit" className="upload-avatar">
-                          <img src="images/upload.png" alt="upload" />
-                        </button>
+                          <button type="submit" className="save-avatar">
+                            <GiSaveArrow size={18} />
+                          </button>
+                        </div>
                       </form>
                     </div>
                     <form
@@ -159,6 +180,7 @@ export default function Profil() {
                       className="edit-user"
                       onSubmit={handleSubmit}
                     >
+                      <p>Pseudo</p>
                       <input
                         className="input-edit"
                         type="text"
@@ -170,6 +192,7 @@ export default function Profil() {
                           })
                         }
                       />
+                      <p>E-mail</p>
                       <input
                         className="input-edit"
                         type="text"
@@ -181,7 +204,7 @@ export default function Profil() {
                           })
                         }
                       />
-
+                      <p>Catégorie préférée</p>
                       <input
                         className="input-edit"
                         type="text"
@@ -195,16 +218,19 @@ export default function Profil() {
                       />
                       <div className="edit-profil">
                         <button className="saveprofil" type="submit">
+                          <MdOutlineSaveAlt
+                            size={22}
+                            style={{ marginRight: "10px" }}
+                          />{" "}
                           Enregistrer
                         </button>
-                      </div>
-                      <div className="delete-user-profile">
+
                         <button
                           className="delete"
                           type="submit"
                           onClick={() => handleDeleteProfil(deleteUser.id)}
                         >
-                          <NavLink to="/">Supprimer le profil ?</NavLink>
+                          <NavLink to="/">Supprimer le profil </NavLink>
                         </button>
                       </div>
                     </form>

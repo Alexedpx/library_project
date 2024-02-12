@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import userContext from "../context/userContext";
+import { MdOutlineBookmarkAdd } from "react-icons/md";
 
 export default function AddBook() {
   const { userConnected } = useContext(userContext);
@@ -31,6 +32,7 @@ export default function AddBook() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const user = JSON.parse(localStorage.getItem("token"));
+    
     try {
       const data = new FormData();
       data.append("image", file);
@@ -71,7 +73,7 @@ export default function AddBook() {
         <div className="form-book">
           <div className="book-wrapper">
             <form onSubmit={handleSubmit} className="uploadbook">
-              <p>Titre </p>
+              <p>Titre du livre </p>
               <input
                 type="text"
                 className="titre"
@@ -83,7 +85,7 @@ export default function AddBook() {
                 className="auteur"
                 onChange={(event) => setAutorBook(event.target.value)}
               />
-              <p>Date </p>
+              <p>Date de sortie </p>
               <input
                 type="date"
                 className="date"
@@ -95,11 +97,12 @@ export default function AddBook() {
                 className="pages"
                 onChange={(event) => setPageBook(event.target.value)}
               />
-              <p>Catégorie </p>
+              <p>Catégorie</p>
               <input
                 type="text"
                 className="cat"
                 onChange={(event) => setCategoryBook(event.target.value)}
+                placeholder="Fantastique, Thriller ..."
               />
               <p>Description </p>
               <textarea
@@ -107,39 +110,61 @@ export default function AddBook() {
                 className="desc"
                 onChange={(event) => setDescriptionBook(event.target.value)}
               />
-              <input
-                name="image"
-                onChange={(e) => setFile(e.target.files[0])}
-                type="file"
-                accept="image/*"
-              />
 
+              <div className="img-container">
+                <img src="images/img.png" alt="img-upload" />
+                <input
+                  name="filename"
+                  onChange={(e) => setFile(e.target.files[0])}
+                  type="file"
+                  accept="image/*"
+                  id="file"
+                  className="input-file"
+                />
+              </div>
               <div className="onread">
                 <p>Livre lu </p>
-                <input
-                  type="checkbox"
-                  className="lu"
-                  onChange={handleReadChange}
-                />
+                <label class="container">
+                  <input
+                    type="checkbox"
+                    className="lu"
+                    checked={statutBook === "Lu"}
+                    onChange={handleReadChange}
+                  />
+                  <div class="checkmark"></div>
+                </label>
 
-                <p>En cours</p>
+                <p>Livre du moment</p>
+                <label class="container">
                 <input
                   type="checkbox"
                   className="encours"
+                  checked={statutBook === "En cours"}
                   onChange={handleInReadChange}
                 />
+                 <div class="checkmark"></div>
+                </label>
 
+                
                 <p>Livre à lire</p>
+                <label class="container">
                 <input
                   type="checkbox"
                   className="alire"
+                  checked={statutBook === "Non lu"}
                   onChange={handleToReadChange}
                 />
+                 <div class="checkmark"></div>
+                </label>
               </div>
 
               <div className="btn-add">
                 <button type="submit" className="upload">
-                  Ajouter
+                  <MdOutlineBookmarkAdd
+                    size={20}
+                    style={{ marginRight: "10px" }}
+                  />{" "}
+                  Ajouter à la collection
                 </button>
               </div>
             </form>

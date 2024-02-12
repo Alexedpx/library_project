@@ -94,6 +94,13 @@
         border-radius: 8px;
         width: 40vh;
         margin-bottom: 45px;
+
+        
+        &:focus {
+          outline: none; 
+          border: 2px solid rgba(150, 193, 131, 0.906);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+      }
       }
 
       .container-button {
