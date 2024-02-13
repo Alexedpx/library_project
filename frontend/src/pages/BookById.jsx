@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams, NavLink, useNavigate } from "react-router-dom";
 import userContext from "../context/userContext";
 import { Toaster, toast } from "sonner";
+import { MdOutlineSaveAlt } from "react-icons/md";
 import NavBar from "../components/NavBar";
 
 export default function BookById() {
@@ -14,6 +15,8 @@ export default function BookById() {
   const [isFavorite, setIsFavorite] = useState(false);
   const param = useParams();
   const [isEditing, setIsEditing] = useState(false);
+  const [pagesLues, setPagesLues] = useState(bookDetails.pageLue);
+  const [hasBookInRead, setHasBookInRead] = useState(false);
   const { id } = useParams();
 
   const [bookUpdate, setBookUpdate] = useState({
@@ -30,6 +33,9 @@ export default function BookById() {
       });
     }
   };
+
+  // GESTION DES LIVRES FAVORIS PAR ID DE L'UTILISATEUR
+  // VERIFIE SI LE LIVRE EST DEJA EN FAVORIS
 
   const favoriteUser = async () => {
     if (userConnected) {
@@ -67,6 +73,9 @@ export default function BookById() {
       }
     }
   }, [userFavorite]);
+
+  // SUPPRIME UN FAVORIS
+
   const handleFavoriteClick = async (bookIdSelected) => {
     console.log("Book ID Selected:", bookIdSelected);
     const user = JSON.parse(localStorage.getItem("token"));
@@ -87,6 +96,8 @@ export default function BookById() {
       } catch (error) {
         console.error(error);
       }
+
+      // AJOUTE UN FAVORIS
     } else {
       const NewFavorite = {
         bookId: bookIdSelected,
@@ -109,6 +120,9 @@ export default function BookById() {
     }
     favoriteUser();
   };
+
+  // SUPRESSION D'UN LIVRE DE LA BIBLIOTHEQUE
+
   const handleDeleteBook = async () => {
     const user = JSON.parse(localStorage.getItem("token"));
     try {
@@ -133,6 +147,8 @@ export default function BookById() {
     }
   };
 
+  // AFFICHE DES LIVRES PAR ID
+
   useEffect(() => {
     const getBookDetails = async () => {
       const user = JSON.parse(localStorage.getItem("token"));
@@ -154,6 +170,8 @@ export default function BookById() {
     getBookDetails();
   }, [id]);
 
+  // MODIFICATIONS DES DONNEES D'UN LIVRE (commentaire, statut, page lues ...)
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const user = JSON.parse(localStorage.getItem("token"));
@@ -164,6 +182,7 @@ export default function BookById() {
           bookUpdate.statut !== null && bookUpdate.statut !== undefined
             ? bookUpdate.statut
             : bookDetails.statut,
+        pageLue: pagesLues,
       };
 
       const updatedBook = await axios.put(
@@ -180,6 +199,7 @@ export default function BookById() {
         ...prevBookDetails,
         commentaire: bookUpdate.commentaire,
         statut: bookUpdate.statut,
+        pageLue: pagesLues,
       }));
 
       setIsEditing(false);
@@ -194,6 +214,15 @@ export default function BookById() {
     return date.toLocaleDateString("fr-FR", options);
   };
 
+  useEffect(() => {
+    const hasBookInRead = userFavorite.some(
+      (book) => book.statut === "En cours"
+    );
+    setHasBookInRead(hasBookInRead);
+  }, [userFavorite]);
+
+  // TOAST LIVRE A LIRE
+
   const handleInReadClick = () => {
     setBookUpdate((prevBookUpdate) => ({
       ...prevBookUpdate,
@@ -202,6 +231,8 @@ export default function BookById() {
 
     toast.success("Nouvelle lecture en cours", { position: "top-center" });
   };
+
+  // TOAST LIVRE LU
 
   const handleIsReadClick = () => {
     setBookUpdate((prevBookUpdate) => ({
@@ -225,155 +256,204 @@ export default function BookById() {
           </h1>
         </div>
 
-        {bookDetails && (
-          <div className="info-container">
-            <img
-              src={`${import.meta.env.VITE_BACKEND_URL}${bookDetails.image}`}
-              alt="img-book"
-            />
-            <div className="book-information">
-              {!isEditing ? (
-                <>
-                  <div className="header-details">
-                    <div className="icon-action">
-                      <h1>{bookDetails.titre}</h1>
-                      <div className="icon-info">
-                        {userFavorite && (
+        <div className="form">
+          {bookDetails && (
+            <div className="info-container">
+              <img
+                src={`${import.meta.env.VITE_BACKEND_URL}${bookDetails.image}`}
+                alt="img-book"
+              />
+              <div className="book-information">
+                {!isEditing ? (
+                  <>
+                    <div className="header-details">
+                      <div className="icon-action">
+                        <h1>{bookDetails.titre}</h1>
+                        <div className="icon-info">
+                          {userFavorite && (
+                            <img
+                              onClick={() => handleFavoriteClick(param.id)}
+                              role="presentation"
+                              className="favorite"
+                              src={
+                                isFavorite
+                                  ? "/images/heartfavorite.png"
+                                  : "/images//heartnotfavorite.png"
+                              }
+                              alt=""
+                            />
+                          )}
                           <img
-                            onClick={() => handleFavoriteClick(param.id)}
+                            src="/images/Edit.png"
+                            alt="edit"
+                            className="edit"
+                            onClick={handleEdit}
                             role="presentation"
-                            className="favorite"
-                            src={
-                              isFavorite
-                                ? "/images/heartfavorite.png"
-                                : "/images//heartnotfavorite.png"
-                            }
-                            alt=""
                           />
-                        )}
-                        <img
-                          src="/images/Edit.png"
-                          alt="edit"
-                          className="edit"
-                          onClick={handleEdit}
-                          role="presentation"
-                        />
 
-                        <img
-                          src="/images/delete.png"
-                          alt="delete"
-                          className="delete"
-                          onClick={() => handleDeleteBook(deleteBook.id)}
-                          role="presentation"
-                        />
+                          <img
+                            src="/images/delete.png"
+                            alt="delete"
+                            className="delete"
+                            onClick={() => handleDeleteBook(deleteBook.id)}
+                            role="presentation"
+                          />
+                        </div>
+                      </div>
+
+                      <h2>{bookDetails.auteur}</h2>
+                      <h3>{bookDetails.langue}</h3>
+
+                      <p>
+                        {formatLocalDate(bookDetails.date)} -{" "}
+                        {bookDetails.nombre_pages} pages
+                      </p>
+                    </div>
+                    <div className="description-book">
+                      <p>{bookDetails.description}</p>
+                    </div>
+                    <div className="category-note">
+                      <p>
+                        <span style={{ fontWeight: "bold" }}>Catégorie</span> :{" "}
+                        {bookDetails.categorie}
+                      </p>
+                      <div className="information-book">
+                        <p>
+                          <span style={{ fontWeight: "bold" }}>
+                            Commentaire personnel
+                          </span>{" "}
+                          : {bookDetails.commentaire}
+                        </p>
+                      </div>
+                      {bookDetails.statut === "En cours" && (
+                        <p>
+                          <span style={{ fontWeight: "bold" }}>
+                            Progression{" "}
+                          </span>{" "}
+                          : {bookDetails.pageLue} sur {bookDetails.nombre_pages}{" "}
+                          pages
+                        </p>
+                      )}
+                      {bookDetails.statut === "Lu" && (
+                        <p>
+                          <span style={{ fontWeight: "bold" }}>
+                            Progression{" "}
+                          </span>{" "}
+                          : Livre terminé !
+                        </p>
+                      )}
+                    </div>
+                  </>
+                ) : (
+                  <form id="form" className="edit-book" onSubmit={handleSubmit}>
+                    {isEditing && bookDetails.statut === "En cours" && (
+                      <div className="isread">
+                        <div className="check">
+                          <p>Marquer comme lu ?</p>
+                          <label className="container">
+                            <input
+                              type="checkbox"
+                              onClick={() => handleIsReadClick()}
+                            />
+                            <div className="checkmark"></div>
+                          </label>
+                        </div>
+                      </div>
+                    )}
+
+                    {isEditing && bookDetails.statut === "Non lu" && (
+                      <div className="isread">
+                        <div className="check">
+                          <p>En cours de lecture ?</p>
+                          <label className="container">
+                            <input
+                              type="checkbox"
+                              onClick={() => handleInReadClick()}
+                            />
+                            <div className="checkmark"></div>
+                          </label>
+                        </div>
+                      </div>
+                    )}
+                    <div className="header-details">
+                      <h1>{bookDetails.titre}</h1>
+                      <h2>{bookDetails.auteur}</h2>
+                      <h3>{bookDetails.langue}</h3>
+                      <p>
+                        {formatLocalDate(bookDetails.date)} -{" "}
+                        {bookDetails.nombre_pages} pages
+                      </p>
+                    </div>
+                    <div className="description-book">
+                      <p>{bookDetails.description}</p>
+                    </div>
+                    <div className="category-note">
+                      <p>
+                        <span style={{ fontWeight: "bold" }}>Catégorie</span> :{" "}
+                        {bookDetails.categorie}
+                      </p>
+                      <div className="information-book">
+                        <p>
+                          <span style={{ fontWeight: "bold" }}>
+                            Commentaire personnel
+                          </span>{" "}
+                          :{" "}
+                          <input
+                            type="text"
+                            value={bookUpdate.commentaire}
+                            onChange={(event) =>
+                              setBookUpdate({
+                                ...bookUpdate,
+                                commentaire: event.target.value,
+                              })
+                            }
+                          />
+                        </p>
+                      </div>
+                      {isEditing && bookDetails.statut === "En cours" && (
+                        <div className="range">
+                          <p>
+                            <span style={{ fontWeight: "bold" }}>
+                              Progression
+                            </span>{" "}
+                            : {pagesLues} sur {bookDetails.nombre_pages} pages
+                          </p>
+                          <input
+                            type="range"
+                            id="pagesLues"
+                            name="pagesLues"
+                            min="0"
+                            max={bookDetails.nombre_pages}
+                            value={pagesLues}
+                            onChange={(e) =>
+                              setPagesLues(parseInt(e.target.value))
+                            }
+                          />
+                        </div>
+                      )}
+
+                      <div className="save-btn">
+                        <button type="submit" className="save">
+                        <MdOutlineSaveAlt
+                            size={22}
+                            style={{ marginRight: "10px" }}
+                          /> Enregistrer
+                        </button>
                       </div>
                     </div>
-
-                    <h2>{bookDetails.auteur}</h2>
-                    <h3>{bookDetails.langue}</h3>
-                    <p>
-                      {formatLocalDate(bookDetails.date)} -{" "}
-                      {bookDetails.nombre_pages} pages
-                    </p>
-                  </div>
-                  <div className="description-book">
-                    <p>{bookDetails.description}</p>
-                  </div>
-                  <div className="category-note">
-                    <p>
-                      <span style={{ fontWeight: "bold" }}>Catégorie</span> :{" "}
-                      {bookDetails.categorie}
-                    </p>
-                    <div className="information-book">
-                      <p>
-                        <span style={{ fontWeight: "bold" }}>
-                          Commentaire personnel
-                        </span>{" "}
-                        : {bookDetails.commentaire}
-                      </p>
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <form id="form" className="edit-book" onSubmit={handleSubmit}>
-                  {isEditing && bookDetails.statut === "En cours" && (
-                    <div className="isread">
-                      <p>Marquer comme lu ?</p>
-                      <label className="container">
-                        <input
-                          type="checkbox"
-                          onClick={() => handleIsReadClick()}
-                        />
-                        <div className="checkmark"></div>
-                      </label>
-                    </div>
-                  )}
-                  {isEditing && bookDetails.statut === "Non lu" && (
-                    <div className="isread">
-                      <p>En cours de lecture ?</p>
-                      <label className="container">
-                        <input
-                          type="checkbox"
-                          onClick={() => handleInReadClick()}
-                        />
-                        <div className="checkmark"></div>
-                      </label>
-                    </div>
-                  )}
-
-                  <div className="header-details">
-                    <h1>{bookDetails.titre}</h1>
-                    <h2>{bookDetails.auteur}</h2>
-                    <h3>{bookDetails.langue}</h3>
-                    <p>
-                      {formatLocalDate(bookDetails.date)} -{" "}
-                      {bookDetails.nombre_pages} pages
-                    </p>
-                  </div>
-                  <div className="description-book">
-                    <p>{bookDetails.description}</p>
-                  </div>
-                  <div className="category-note">
-                    <p>
-                      <span style={{ fontWeight: "bold" }}>Catégorie</span> :{" "}
-                      {bookDetails.categorie}
-                    </p>
-                    <div className="information-book">
-                      <p>
-                        <span style={{ fontWeight: "bold" }}>
-                          Commentaire personnel
-                        </span>{" "}
-                        :{" "}
-                        <input
-                          type="text"
-                          value={bookUpdate.commentaire}
-                          onChange={(event) =>
-                            setBookUpdate({
-                              ...bookUpdate,
-                              commentaire: event.target.value,
-                            })
-                          }
-                        />
-                      </p>
-                    </div>
-                    <div className="save-btn">
-                      <button type="submit" className="save">
-                        Enregistrer
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              )}
-              <div className="btn-return">
-                <NavLink to="/library">
-                  <button type="button" className="return">
-                    Retourner à ma bibliothèque
-                  </button>
-                </NavLink>
+                  </form>
+                )}
+                <div className="btn-return">
+                  <NavLink to="/library">
+                    <button type="button" className="return">
+                      Retourner à ma bibliothèque
+                    </button>
+                  </NavLink>
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </>
   );

@@ -8,6 +8,9 @@ export default function FavoriteBook() {
   const { userConnected } = useContext(userContext);
   const [userFavorite, setUserFavorite] = useState([]);
 
+
+  // AFFICHAGE DES FAVORIS DE L'UTILISATEUR CONNECTE
+
   const favoriteUser = async () => {
     if (userConnected) {
       const user = JSON.parse(localStorage.getItem("token"));

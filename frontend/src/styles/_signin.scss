@@ -17,7 +17,7 @@
     );
     border-radius: 10px;
     border: 2px solid rgba(255, 255, 255, 0.863);
-    height: 70vh;
+    height: 75vh;
     width: 60vh;
 
     h1 {
@@ -29,7 +29,7 @@
 
     p {
       text-align: center;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
     a {
       text-decoration: none;
@@ -44,24 +44,25 @@
       display: flex;
       align-items: center;
       flex-direction: column;
-
+      padding: 20px;
+    
       p {
         font-family: var(--font-style-text);
         font-size: 1.2rem;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
       }
 
       .name,
       .email,
       .password {
-        background-color: #e5ebe5;
+        background-color: #e5ebe5f3;
         border: none;
         height: 5vh;
         font-size: 1.5rem;
-        padding: 10px;
         border-radius: 8px;
         width: 40vh;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
+       
 
         
         &:focus {
@@ -73,7 +74,6 @@
 
       .container-button {
         width: 100%;
-
         display: flex;
         justify-content: center;
         text-decoration: none;

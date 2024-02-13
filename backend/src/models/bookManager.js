@@ -24,12 +24,13 @@ class bookManager extends AbstractManager {
     langue,
     categorie,
     description,
+    pageLue,
     commentaire,
     statut,
     userId
   ) {
     return this.database.query(
-      `INSERT INTO ${this.table} (image, titre, auteur, nombre_pages, date, langue, categorie, description, commentaire, user_id, statut) VALUES (?,?,?,?,?,?,?,?,?,?,?)`,
+      `INSERT INTO ${this.table} (image, titre, auteur, nombre_pages, date, langue, categorie, description, pageLue, commentaire, user_id, statut) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`,
       [
         image,
         titre,
@@ -39,6 +40,7 @@ class bookManager extends AbstractManager {
         langue,
         categorie,
         description,
+        pageLue,
         commentaire,
         statut,
         userId,
@@ -97,10 +99,10 @@ class bookManager extends AbstractManager {
 
   // The U of CRUD - Update operation
 
-  async update({ id, commentaire, statut }) {
+  async update({ id, commentaire, statut, pageLue }) {
     const [result] = await this.database.query(
-      `UPDATE ${this.table} SET commentaire=?, statut=? WHERE id=?`,
-      [commentaire, statut, id]
+      `UPDATE ${this.table} SET commentaire=?, statut=?, pageLue=? WHERE id=?`,
+      [commentaire, statut, pageLue, id]
     );
     return result;
   }

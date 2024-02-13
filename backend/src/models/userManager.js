@@ -88,6 +88,9 @@ class userManager extends AbstractManager {
       [avatar, userId]
     );
   }
+
+
+  
 }
 
 module.exports = userManager;

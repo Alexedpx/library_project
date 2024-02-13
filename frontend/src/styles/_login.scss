@@ -36,7 +36,6 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-
   padding-left: 25%;
 
   .login-wrapper {
@@ -62,7 +61,7 @@
 
     p {
       text-align: center;
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
     a {
       text-decoration: none;
@@ -86,14 +85,14 @@
 
       .name,
       .password {
-        background-color: #e5ebe5;
+        background-color: #e5ebe5ea;
         border: none;
         height: 5vh;
         font-size: 1.5rem;
         padding: 10px;
         border-radius: 8px;
         width: 40vh;
-        margin-bottom: 45px;
+        margin-bottom: 55px;
 
         
         &:focus {
