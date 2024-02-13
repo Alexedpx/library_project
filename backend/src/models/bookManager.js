@@ -21,6 +21,7 @@ class bookManager extends AbstractManager {
     auteur,
     nombre_pages,
     date,
+    langue,
     categorie,
     description,
     commentaire,
@@ -28,13 +29,14 @@ class bookManager extends AbstractManager {
     userId
   ) {
     return this.database.query(
-      `INSERT INTO ${this.table} (image, titre, auteur, nombre_pages, date, categorie, description, commentaire, user_id, statut) VALUES (?,?,?,?,?,?,?,?,?,?)`,
+      `INSERT INTO ${this.table} (image, titre, auteur, nombre_pages, date, langue, categorie, description, commentaire, user_id, statut) VALUES (?,?,?,?,?,?,?,?,?,?,?)`,
       [
         image,
         titre,
         auteur,
         nombre_pages,
         date,
+        langue,
         categorie,
         description,
         commentaire,
@@ -50,6 +52,7 @@ class bookManager extends AbstractManager {
     auteur,
     nombre_pages,
     date,
+    langue,
     categorie,
     description,
     statut,
@@ -58,14 +61,15 @@ class bookManager extends AbstractManager {
     console.info(userId);
     const [result] = await this.database.query(
       `INSERT INTO ${this.table} (
-            image, titre, auteur, nombre_pages, date, categorie, description, statut, user_id
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            image, titre, auteur, nombre_pages, date, langue, categorie, description, statut, user_id
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         image,
         titre,
         auteur,
         nombre_pages,
         date,
+        langue,
         categorie,
         description,
         statut,

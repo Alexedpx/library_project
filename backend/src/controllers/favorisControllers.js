@@ -6,7 +6,7 @@ const tables = require("../tables");
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
   // Extract the item data from the request body
-
+  console.log('Received request to add favorite:', req.body);
   const favoris = {
     bookId: req.body.bookId,
     userId: req.body.userId,

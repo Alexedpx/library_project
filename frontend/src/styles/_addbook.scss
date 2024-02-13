@@ -29,6 +29,7 @@
       .auteur,
       .date,
       .pages,
+      .langue,
       .cat {
         background-color: #e5ebe5;
         font-family: var(--font-style-text);
@@ -49,6 +50,12 @@
       .cat::placeholder {
         font-style: italic;
         color: rgba(0, 0, 0, 0.219);
+      }
+
+      .langue::placeholder {
+        font-style: italic;
+        color: rgba(0, 0, 0, 0.219);
+
       }
       .desc {
         background-color: #e5ebe5;

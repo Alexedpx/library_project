@@ -2,9 +2,9 @@ import axios from "axios";
 import { NavLink } from "react-router-dom";
 import { useContext, useState } from "react";
 import userContext from "../context/userContext";
-import { FaCheck } from "react-icons/fa6";
 import { IoImage } from "react-icons/io5";
 import { MdEdit } from "react-icons/md";
+import { Toaster, toast } from "sonner";
 import { GiSaveArrow } from "react-icons/gi";
 import { MdOutlineSaveAlt } from "react-icons/md";
 
@@ -93,19 +93,24 @@ export default function Profil() {
             },
           }
         );
-
+        toast.success("Informations du profil mis à jour", {
+          position: "top-center",
+        });
+  
+        await new Promise((resolve) => setTimeout(resolve, 1500));
         setUserConnected(userUpdated.data);
         setIsEditing(false);
       } catch (err) {
         console.error(err);
       }
     } else {
-      console.error("L'ID de l'utilisateur est indéfini ou incorrect.");
+      console.error(error);
     }
   };
   return (
     <>
       <NavBar />
+      <Toaster />
       <div className="background">
         <div className="header-title">
           <h1>

@@ -1,5 +1,4 @@
 import { useContext, useState, useEffect } from "react";
-
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import userContext from "../context/userContext";
@@ -77,6 +76,7 @@ export default function HomePage() {
             <option value="Science-Fiction">Science-Fiction</option>
             <option value="Biographie">Biographie</option>
             <option value="Scolaire">Scolaire</option>
+            <option value="Loisir">Loisir</option>
             <option value="Thriller">Thriller</option>
             <option value="Fantastique">Fantastique</option>
           </select>

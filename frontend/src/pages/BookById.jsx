@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useParams, NavLink, useNavigate } from "react-router-dom";
 import userContext from "../context/userContext";
-
+import { Toaster, toast } from "sonner";
 import NavBar from "../components/NavBar";
 
 export default function BookById() {
@@ -13,17 +13,22 @@ export default function BookById() {
   const [userFavorite, setUserFavorite] = useState([]);
   const [isFavorite, setIsFavorite] = useState(false);
   const param = useParams();
+  const [isEditing, setIsEditing] = useState(false);
+  const { id } = useParams();
 
   const [bookUpdate, setBookUpdate] = useState({
     commentaire: bookDetails.commentaire,
     statut: bookDetails.statut,
   });
 
-  const [isEditing, setIsEditing] = useState(false);
-  const { id } = useParams();
-
   const handleEdit = () => {
-    setIsEditing(true);
+    if (!isEditing) {
+      setIsEditing(true);
+      setBookUpdate({
+        commentaire: bookDetails.commentaire,
+        statut: bookDetails.statut,
+      });
+    }
   };
 
   const favoriteUser = async () => {
@@ -63,6 +68,7 @@ export default function BookById() {
     }
   }, [userFavorite]);
   const handleFavoriteClick = async (bookIdSelected) => {
+    console.log("Book ID Selected:", bookIdSelected);
     const user = JSON.parse(localStorage.getItem("token"));
     if (isFavorite) {
       try {
@@ -77,6 +83,7 @@ export default function BookById() {
             },
           }
         );
+        toast.success("Livre supprimé des favoris", { position: "top-center" });
       } catch (error) {
         console.error(error);
       }
@@ -95,13 +102,13 @@ export default function BookById() {
             },
           }
         );
+        toast.success("Livre ajouté aux favoris", { position: "top-center" });
       } catch (error) {
-        console.error(error);
+        console.error(`Error adding to favorites:`, error);
       }
     }
     favoriteUser();
   };
-
   const handleDeleteBook = async () => {
     const user = JSON.parse(localStorage.getItem("token"));
     try {
@@ -113,10 +120,13 @@ export default function BookById() {
           },
         }
       );
+      toast.success("Livre supprimé de la bibliothèque", {
+        position: "top-center",
+      });
 
+      await new Promise((resolve) => setTimeout(resolve, 1500));
       setBookDetails({});
       setDeleteBook(bookDetails.id);
-
       navigate("/library");
     } catch (err) {
       console.error(err);
@@ -184,9 +194,30 @@ export default function BookById() {
     return date.toLocaleDateString("fr-FR", options);
   };
 
+  const handleInReadClick = () => {
+    setBookUpdate((prevBookUpdate) => ({
+      ...prevBookUpdate,
+      statut: "En cours",
+    }));
+
+    toast.success("Nouvelle lecture en cours", { position: "top-center" });
+  };
+
+  const handleIsReadClick = () => {
+    setBookUpdate((prevBookUpdate) => ({
+      ...prevBookUpdate,
+      statut: "Lu",
+    }));
+
+    toast.success("Bien joué ! Vous avez terminé un livre.", {
+      position: "top-center",
+    });
+  };
+
   return (
     <>
       <NavBar />
+      <Toaster />
       <div className="background">
         <div className="header-title">
           <h1>
@@ -239,6 +270,7 @@ export default function BookById() {
                     </div>
 
                     <h2>{bookDetails.auteur}</h2>
+                    <h3>{bookDetails.langue}</h3>
                     <p>
                       {formatLocalDate(bookDetails.date)} -{" "}
                       {bookDetails.nombre_pages} pages
@@ -267,34 +299,24 @@ export default function BookById() {
                   {isEditing && bookDetails.statut === "En cours" && (
                     <div className="isread">
                       <p>Marquer comme lu ?</p>
-                      <label class="container">
+                      <label className="container">
                         <input
                           type="checkbox"
-                          onClick={() =>
-                            setBookUpdate((prevBookUpdate) => ({
-                              ...prevBookUpdate,
-                              statut: "Lu",
-                            }))
-                          }
+                          onClick={() => handleIsReadClick()}
                         />
-                        <div class="checkmark"></div>
+                        <div className="checkmark"></div>
                       </label>
                     </div>
                   )}
                   {isEditing && bookDetails.statut === "Non lu" && (
                     <div className="isread">
                       <p>En cours de lecture ?</p>
-                      <label class="container">
+                      <label className="container">
                         <input
                           type="checkbox"
-                          onClick={() =>
-                            setBookUpdate((prevBookUpdate) => ({
-                              ...prevBookUpdate,
-                              statut: "En cours",
-                            }))
-                          }
+                          onClick={() => handleInReadClick()}
                         />
-                        <div class="checkmark"></div>
+                        <div className="checkmark"></div>
                       </label>
                     </div>
                   )}
@@ -302,6 +324,7 @@ export default function BookById() {
                   <div className="header-details">
                     <h1>{bookDetails.titre}</h1>
                     <h2>{bookDetails.auteur}</h2>
+                    <h3>{bookDetails.langue}</h3>
                     <p>
                       {formatLocalDate(bookDetails.date)} -{" "}
                       {bookDetails.nombre_pages} pages

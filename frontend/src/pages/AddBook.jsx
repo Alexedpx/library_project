@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import userContext from "../context/userContext";
+import { Toaster, toast } from "sonner";
 import { MdOutlineBookmarkAdd } from "react-icons/md";
 
 export default function AddBook() {
@@ -11,6 +12,7 @@ export default function AddBook() {
   const [autorBook, setAutorBook] = useState("");
   const [dateBook, setDateBook] = useState("");
   const [pageBook, setPageBook] = useState("");
+  const [languageBook, setLanguageBook] = useState("");
   const [categoryBook, setCategoryBook] = useState("");
   const [descriptionBook, setDescriptionBook] = useState("");
   const [statutBook, setStatutBook] = useState("");
@@ -32,13 +34,14 @@ export default function AddBook() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const user = JSON.parse(localStorage.getItem("token"));
-    
+
     try {
       const data = new FormData();
       data.append("image", file);
       data.append("titre", titleBook);
       data.append("auteur", autorBook);
       data.append("nombre_pages", pageBook);
+      data.append("langue", languageBook);
       data.append("date", dateBook);
       data.append("categorie", categoryBook);
       data.append("description", descriptionBook);
@@ -53,8 +56,16 @@ export default function AddBook() {
           },
         }
       );
+      if (res.status === 201) {
+        toast.success("Nouveau livre ajouté à la bibliothèque", {
+          position: "top-center",
+        });
+        await new Promise((resolve) => setTimeout(resolve, 2000));
 
-      navigate("/library");
+        navigate("/library");
+      } else {
+        console.error(error);
+      }
     } catch (err) {
       console.error(err);
     }
@@ -63,6 +74,7 @@ export default function AddBook() {
   return (
     <div>
       <NavBar />
+      <Toaster />
       <div className="background">
         <div className="header-title">
           <h1>
@@ -91,9 +103,16 @@ export default function AddBook() {
                 className="date"
                 onChange={(event) => setDateBook(event.target.value)}
               />
-              <p>Nombre de pages </p>
+              <p>Langue d'édition </p>
               <input
                 type="text"
+                className="langue"
+                onChange={(event) => setLanguageBook(event.target.value)}
+                placeholder="Edition en Français"
+              />
+              <p>Nombre de pages </p>
+              <input
+                type="number"
                 className="pages"
                 onChange={(event) => setPageBook(event.target.value)}
               />
@@ -136,25 +155,24 @@ export default function AddBook() {
 
                 <p>Livre du moment</p>
                 <label class="container">
-                <input
-                  type="checkbox"
-                  className="encours"
-                  checked={statutBook === "En cours"}
-                  onChange={handleInReadChange}
-                />
-                 <div class="checkmark"></div>
+                  <input
+                    type="checkbox"
+                    className="encours"
+                    checked={statutBook === "En cours"}
+                    onChange={handleInReadChange}
+                  />
+                  <div class="checkmark"></div>
                 </label>
 
-                
                 <p>Livre à lire</p>
                 <label class="container">
-                <input
-                  type="checkbox"
-                  className="alire"
-                  checked={statutBook === "Non lu"}
-                  onChange={handleToReadChange}
-                />
-                 <div class="checkmark"></div>
+                  <input
+                    type="checkbox"
+                    className="alire"
+                    checked={statutBook === "Non lu"}
+                    onChange={handleToReadChange}
+                  />
+                  <div class="checkmark"></div>
                 </label>
               </div>
 

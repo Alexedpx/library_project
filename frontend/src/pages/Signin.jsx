@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useContext } from "react";
 import userContext from "../context/userContext";
-
+import { Toaster, toast } from "sonner";
 export default function Signin() {
   const navigate = useNavigate();
   const [inputPseudo, setInputPseudo] = useState("");
@@ -24,7 +24,12 @@ export default function Signin() {
         `${import.meta.env.VITE_BACKEND_URL}/api/signin/`,
         userSignin
       );
+      toast.success(`Inscription réussie, bienvenue ${dataUser.data.pseudo}!`, {
+        position: "top-center",
+      });
 
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      navigate("/");
       setUserConnected(dataUser.data);
       const userLocal = {
         ...dataUser.data,
@@ -37,18 +42,15 @@ export default function Signin() {
         })
       );
 
-      if (dataUser.status === 201) {
-        alert("Inscription réussie !");
-
-        navigate("/");
-      }
     } catch (error) {
       console.error(error.message);
+      
     }
   };
 
   return (
     <>
+     <Toaster richColors />
       <div className="header">
         <h1>
           My Little <span style={{ color: "#719a6b" }}>Library</span>

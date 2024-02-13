@@ -12,6 +12,7 @@ class favorisManager extends AbstractManager {
       `INSERT INTO ${this.table} (book_id, user_id) VALUES (?, ?)`,
       [bookId, userId]
     );
+
     return result;
   }
 
