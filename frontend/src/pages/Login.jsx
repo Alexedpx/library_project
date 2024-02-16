@@ -2,15 +2,20 @@ import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useContext } from "react";
 import userContext from "../context/userContext";
+import { Toaster, toast } from "sonner";
 
 export default function Login() {
   const navigate = useNavigate();
+  const [motDePasseVisible, setMotDePasseVisible] = useState(false);
   const [inputPseudo, setInputPseudo] = useState("");
   const [inputPassword, setInputPassword] = useState("");
   const { setUserConnected } = useContext(userContext);
 
   const handleInputClick = (e) => {
     e.stopPropagation();
+  };
+  const toggleMotDePasseVisibility = () => {
+    setMotDePasseVisible(!motDePasseVisible);
   };
 
   const handleConnexion = async (e) => {
@@ -38,12 +43,15 @@ export default function Login() {
       );
       navigate("/library");
     } catch (error) {
-      alert("identifiants incorrect, veuillez réessayer");
+      toast.error("Identifiants incorrects, veuillez réessayer", {
+        position: "top-center",
+      });
     }
   };
 
   return (
     <>
+    <Toaster richColors />
       <div className="header">
         <h1>
           My Little <span style={{ color: "#719a6b" }}>Library</span>
@@ -76,14 +84,26 @@ export default function Login() {
               onClick={handleInputClick}
               onChange={(event) => setInputPseudo(event.target.value)}
             />
-            <div className="mdp-container">
+           
               <p>Mot de passe</p>
+              <div className="mdp-container">
               <input
-                type="password"
+                type={motDePasseVisible ? "text" : "password"}
                 className="password"
                 onClick={handleInputClick}
                 onChange={(event) => setInputPassword(event.target.value)}
               />
+               <img
+              src={
+                motDePasseVisible
+                  ? "/images/Mdp_unsee.png"
+                  : "/images/Mdp_see.png"
+              }
+              alt="eye"
+              className="mdp"
+              onClick={toggleMotDePasseVisibility}
+              role="presentation"
+            />
             </div>
             <div className="container-button">
               <button type="submit" className="btn-inscription">

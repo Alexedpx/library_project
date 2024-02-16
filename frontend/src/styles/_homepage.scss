@@ -1,8 +1,5 @@
 .background {
-  background-image: url("/images/bg.png");
-  width: 100%;
-  height: 100%;
-  background-size: cover;
+
 
   .header-title {
     h1 {
@@ -81,7 +78,7 @@
       height: 18vw;
       background-image: linear-gradient(
         120deg,
-        rgba(81, 130, 113, 0.952) 0%,
+        #518271f3 0%,
         rgba(150, 193, 131, 0.906) 100%
       );
       border-radius: 15px 2px 15px 2px;
@@ -110,6 +107,7 @@
   .container-books {
     height: 80vh;
     margin-left: 20vw;
+    
 
     h2 {
       padding: 1vw;
@@ -117,18 +115,14 @@
     }
     .livres-lus,
     .livres-nonlus {
-      display: flex;
-      align-items: center;
-      gap: 20px;
+   height: 36%;
       background-color: rgba(0, 0, 0, 0.732);
-      height: 36%;
-      width: 100%;
 
       .book-list {
         display: flex;
-        justify-content: center;
         align-items: center;
-        margin-left: 2vw;
+       padding: 20px;
+
         img {
           border-radius: 5px;
           width: 8vw;

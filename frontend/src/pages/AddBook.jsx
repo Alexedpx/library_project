@@ -143,36 +143,36 @@ export default function AddBook() {
               </div>
               <div className="onread">
                 <p>Livre lu </p>
-                <label class="container">
+                <label className="container">
                   <input
                     type="checkbox"
                     className="lu"
                     checked={statutBook === "Lu"}
                     onChange={handleReadChange}
                   />
-                  <div class="checkmark"></div>
+                  <div className="checkmark"></div>
                 </label>
 
                 <p>Livre du moment</p>
-                <label class="container">
+                <label className="container">
                   <input
                     type="checkbox"
                     className="encours"
                     checked={statutBook === "En cours"}
                     onChange={handleInReadChange}
                   />
-                  <div class="checkmark"></div>
+                  <div className="checkmark"></div>
                 </label>
 
                 <p>Livre à lire</p>
-                <label class="container">
+                <label className="container">
                   <input
                     type="checkbox"
                     className="alire"
                     checked={statutBook === "Non lu"}
                     onChange={handleToReadChange}
                   />
-                  <div class="checkmark"></div>
+                  <div className="checkmark"></div>
                 </label>
               </div>
 

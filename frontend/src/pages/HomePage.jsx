@@ -4,13 +4,32 @@ import axios from "axios";
 import userContext from "../context/userContext";
 import NavBar from "../components/NavBar";
 import { BsBookmarkStarFill } from "react-icons/bs";
-
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 export default function HomePage() {
   const { userConnected } = useContext(userContext);
   const [books, setBooks] = useState([]);
   const [filterName, setFilterName] = useState("");
   const [selectedCategorie, setSelectedCategorie] = useState("");
+
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 6,
+      slidesToSlide: 6,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+      slidesToSlide: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      slidesToSlide: 1, 
+    },
+  };
 
   useEffect(() => {
     const getBooks = async () => {
@@ -49,6 +68,7 @@ export default function HomePage() {
   return (
     <div>
       <NavBar />
+
       <div className="background">
         <div className="header-title">
           <h1>
@@ -120,36 +140,39 @@ export default function HomePage() {
           <h2>MES LIVRES LUS</h2>
 
           <div className="livres-lus">
-            {books
-              .filter((book) => {
-                const nameFilter =
-                  filterName === "" ||
-                  (book.titre?.toLowerCase() || "").includes(
-                    filterName.toLowerCase()
-                  );
-                const categorieFilter =
-                  selectedCategorie === "" ||
-                  (book.categorie?.toLowerCase() || "") ===
-                    selectedCategorie.toLowerCase();
+            <Carousel responsive={responsive}>
+              {books
+                .filter((book) => {
+                  const nameFilter =
+                    filterName === "" ||
+                    (book.titre?.toLowerCase() || "").includes(
+                      filterName.toLowerCase()
+                    );
+                  const categorieFilter =
+                    selectedCategorie === "" ||
+                    (book.categorie?.toLowerCase() || "") ===
+                      selectedCategorie.toLowerCase();
 
-                const isRead = book.statut === "Lu";
+                  const isRead = book.statut === "Lu";
 
-                return nameFilter && categorieFilter && isRead;
-              })
-              .map((book) => (
-                <div key={book.id} className="book-list">
-                  <NavLink to={`/book/${book.id}`}>
-                    <img
-                      src={`${import.meta.env.VITE_BACKEND_URL}${book.image}`}
-                      alt={book.titre}
-                    />
-                  </NavLink>
-                </div>
-              ))}
+                  return nameFilter && categorieFilter && isRead;
+                })
+                .map((book) => (
+                  <div key={book.id} className="book-list">
+                    <NavLink to={`/book/${book.id}`}>
+                      <img
+                        src={`${import.meta.env.VITE_BACKEND_URL}${book.image}`}
+                        alt={book.titre}
+                      />
+                    </NavLink>
+                  </div>
+                ))}
+            </Carousel>
           </div>
 
           <h2>MES LIVRES A LIRE</h2>
           <div className="livres-nonlus">
+          <Carousel responsive={responsive}>
             {books
               .filter((book) => {
                 const nameFilter =
@@ -176,6 +199,7 @@ export default function HomePage() {
                   </NavLink>
                 </div>
               ))}
+              </Carousel>
           </div>
         </div>
       </div>

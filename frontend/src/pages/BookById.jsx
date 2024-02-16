@@ -15,22 +15,25 @@ export default function BookById() {
   const [isFavorite, setIsFavorite] = useState(false);
   const param = useParams();
   const [isEditing, setIsEditing] = useState(false);
+  // const [hasBookInRead, setHasBookInRead] = useState(false);
   const [pagesLues, setPagesLues] = useState(bookDetails.pageLue);
-  const [hasBookInRead, setHasBookInRead] = useState(false);
   const { id } = useParams();
 
   const [bookUpdate, setBookUpdate] = useState({
     commentaire: bookDetails.commentaire,
     statut: bookDetails.statut,
+    pageLue: bookDetails.pageLue !== undefined ? bookDetails.pageLue : 0,
   });
 
   const handleEdit = () => {
     if (!isEditing) {
       setIsEditing(true);
-      setBookUpdate({
+      setBookUpdate((prevBookUpdate) => ({
+        ...prevBookUpdate,
         commentaire: bookDetails.commentaire,
         statut: bookDetails.statut,
-      });
+        pageLue: bookDetails.pageLue !== undefined ? bookDetails.pageLue : 0,
+      }));
     }
   };
 
@@ -182,7 +185,7 @@ export default function BookById() {
           bookUpdate.statut !== null && bookUpdate.statut !== undefined
             ? bookUpdate.statut
             : bookDetails.statut,
-        pageLue: pagesLues,
+        pageLue: bookUpdate.pageLue, // Ne pas réinitialiser ici
       };
 
       const updatedBook = await axios.put(
@@ -199,7 +202,7 @@ export default function BookById() {
         ...prevBookDetails,
         commentaire: bookUpdate.commentaire,
         statut: bookUpdate.statut,
-        pageLue: pagesLues,
+        pageLue: bookUpdate.pageLue,
       }));
 
       setIsEditing(false);
@@ -214,12 +217,12 @@ export default function BookById() {
     return date.toLocaleDateString("fr-FR", options);
   };
 
-  useEffect(() => {
-    const hasBookInRead = userFavorite.some(
-      (book) => book.statut === "En cours"
-    );
-    setHasBookInRead(hasBookInRead);
-  }, [userFavorite]);
+  // useEffect(() => {
+  //   const hasBookInRead = userFavorite.some(
+  //     (book) => book.statut === "En cours"
+  //   );
+  //   setHasBookInRead(hasBookInRead);
+  // }, [userFavorite]);
 
   // TOAST LIVRE A LIRE
 
@@ -332,6 +335,12 @@ export default function BookById() {
                           </span>{" "}
                           : {bookDetails.pageLue} sur {bookDetails.nombre_pages}{" "}
                           pages
+                          <div className="progress">
+                            <progress
+                              value={bookDetails.pageLue}
+                              max={bookDetails.nombre_pages}
+                            ></progress>
+                          </div>
                         </p>
                       )}
                       {bookDetails.statut === "Lu" && (
@@ -416,28 +425,31 @@ export default function BookById() {
                             <span style={{ fontWeight: "bold" }}>
                               Progression
                             </span>{" "}
-                            : {pagesLues} sur {bookDetails.nombre_pages} pages
+                            :{" "}
+                            <input
+                              type="number"
+                              name="pagesLues"
+                              value={bookUpdate.pageLue}
+                              max={bookDetails.nombre_pages}
+                              onChange={(e) =>
+                                setBookUpdate({
+                                  ...bookUpdate,
+                                  pageLue: parseInt(e.target.value),
+                                })
+                              }
+                            />{" "}
+                            sur {bookDetails.nombre_pages} pages
                           </p>
-                          <input
-                            type="range"
-                            id="pagesLues"
-                            name="pagesLues"
-                            min="0"
-                            max={bookDetails.nombre_pages}
-                            value={pagesLues}
-                            onChange={(e) =>
-                              setPagesLues(parseInt(e.target.value))
-                            }
-                          />
                         </div>
                       )}
 
                       <div className="save-btn">
                         <button type="submit" className="save">
-                        <MdOutlineSaveAlt
+                          <MdOutlineSaveAlt
                             size={22}
                             style={{ marginRight: "10px" }}
-                          /> Enregistrer
+                          />{" "}
+                          Enregistrer
                         </button>
                       </div>
                     </div>

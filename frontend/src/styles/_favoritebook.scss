@@ -1,24 +1,21 @@
-.display-favorite {
-  margin-left: 20vw;
-  height: 100vh;
-}
 
 .livre-favoris {
-  margin-top: 2%;
+  margin-left: 20vw;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  height: 80%;
-  gap: 50px;
+  gap: 40px;
+ 
 }
 
 .book-fav {
+  
   display: flex;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
-  width: 16vw;
-  height: 46vh;
+  width: 13vw;
+  height: 40vh;
 
   .img-container {
     width: 100%;
@@ -31,7 +28,7 @@
 
     img {
       border-radius: 5px;
-      width: 7vw;
+      width: 6.5vw;
       border: 1px solid rgb(255, 255, 255);
     }
   }
@@ -41,19 +38,19 @@
     flex-direction: column;
     align-items: center;
     width: 20vw;
-    padding: 5px;
+    padding: 15px;
 
     h1 {
-      font-size: 0.9rem;
+      font-size: 0.7rem;
     }
 
     h2 {
-      font-size: 0.9rem;
+      font-size: 0.6rem;
       font-weight: 400;
     }
 
     h3 {
-      font-size: 0.8rem;
+      font-size: 0.6rem;
       font-weight: 400;
       font-style: italic;
     }
@@ -61,9 +58,10 @@
 
   .btn-details {
     .details {
+     
       cursor: pointer;
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.7rem;
       font-family: var(--font-style-text);
       border: none;
       background-image: linear-gradient(
@@ -74,7 +72,7 @@
       box-shadow:
         3px 3px 6px rgba(0, 0, 0, 0.5),
         -1px -1px 4px rgba(105, 105, 105, 0.5);
-      width: 10vw;
+      width: 8vw;
       padding: 10px;
       border-radius: 5px;
       color: var(--primary-color);

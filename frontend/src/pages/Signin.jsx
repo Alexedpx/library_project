@@ -1,17 +1,45 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import userContext from "../context/userContext";
 import { Toaster, toast } from "sonner";
+
+
 export default function Signin() {
   const navigate = useNavigate();
+  const [motDePasseVisible, setMotDePasseVisible] = useState(false);
   const [inputPseudo, setInputPseudo] = useState("");
   const [inputEmail, setInputEmail] = useState("");
   const { setUserConnected } = useContext(userContext);
   const [inputPassword, setInputPassword] = useState("");
+  const [formValid, setFormValid] = useState(true);
+
+  const validateForm = () => {
+    if (!inputPseudo || !inputEmail || !inputPassword) {
+      setFormValid(false);
+    } else {
+      setFormValid(true);
+    }
+  };
+  const handleInputClick = (e) => {
+    e.stopPropagation();
+  };
+ 
+  const toggleMotDePasseVisibility = () => {
+    setMotDePasseVisible(!motDePasseVisible);
+  };
+
+  useEffect(() => {
+    validateForm();
+  }, [inputPseudo, inputEmail, inputPassword]);
+
+
+
 
   const handleInscription = async (e) => {
     e.preventDefault();
+    validateForm();
+    if (formValid) {
     const userSignin = {
       pseudo: inputPseudo,
       email: inputEmail,
@@ -46,6 +74,11 @@ export default function Signin() {
       console.error(error.message);
       
     }
+  } else {
+    toast.error("Veuillez remplir tous les champs", {
+      position: "top-center",
+    });
+  }
   };
 
   return (
@@ -89,13 +122,26 @@ export default function Signin() {
               className="name"
               onChange={(event) => setInputPseudo(event.target.value)}
             />
-            <div className="mdp-container">
-              <p>Mot de passe</p>
+                
+                <p>Mot de passe</p>
+              <div className="mdp-container">
               <input
-                type="password"
+                type={motDePasseVisible ? "text" : "password"}
                 className="password"
+                onClick={handleInputClick}
                 onChange={(event) => setInputPassword(event.target.value)}
               />
+               <img
+              src={
+                motDePasseVisible
+                  ? "/images/Mdp_unsee.png"
+                  : "/images/Mdp_see.png"
+              }
+              alt="eye"
+              className="mdp"
+              onClick={toggleMotDePasseVisibility}
+              role="presentation"
+            />
             </div>
             <div className="container-button">
               <button type="submit" className="btn-inscription">
