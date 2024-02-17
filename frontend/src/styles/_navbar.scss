@@ -4,6 +4,14 @@
   width: 20vw;
   background-color: rgb(0, 0, 0);
 
+  .burger {
+    display: none;
+  }
+
+  .burger-menu {
+    visibility: hidden;
+  }
+
   .login-container {
     display: flex;
     align-items: center;
@@ -51,7 +59,6 @@
         font-size: 1.3rem;
       }
     }
-   
   }
 
   .navlink {
@@ -69,16 +76,11 @@
       width: 100%;
       align-items: center;
 
-
-    
       img,
       svg {
-      
         width: 1.6vw;
         height: 1.6vw;
       }
-
-     
 
       h1 {
         font-size: 1rem;
@@ -94,119 +96,223 @@
       }
     }
   }
- 
-
 }
 
-@media screen and (max-width: 1400px) {
+// @media screen and (max-width: 1400px) {
+//   .container-navbar {
+//     .login-container {
+//       .logout-button {
+//         .logout {
+//           font-size: 0.6rem;
+//           width: 8vw;
+//           padding: 12px;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @media screen and (max-width: 1250px) {
+//   .container-navbar {
+//     .login-container {
+//       padding: 6%;
+
+//       img {
+//         width: 7vw;
+//       }
+
+//       .logout-button {
+//         .logout {
+//           width: 9vw;
+//           padding: 10px;
+//           font-size: 0.6rem;
+//         }
+//       }
+//       .user-profile {
+//         p {
+//           font-size: 1rem;
+//         }
+//       }
+//       a {
+//         font-size: 1.3rem;
+//       }
+//     }
+
+//     .navlink {
+//       .accueil-container {
+//         h1 {
+//           font-size: 0.8rem;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @media screen and (max-width: 1070px) {
+//   .container-navbar {
+//     .login-container {
+//       padding: 8%;
+
+//       img {
+//         width: 7vw;
+//       }
+
+//       .logout-button {
+//         .logout {
+//           width: 9vw;
+//           padding: 10px;
+//           font-size: 0.5rem;
+//         }
+//       }
+//       .user-profile {
+//         p {
+//           font-size: 0.8rem;
+//         }
+//       }
+//       a {
+//         font-size: 1rem;
+//       }
+//     }
+
+//     .navlink {
+//       .accueil-container {
+//         h1 {
+//           font-size: 0.6rem;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @media screen and (max-width: 950px) {
+//   .container-navbar {
+//     width: 25vw;
+//     .login-container {
+//       .logout-button {
+//         .logout {
+//           width: 11vw;
+//           padding: 10px;
+//           font-size: 0.5rem;
+//         }
+//       }
+//     }
+//   }
+// }
+// @media screen and (max-width: 750px) {
+//   .container-navbar {
+//     width: 30vw;
+//     .login-container {
+//       .logout-button {
+//         .logout {
+//           width: 13vw;
+//           padding: 10px;
+//           font-size: 0.5rem;
+//         }
+//       }
+//     }
+//   }
+// }
+@media screen and (max-width: 650px) {
   .container-navbar {
+    position: absolute;
+    margin-left: 5%;
+    margin-top: 3%;
+    background-color: rgba(0, 0, 0, 0);
+
+    .burger {
+      display: flex;
+      justify-content: center;
+      display: inherit;
+      width: 6vw;
+    }
+
     .login-container {
+      visibility: hidden;
+    }
+
+    .navlink {
+      .accueil-container {
+        visibility: hidden;
+      }
+    }
+
+    .burger-menu {
+      visibility: visible;
+    }
+    .bm-overlay {
+      top: 0;
+      position: relative;
+    }
+    .bm-menu-wrap {
+      top: 0;
+      position: relative;
+    }
+    .bm-menu {
+      background-color: rgb(0, 0, 0);
+
+      .bm-item-list {
+        display: flex;
+        flex-direction: column;
+        padding: 10%;
+        justify-content: space-around;
+
+        a {
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 0.8rem;
+          color: white;
+
+          .icon {
+            align-items: center;
+        
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+
+  .login {
+    .profil {
+      align-items: center;
+      display: flex;
+      .avatar {
+        border-radius: 50px;
+        width: 15vw;
+        border: 1px solid white;
+        transition: transform 0.3s ease;
+      }
+
+      .avatar:hover {
+        transform: scale(1.1);
+      }
+    }
+    .info {
+      margin-left: 20px;
+      p {
+        font-weight: 500;
+        font-size: 1.2rem;
+      }
       .logout-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
         .logout {
-          font-size: 0.6rem;
+          cursor: pointer;
+          color: var(--text-color);
+          border: none;
+          background-image: linear-gradient(
+            120deg,
+            rgba(81, 130, 113, 1) 0%,
+            rgba(150, 193, 131, 1) 100%
+          );
+          box-shadow:
+            3px 3px 6px rgba(0, 0, 0, 0.5),
+            -1px -1px 4px rgba(105, 105, 105, 0.5);
           width: 8vw;
-          padding: 12px;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1250px) {
-  .container-navbar {
-    .login-container {
-      padding: 6%;
-
-      img {
-        width: 7vw;
-      }
-
-      .logout-button {
-        .logout {
-          width: 9vw;
-          padding: 10px;
-          font-size: 0.6rem;
-        }
-      }
-      .user-profile {
-        p {
-          font-size: 1rem;
-        }
-      }
-      a {
-        font-size: 1.3rem;
-      }
-    }
-
-    .navlink {
-      .accueil-container {
-        h1 {
-          font-size: 0.8rem;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1070px) {
-  .container-navbar {
-    .login-container {
-      padding: 8%;
-
-      img {
-        width: 7vw;
-      }
-
-      .logout-button {
-        .logout {
-          width: 9vw;
-          padding: 10px;
-          font-size: 0.5rem;
-        }
-      }
-      .user-profile {
-        p {
-          font-size: 0.8rem;
-        }
-      }
-      a {
-        font-size: 1rem;
-      }
-    }
-
-    .navlink {
-      .accueil-container {
-        h1 {
-          font-size: 0.6rem;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 950px) {
-  .container-navbar {
-    width: 25vw;
-    .login-container {
-      .logout-button {
-        .logout {
-          width: 11vw;
-          padding: 10px;
-          font-size: 0.5rem;
-        }
-      }
-    }
-  }
-}
-@media screen and (max-width: 750px) {
-  .container-navbar {
-    width: 30vw;
-    .login-container {
-      .logout-button {
-        .logout {
-          width: 13vw;
-          padding: 10px;
-          font-size: 0.5rem;
+          padding: 5px;
+          border-radius: 5px;
         }
       }
     }
