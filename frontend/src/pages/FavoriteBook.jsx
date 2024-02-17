@@ -38,7 +38,7 @@ export default function FavoriteBook() {
   return (
     <>
       <NavBar />
-      <div className="background">
+      <div className="background1">
         <div className="header-title">
           <h1>
             My Little <span style={{ color: "#719a6b" }}>Library</span>

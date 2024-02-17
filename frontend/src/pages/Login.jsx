@@ -30,10 +30,10 @@ export default function Login() {
         userLogin
       );
 
-      setUserConnected(res .data);
+      setUserConnected(res.data);
       const userLocal = {
-        ...res .data.user,
-        token: res .data.token,
+        ...res.data.user,
+        token: res.data.token,
       };
       localStorage.setItem(
         "token",
@@ -51,66 +51,66 @@ export default function Login() {
 
   return (
     <>
-    <Toaster richColors />
+      <Toaster richColors />
       <div className="header">
         <h1>
           My Little <span style={{ color: "#719a6b" }}>Library</span>
         </h1>
 
-        <div className="catching-title">
+        <div className="container-login">
+          <div className="catching-text">
+            <h3>Gérez votre collection et ajoutez de nouveaux livres !</h3>
+          </div>
+          <div className="login-wrapper">
+            <h1>Connectez-vous</h1>
+            <p>
+              Vous n'avez pas encore de compte sur My Little Library ?<br></br>
+              <NavLink to="/signin">Inscription</NavLink>
+            </p>
+            <form onSubmit={handleConnexion} className="form-login">
+              <p>Pseudo</p>
+              <input
+                type="text"
+                className="name"
+                onClick={handleInputClick}
+                onChange={(event) => setInputPseudo(event.target.value)}
+              />
+
+              <p>Mot de passe</p>
+              <div className="mdp-container">
+                <input
+                  type={motDePasseVisible ? "text" : "password"}
+                  className="password"
+                  onClick={handleInputClick}
+                  onChange={(event) => setInputPassword(event.target.value)}
+                />
+                <img
+                  src={
+                    motDePasseVisible
+                      ? "/images/Mdp_unsee.png"
+                      : "/images/Mdp_see.png"
+                  }
+                  alt="eye"
+                  className="mdp"
+                  onClick={toggleMotDePasseVisibility}
+                  role="presentation"
+                />
+              </div>
+             
+              <div className="container-button">
+                <button type="submit" className="btn-inscription">
+                  Se connecter
+                </button>
+              </div>
+              </form>
+          </div>
+        </div>
+        <div className="slogan">
           <h2>
-            Read <span style={{ color: "#719a6b" }}>books,</span>
+            Read <span style={{ color: "#719a6b" }}>books, </span>
             <br></br>
             Love <span style={{ color: "#719a6b" }}>books.</span>
           </h2>
-        </div>
-        <div className="presentation-text">
-          <h3>Gérez votre collection et ajoutez de nouveaux livres !</h3>
-        </div>
-      </div>
-
-      <div className="container-login">
-        <div className="login-wrapper">
-          <h1>Connectez-vous</h1>
-          <p>
-            Vous n'avez pas encore de compte sur My Little Library ?<br></br>
-            <NavLink to="/signin">Inscription</NavLink>
-          </p>
-          <form onSubmit={handleConnexion} className="form-login">
-            <p>Pseudo</p>
-            <input
-              type="text"
-              className="name"
-              onClick={handleInputClick}
-              onChange={(event) => setInputPseudo(event.target.value)}
-            />
-           
-              <p>Mot de passe</p>
-              <div className="mdp-container">
-              <input
-                type={motDePasseVisible ? "text" : "password"}
-                className="password"
-                onClick={handleInputClick}
-                onChange={(event) => setInputPassword(event.target.value)}
-              />
-               <img
-              src={
-                motDePasseVisible
-                  ? "/images/Mdp_unsee.png"
-                  : "/images/Mdp_see.png"
-              }
-              alt="eye"
-              className="mdp"
-              onClick={toggleMotDePasseVisibility}
-              role="presentation"
-            />
-            </div>
-            <div className="container-button">
-              <button type="submit" className="btn-inscription">
-                Se connecter
-              </button>
-            </div>
-          </form>
         </div>
       </div>
     </>

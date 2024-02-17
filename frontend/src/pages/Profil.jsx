@@ -111,7 +111,7 @@ export default function Profil() {
     <>
       <NavBar />
       <Toaster />
-      <div className="background">
+      <div className="background1">
         <div className="header-title">
           <h1>
             My Little <span style={{ color: "#719a6b" }}>Library </span>

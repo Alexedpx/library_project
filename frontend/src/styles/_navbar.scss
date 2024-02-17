@@ -212,17 +212,3 @@
     }
   }
 }
-@media screen and (max-width: 560px) {
-  .container-navbar {
-    width: 10vw;
-    .login-container {
-      .logout-button {
-        .logout {
-          width: 15vw;
-          padding: 10px;
-          font-size: 0.3rem;
-        }
-      }
-    }
-  }
-}

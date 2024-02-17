@@ -1,156 +1,158 @@
 .header {
   background-image: url("images/background.jpg");
   background-repeat: no-repeat;
-  position: absolute;
-  background-size: 35%;
-  width: 100vw;
-  height: 100%;
-
+  background-size: contain;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   h1 {
     font-size: 3rem;
     padding: 2%;
   }
-}
-.catching-title {
-  padding-left: 18%;
-  padding-top: 10%;
 
-  span,
-  h2 {
-    font-size: 2.3rem;
-  }
-}
-.presentation-text {
-  padding-top: 18%;
-  padding-left: 2%;
-  width: 25%;
-
-  h3 {
-    font-size: 1.8rem;
-  }
-}
-
-.container-login {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin-left: 35%;
-
-  background-image: linear-gradient(120deg, #000000 0%, #2e2e2e 100%);
-
-  .login-wrapper {
+  .slogan {
+    width: 26%;
     display: flex;
+    padding-bottom: 4%;
+    justify-content: end;
+    span,
+    h2 {
+      font-size: 2.2rem;
+    }
+  }
+
+  .container-login {
+    display: flex;
+    justify-content: center;
     flex-direction: column;
-    justify-content: space-around;
-    background-image: linear-gradient(120deg, #518271 0%, #96c183 100%);
-    border-radius: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.863);
-    height: 65vh;
-    width: 55vh;
+    align-items: center;
+    margin-left: 30%;
+    height: 100%;
 
-    h1 {
-      text-align: center;
-      font-family: var(--font-style-text);
-      font-size: 2.3rem;
-      color: var(--primary-color);
+    .catching-text {
+      padding-bottom: 3%;
+
+      h3 {
+        font-size: 1.5em;
+      }
     }
 
-    p {
-      text-align: center;
-      font-size: 1rem;
-    }
-    a {
-      text-decoration: none;
-      color: #000000;
-      font-weight: bold;
-    }
-    a:hover {
-      color: white;
-    }
-
-    .form-login {
+    .login-wrapper {
       display: flex;
-      align-items: center;
       flex-direction: column;
-     
+      justify-content: space-around;
+      background-image: linear-gradient(120deg, #518271 0%, #96c183 100%);
+      border-radius: 10px;
+      border: 2px solid rgba(255, 255, 255, 0.863);
+      height: 65vh;
+      width: 55vh;
+
+      h1 {
+        text-align: center;
+        font-family: var(--font-style-text);
+        font-size: 2.3rem;
+        color: var(--primary-color);
+      }
+
       p {
-        font-family: var(--font-style-text);
-        font-size: 1.2rem;
-        margin-bottom: 10px;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+      a {
+        text-decoration: none;
+        color: #000000;
+        font-weight: bold;
+      }
+      a:hover {
+        color: white;
       }
 
-      .name,
-      .password {
-        background-color: #e5ebe5ea;
-        border: none;
-        height: 5vh;
-        font-size: 1.2rem;
-        font-weight: 500;
-        font-family: var(--font-style-text);
-        padding: 10px;
-        border-radius: 8px;
-        width: 40vh;
-        margin-bottom: 55px;
-
-        &:focus {
-          outline: none;
-          border: 2px solid rgba(150, 193, 131, 0.906);
-          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-        }
-      }
-      .mdp-container {
-        position: relative;
+      .form-login {
         display: flex;
         align-items: center;
-        .mdp {
-          width: 25px;
-          position: absolute;
-          right: 10px;
-          top: 10px;
-          cursor: pointer;
-        }
-      }
+        flex-direction: column;
+        justify-content: space-around;
+        height: 65%;
 
-      .container-button {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        text-decoration: none;
-
-        .btn-inscription {
-          position: relative;
-          display: inline-block;
+        p {
           font-family: var(--font-style-text);
-          background: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 1),
-            rgba(49, 46, 46, 0.85)
-          );
-          color: white;
-          font-weight: bold;
-          font-size: 1.6rem;
+          font-size: 1.2rem;
+        }
+
+        .name,
+        .password {
+          background-color: #e5ebe5ea;
           border: none;
-          border-radius: 30px;
+          height: 5vh;
+          font-size: 1.2rem;
+          font-weight: 500;
+          font-family: var(--font-style-text);
+          padding: 10px;
+          border-radius: 8px;
+          width: 40vh;
 
-          padding: 14px 30px;
-          cursor: pointer;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-          animation: button-shimmer 2s infinite;
-          transition: all 0.3s ease-in-out;
+          &:focus {
+            outline: none;
+            border: 2px solid rgba(150, 193, 131, 0.906);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+          }
+        }
+        .mdp-container {
+          position: relative;
+          display: flex;
+          align-items: center;
+
+          .mdp {
+            width: 25px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+          }
         }
 
-        .btn-inscription:hover {
-          background: linear-gradient(to bottom, #000000, rgba(0, 0, 0, 0.749));
-          animation: button-particles 1s ease-in-out infinite;
-          transform: translateY(-2px);
-        }
-        .btn-inscription:active {
-          transform: scale(0.95);
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
+        .container-button {
+          width: 100%;
+          padding-top: 10%;
+          display: flex;
+          justify-content: center;
+          text-decoration: none;
 
+          .btn-inscription {
+            font-family: var(--font-style-text);
+            background: linear-gradient(
+              to bottom,
+              rgba(0, 0, 0, 1),
+              rgba(49, 46, 46, 0.85)
+            );
+            color: white;
+            font-weight: bold;
+            font-size: 1.6rem;
+            border: none;
+            border-radius: 30px;
+
+            padding: 14px 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: button-shimmer 2s infinite;
+            transition: all 0.3s ease-in-out;
+          }
+
+          .btn-inscription:hover {
+            background: linear-gradient(
+              to bottom,
+              #000000,
+              rgba(0, 0, 0, 0.749)
+            );
+            animation: button-particles 1s ease-in-out infinite;
+            transform: translateY(-2px);
+          }
+          .btn-inscription:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+          }
+        }
         @keyframes button-shimmer {
           0% {
             background-position: left top;
@@ -175,207 +177,57 @@
   }
 }
 
-@media screen and (max-width: 1730px) {
+@media screen and (max-width: 1375px) {
   .header {
-    background-image: url("images/background.jpg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-@media screen and (max-width: 1585px) {
-  .header {
-    background-image: url("images/background.jpg");
-    background-size: contain;
-    position: absolute;
-
     h1 {
       font-size: 2rem;
     }
-    .catching-title {
-      padding-left: 15%;
 
+    .slogan {
+      width: 35%;
+    display: flex;
+    padding-bottom: 4%;
+    justify-content: end;
       span,
       h2 {
-        font-size: 1.6rem;
-      }
-    }
-  }
-  .presentation-text {
-    width: 20%;
-    height: 50%;
-    h3 {
-      font-size: 1rem;
-    }
-  }
-
-  .container-login {
-    margin-right: 20%;
-    position: relative;
-    .login-wrapper {
-      height: 55vh;
-      width: 40vh;
-
-      h1 {
-        font-size: 1.7rem;
-      }
-
-      p {
-        font-size: 0.8rem;
-      }
-
-      .form-login {
-        p {
-          font-size: 0.8rem;
-          margin-bottom: 10px;
-        }
-
-        .name,
-        .password {
-          height: 4vh;
-          font-size: 1rem;
-
-          width: 30vh;
-          margin-bottom: 30px;
-        }
-
-        .container-button {
-          .btn-inscription {
-            font-size: 1rem;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1400px) {
-  .header {
-    background-image: url("images/background.jpg");
-    background-size: cover;
-    position: absolute;
-
-    h1 {
-      font-size: 2rem;
-    }
-    .catching-title {
-      justify-content: end;
-      display: flex;
-
-      padding-left: 10%;
-
-      span,
-      h2 {
+     
         font-size: 1.8rem;
       }
     }
-  }
-  .presentation-text {
-    display: flex;
-    justify-content: center;
-    align-items: end;
 
-    width: 100%;
-    height: 50%;
-    h3 {
-      font-size: 1.3rem;
-    }
-  }
+    .container-login {
 
-  .container-login {
-    margin-right: 20%;
-    position: relative;
-    .login-wrapper {
-      height: 55vh;
-      width: 40vh;
-
-      h1 {
-        font-size: 1.7rem;
+      .catching-text {
+        
+        h3 {
+          font-size: 1.3em;
+        }
       }
 
-      p {
-        font-size: 0.8rem;
-      }
+      .login-wrapper {
+        h1 {
+          font-size: 2rem;
+        }
 
-      .form-login {
         p {
           font-size: 0.8rem;
-          margin-bottom: 10px;
         }
 
-        .name,
-        .password {
-          height: 4vh;
-          font-size: 1rem;
-
-          width: 30vh;
-          margin-bottom: 30px;
-        }
-
-        .container-button {
-          .btn-inscription {
+        .form-login {
+          p {
             font-size: 1rem;
           }
-        }
-      }
-    }
-  }
-}
-@media screen and (max-width: 900px) {
-  .header {
-    h1 {
-      font-size: 1.5rem;
-    }
 
-    .catching-title {
-      padding-left: 10%;
+          .mdp-container {
+            .mdp {
+              top: 8px;
+            }
+          }
 
-      span,
-      h2 {
-        font-size: 1.2rem;
-      }
-    }
-  }
-  .presentation-text {
-    width: 100%;
-    height: 60%;
-    h3 {
-      font-size: 1.2rem;
-    }
-  }
-
-  .container-login {
-    .login-wrapper {
-      height: 50vh;
-      width: 40vh;
-
-      h1 {
-        font-size: 1.5rem;
-      }
-
-      p {
-        font-size: 0.6rem;
-      }
-
-      .form-login {
-        p {
-          font-size: 0.7rem;
-        }
-
-        .name,
-        .password {
-          height: 3vh;
-          font-size: 1rem;
-
-          width: 30vh;
-          margin-bottom: 40px;
-        }
-
-        .container-button {
-          .btn-inscription {
-            font-size: 1rem;
+          .container-button {
+            .btn-inscription {
+              font-size: 1.4rem;
+            }
           }
         }
       }
@@ -383,177 +235,432 @@
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 1080px) {
   .header {
     h1 {
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
 
-    .catching-title {
-      padding-left: 10%;
-
+    
+    .slogan {
+  
       span,
       h2 {
-        font-size: 1.2rem;
+     
+        font-size: 1.8rem;
       }
     }
-  }
-  .presentation-text {
-    margin-top: 10%;
-    h3 {
-      font-size: 1rem;
-    }
-  }
+    
 
-  .container-login {
-    .login-wrapper {
-      height: 45vh;
-      width: 35vh;
-
-      h1 {
-        font-size: 1rem;
+    .container-login {
+      .catching-text {
+        h3 {
+          font-size: 1.1em;
+        }
       }
 
-      p {
-        font-size: 0.5rem;
-      }
+      .login-wrapper {
+        h1 {
+          font-size: 1.8rem;
+        }
 
-      .form-login {
         p {
           font-size: 0.7rem;
         }
 
-        .name,
-        .password {
-          height: 3vh;
-          font-size: 1rem;
-          width: 30vh;
+        .form-login {
+          p {
+            font-size: 0.8rem;
+          }
+
+          .mdp-container {
+            .mdp {
+              top: 8px;
+            }
+          }
+
+          .container-button {
+            .btn-inscription {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .header {
+    background-size: cover;
+    h1 {
+      font-size: 2rem;
+    }
+
+    .slogan {
+      display: flex;
+
+      justify-content: end;
+      width: 100%;
+      h2,
+      span {
+        padding-right: 10px;
+        font-size: 1.8rem;
+      }
+    }
+
+    .container-login {
+      margin: 0px;
+      .catching-text {
+        h3 {
+          font-size: 1em;
+        }
+      }
+
+      .login-wrapper {
+        width: 40vw;
+        h1 {
+          font-size: 1.6rem;
         }
 
-        .container-button {
-          .btn-inscription {
-            padding: 12px;
+        p {
+          font-size: 0.7rem;
+        }
+
+        .form-login {
+          p {
+            font-size: 0.8rem;
+          }
+
+          .mdp-container {
+            .mdp {
+              top: 8px;
+            }
+          }
+
+          .container-button {
+            .btn-inscription {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    h1 {
+      font-size: 2rem;
+    }
+
+    .slogan {
+      h2,
+      span {
+        padding-right: 10px;
+        font-size: 1.6rem;
+      }
+    }
+
+    .container-login {
+      margin: 0px;
+      .catching-text {
+        h3 {
+          font-size: 1em;
+        }
+      }
+
+      .login-wrapper {
+        width: 42vw;
+        height: 55vw;
+        h1 {
+          font-size: 1.5rem;
+        }
+
+        p {
+          font-size: 0.6rem;
+        }
+
+        .form-login {
+          p {
+            font-size: 0.8rem;
+          }
+
+          .name,
+          .password {
+            width: 35vw;
+          }
+
+          .mdp-container {
+            .mdp {
+              top: 8px;
+            }
+          }
+
+          .container-button {
+            .btn-inscription {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .header {
+    h1 {
+      font-size: 2rem;
+    }
+
+    .slogan {
+      h2,
+      span {
+        padding-right: 10px;
+        font-size: 1.4rem;
+      }
+    }
+
+    .container-login {
+      margin: 0px;
+      .catching-text {
+        h3 {
+          font-size: 0.8em;
+        }
+      }
+
+      .login-wrapper {
+        width: 45vw;
+        height: 60vw;
+        h1 {
+          font-size: 1.3rem;
+        }
+
+        p {
+          padding: 5%;
+          font-size: 0.6rem;
+        }
+
+        .form-login {
+          p {
+            font-size: 0.8rem;
+          }
+
+          .name,
+          .password {
+            width: 35vw;
+            height: 4vh;
+          }
+
+          .mdp-container {
+            .mdp {
+              top: 2px;
+            }
+          }
+
+          .container-button {
+            margin-bottom: 20px;
+            .btn-inscription {
+              font-size: 0.8rem;
+             
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .header {
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    .slogan {
+      h2,
+      span {
+        padding-right: 10px;
+        font-size: 1.4rem;
+      }
+    }
+
+    .container-login {
+      margin: 0px;
+      .catching-text {
+        h3 {
+          font-size: 0.8em;
+        }
+      }
+
+      .login-wrapper {
+        width: 55vw;
+        height: 70vw;
+        h1 {
+          font-size: 1.1rem;
+        }
+
+        p {
+          padding: 5%;
+          font-size: 0.6rem;
+        }
+
+        .form-login {
+          p {
             font-size: 0.7rem;
           }
+
+          .name,
+          .password {
+            width: 45vw;
+            height: 4vh;
+          }
+
+          .mdp-container {
+            .mdp {
+              top: 2px;
+            }
+          }
+
+          .container-button {
+            margin-bottom: 20px;
+            .btn-inscription {
+              font-size: 0.8rem;
+             
+            }
+          }
         }
       }
     }
   }
 }
+
+
 @media screen and (max-width: 450px) {
   .header {
     h1 {
       font-size: 1.5rem;
     }
 
-    .catching-title {
-      padding-left: 10%;
-
-      span,
-      h2 {
+    .slogan {
+      h2,
+      span {
+        padding-right: 10px;
         font-size: 1.2rem;
       }
     }
-  }
-  .presentation-text {
-    margin-top: 10%;
-    h3 {
-      font-size: 0.8rem;
-    }
-  }
 
-  .container-login {
-    .login-wrapper {
-      padding: 10%;
-      height: 45vh;
-      width: 35vh;
-
-      h1 {
-        font-size: 1.2rem;
+    .container-login {
+      margin: 0px;
+      .catching-text {
+        h3 {
+          font-size: 0.8em;
+        }
       }
 
-      p {
-        font-size: 0.6rem;
-      }
+      .login-wrapper {
+        width: 60vw;
+        height: 80vw;
+        h1 {
+          font-size: 1.1rem;
+        }
 
-      .form-login {
         p {
-          font-size: 0.7rem;
+          padding: 5%;
+          font-size: 0.6rem;
         }
 
-        .name,
-        .password {
-          height: 3vh;
-          font-size: 1rem;
-          width: 25vh;
-        }
+        .form-login {
 
-        .container-button {
-          padding-top: 5%;
-
-          .btn-inscription {
-            padding: 12px;
+          p {
             font-size: 0.7rem;
+          }
+
+          .name,
+          .password {
+            width: 45vw;
+            height: 4vh;
+          }
+
+          .mdp-container {
+            .mdp {
+              top: 2px;
+            }
+          }
+
+          .container-button {
+            margin-bottom: 20px;
+            .btn-inscription {
+              font-size: 0.8rem;
+             
+            }
           }
         }
       }
     }
   }
 }
-@media screen and (max-width: 360px) {
+
+@media screen and (max-width: 350px) {
   .header {
     h1 {
-      font-size: 1.3rem;
+      font-size: 1.5rem;
     }
 
-    .catching-title {
-      padding-left: 10%;
-
-      span,
-      h2 {
-        font-size: 1rem;
+    .slogan {
+      h2,
+      span {
+        padding-right: 10px;
+        font-size: 1.1rem;
       }
     }
-  }
-  .presentation-text {
-    margin-top: 10%;
-    h3 {
-      font-size: 0.7rem;
-    }
-  }
 
-  .container-login {
-    .login-wrapper {
-      padding: 10%;
-      height: 45vh;
-      width: 35vh;
-
-      h1 {
-        font-size: 1.2rem;
+    .container-login {
+      margin: 0px;
+      .catching-text {
+        h3 {
+          font-size: 0.7em;
+        }
       }
 
-      p {
-        font-size: 0.6rem;
-      }
+      .login-wrapper {
+        width: 65vw;
+        height: 90vw;
+        h1 {
+          font-size: 1.1rem;
+        }
 
-      .form-login {
         p {
-          font-size: 0.7rem;
+          padding: 5%;
+          font-size: 0.6rem;
         }
 
-        .name,
-        .password {
-          height: 3vh;
-          font-size: 1rem;
-          width: 25vh;
-        }
-
-        .container-button {
-          padding-top: 5%;
-
-          .btn-inscription {
-            padding: 12px;
+        .form-login {
+          
+          p {
             font-size: 0.7rem;
+          }
+
+          .name,
+          .password {
+            width: 55vw;
+            height: 3.5vh;
+          }
+
+          .mdp-container {
+            .mdp {
+              top: 2px;
+            }
+          }
+
+          .container-button {
+            margin-bottom: 20px;
+            .btn-inscription {
+              font-size: 0.8rem;
+             
+            }
           }
         }
       }

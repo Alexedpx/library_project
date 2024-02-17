@@ -1,135 +1,158 @@
-.container-signin {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.header {
+  background-image: url("images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
   height: 100vh;
-  margin-left: 35%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  h1 {
+    font-size: 3rem;
+    padding: 2%;
+  }
 
-  background-image: linear-gradient(120deg, #000000 0%, #2e2e2e 100%);
-  
-  
-
-  .signin-wrapper {
+  .slogan {
+    width: 26%;
     display: flex;
+    padding-bottom: 4%;
+    justify-content: end;
+    span,
+    h2 {
+      font-size: 2.2rem;
+    }
+  }
+
+  .container-signin {
+    display: flex;
+    justify-content: center;
     flex-direction: column;
-    justify-content: space-around;
-    background-image: linear-gradient(
-      120deg,
-      rgba(81, 130, 113, 1) 0%,
-      rgba(150, 193, 131, 1) 100%
-    );
-    border-radius: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.863);
-    height: 75vh;
-    width: 60vh;
+    align-items: center;
+    margin-left: 30%;
+    height: 100%;
 
-    h1 {
-      text-align: center;
-      font-family: var(--font-style-text);
-      font-size: 2.3rem;
-      color: var(--primary-color);
+    .catching-text {
+      padding-bottom: 3%;
+
+      h3 {
+        font-size: 1.5em;
+      }
     }
 
-    p {
-      text-align: center;
-      font-size: 1.1rem;
-    }
-    a {
-      text-decoration: none;
-      color: #000000;
-      font-weight: bold;
-    }
-    a:hover {
-      color: white;
-    }
-
-    .form-signin {
+    .signin-wrapper {
       display: flex;
-      align-items: center;
       flex-direction: column;
-      padding: 20px;
-    
+      justify-content: space-around;
+      background-image: linear-gradient(120deg, #518271 0%, #96c183 100%);
+      border-radius: 10px;
+      border: 2px solid rgba(255, 255, 255, 0.863);
+      height: 65vh;
+      width: 55vh;
+
+      h1 {
+        text-align: center;
+        font-family: var(--font-style-text);
+        font-size: 2.1rem;
+        color: var(--primary-color);
+      }
+
       p {
-        font-family: var(--font-style-text);
-        font-size: 1.2rem;
-        margin-bottom: 5px;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+      a {
+        text-decoration: none;
+        color: #000000;
+        font-weight: bold;
+      }
+      a:hover {
+        color: white;
       }
 
-      .name,
-      .email,
-      .password {
-        background-color: #e5ebe5f3;
-        border: none;
-        height: 5vh;
-        font-size: 1.2rem;
-        font-weight: 500;
-        padding: 10px;
-        font-family: var(--font-style-text);
-        border-radius: 8px;
-        width: 40vh;
-        margin-bottom: 40px;
-       
-
-        
-        &:focus {
-          outline: none; 
-          border: 2px solid rgba(150, 193, 131, 0.906);
-          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
-      }
-      }
-      .mdp-container {
-        position: relative;
+      .form-signin {
         display: flex;
         align-items: center;
-        .mdp {
-          width: 25px;
-          position: absolute;
-          right: 10px;
-          top: 10px;
-          cursor: pointer;
-        }
-      }
+        flex-direction: column;
+        justify-content: space-around;
+        height: 65%;
 
-
-      .container-button {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        text-decoration: none;
-
-        .btn-inscription {
-          position: relative;
-          display: inline-block;
+        p {
           font-family: var(--font-style-text);
-          background: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 1),
-            rgba(49, 46, 46, 0.85)
-          );
-          color: white;
-          width: 12vw;
-          font-weight: bold;
-          font-size: 1.6rem;
+          font-size: 1.2rem;
+        }
+
+        .name,
+        .email,
+        .password {
+          background-color: #e5ebe5ea;
           border: none;
-          border-radius: 30px;
-          padding: 14px 30px;
-          cursor: pointer;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-          animation: button-shimmer 2s infinite;
-          transition: all 0.3s ease-in-out;
+          height: 5vh;
+          font-size: 1.2rem;
+          font-weight: 500;
+          font-family: var(--font-style-text);
+          padding: 10px;
+          border-radius: 8px;
+          width: 40vh;
+
+          &:focus {
+            outline: none;
+            border: 2px solid rgba(150, 193, 131, 0.906);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+          }
+        }
+        .mdp-container {
+          position: relative;
+          display: flex;
+          align-items: center;
+
+          .mdp {
+            width: 25px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+          }
         }
 
-        .btn-inscription:hover {
-          background: linear-gradient(to bottom, #000000, rgba(0, 0, 0, 0.749));
-          animation: button-particles 1s ease-in-out infinite;
-          transform: translateY(-2px);
-        }
-        .btn-inscription:active {
-          transform: scale(0.95);
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
+        .container-button {
+          width: 100%;
+          padding-top: 10%;
+          display: flex;
+          justify-content: center;
+          text-decoration: none;
 
+          .btn-inscription {
+            font-family: var(--font-style-text);
+            background: linear-gradient(
+              to bottom,
+              rgba(0, 0, 0, 1),
+              rgba(49, 46, 46, 0.85)
+            );
+            color: white;
+            font-weight: bold;
+            font-size: 1.6rem;
+            border: none;
+            border-radius: 30px;
+            padding: 16px 40px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: button-shimmer 2s infinite;
+            transition: all 0.3s ease-in-out;
+          }
+
+          .btn-inscription:hover {
+            background: linear-gradient(
+              to bottom,
+              #000000,
+              rgba(0, 0, 0, 0.749)
+            );
+            animation: button-particles 1s ease-in-out infinite;
+            transform: translateY(-2px);
+          }
+          .btn-inscription:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+          }
+        }
         @keyframes button-shimmer {
           0% {
             background-position: left top;
@@ -154,198 +177,611 @@
   }
 }
 
-@media screen and (max-width: 1585px) {
-  .container-signin {
-    margin-right: 20%;
-    position: relative;
-    .signin-wrapper {
-      height: 55vh;
-      width: 40vh;
+@media screen and (max-width: 1375px) {
+  .header {
+    h1 {
+      font-size: 2rem;
+    }
 
-      h1 {
-        font-size: 1.4rem;
-      }
-
-      p {
-        font-size: 0.8rem;
-      }
-
-      .form-signin {
-        p {
-          font-size: 0.8rem;
-          margin-bottom: 10px;
-        }
-
-        .name,
-        .email,
-        .password {
-          height: 4vh;
-          font-size: 1rem;
-
-          width: 30vh;
-          margin-bottom: 20px;
-        }
-
-        .container-button {
-          .btn-inscription {
-            padding: 12px;
-
-            font-size: 0.8rem;
-          }
-        }
+    .slogan {
+      width: 35%;
+      display: flex;
+      padding-bottom: 4%;
+      justify-content: end;
+      span,
+      h2 {
+        font-size: 1.8rem;
       }
     }
-  }
-}
 
-@media screen and (max-width: 1400px) {
-  .container-signin {
-    margin-right: 20%;
-    position: relative;
-    .signin-wrapper {
-      height: 60vh;
-      width: 40vh;
-
-      h1 {
-        font-size: 1.4rem;
+    .container-signin {
+      .catching-text {
+        h3 {
+          font-size: 1.3em;
+        }
       }
 
-      p {
-        font-size: 0.8rem;
-      }
+      .signin-wrapper {
+        h1 {
+          font-size: 1.8rem;
+        }
 
-      .form-signin {
         p {
           font-size: 0.8rem;
         }
 
-        .name,
-        .email,
-        .password {
-          height: 3.5vh;
-          font-size: 1rem;
-          width: 30vh;
-        }
-
-        .container-button {
-          .btn-inscription {
-            padding: 10px;
-            font-size: 0.8rem;
-          }
-        }
-      }
-    }
-  }
-}
-@media screen and (max-width: 900px) {
-  .container-signin {
-    .signin-wrapper {
-      height: 55vh;
-      width: 40vh;
-
-      h1 {
-        font-size: 1.3rem;
-      }
-
-      p {
-        font-size: 0.6rem;
-      }
-
-      .form-login {
-        p {
-          font-size: 0.7rem;
-        }
-
-        .name,
-        .password {
-          height: 3vh;
-          font-size: 1rem;
-
-          width: 30vh;
-          margin-bottom: 40px;
-        }
-
-        .container-button {
-          .btn-inscription {
-            width: 40vw;
+        .form-signin {
+          p {
             font-size: 1rem;
           }
-        }
-      }
-    }
-  }
-}
 
-@media screen and (max-width: 600px) {
-  .container-signin {
-    .signin-wrapper {
-      height: 50vh;
-      width: 35vh;
+          .mdp-container {
+            .mdp {
+              top: 8px;
+            }
+          }
 
-      h1 {
-        font-size: 1rem;
-      }
-
-      p {
-        font-size: 0.6rem;
-      }
-
-      .form-signin {
-        p {
-          font-size: 0.7rem;
-        }
-
-        .name,
-        .email,
-        .password {
-          height: 3vh;
-          font-size: 1rem;
-          width: 30vh;
-        }
-
-        .container-button {
-          .btn-inscription {
-            width: 30vw;
-            font-size: 0.7rem;
+          .container-button {
+            .btn-inscription {
+              font-size: 1.4rem;
+            }
           }
         }
       }
     }
   }
 }
-@media screen and (max-width: 480px) {
-  .container-signin {
-    .signin-wrapper {
-      padding: 10%;
-      height: 45vh;
-      width: 35vh;
 
-      h1 {
-        font-size: 0.8rem;
+@media screen and (max-width: 1080px) {
+  .header {
+    h1 {
+      font-size: 2rem;
+    }
+
+    .slogan {
+      h2,
+      span {
+        font-size: 1.8rem;
+      }
+    }
+
+    .container-signin {
+      .catching-text {
+        h3 {
+          font-size: 1.1em;
+        }
       }
 
-      p {
-        font-size: 0.6rem;
-      }
+      .signin-wrapper {
+        h1 {
+          font-size: 1.6rem;
+        }
 
-      .form-login {
         p {
           font-size: 0.7rem;
         }
 
-        .name,
-        .password {
-          height: 3vh;
-          font-size: 1rem;
-          width: 25vh;
+        .form-signin {
+          p {
+            font-size: 0.8rem;
+          }
+
+          .mdp-container {
+            .mdp {
+              top: 8px;
+            }
+          }
+
+          .container-button {
+            .btn-inscription {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .header {
+    background-size: cover;
+    h1 {
+      font-size: 2rem;
+    }
+
+    .slogan {
+      display: flex;
+
+      justify-content: end;
+      width: 100%;
+      h2,
+      span {
+        padding-right: 10px;
+        font-size: 1.8rem;
+      }
+    }
+
+    .container-signin {
+      margin: 0px;
+      .catching-text {
+        h3 {
+          font-size: 1em;
+        }
+      }
+
+      .signin-wrapper {
+        width: 40vw;
+        h1 {
+          font-size: 1.6rem;
         }
 
-        .container-button {
-          padding-top: 5%;
+        p {
+          font-size: 0.7rem;
+        }
 
-          .btn-inscription {
-            padding: 12px;
+        .form-signin {
+          p {
+            font-size: 0.8rem;
+          }
+
+          .mdp-container {
+            .mdp {
+              top: 8px;
+            }
+          }
+
+          .container-button {
+            .btn-inscription {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    h1 {
+      font-size: 2rem;
+    }
+
+    .slogan {
+      h2,
+      span {
+        padding-right: 10px;
+        font-size: 1.6rem;
+      }
+    }
+
+    .container-signin {
+      margin: 0px;
+      .catching-text {
+        h3 {
+          font-size: 1em;
+        }
+      }
+
+      .signin-wrapper {
+        width: 42vw;
+        height: 55vw;
+        h1 {
+          font-size: 1.3rem;
+        }
+
+        p {
+          font-size: 0.6rem;
+        }
+
+        .form-signin {
+          p {
+            font-size: 0.8rem;
+          }
+
+          .name,
+          .email,
+          .password {
+            width: 35vw;
+          }
+
+          .mdp-container {
+            .mdp {
+              top: 8px;
+            }
+          }
+
+          .container-button {
+            .btn-inscription {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 720px) {
+  .header {
+    h1 {
+      font-size: 2rem;
+    }
+
+    .slogan {
+      h2,
+      span {
+        padding-right: 10px;
+        font-size: 1.6rem;
+      }
+    }
+
+    .container-signin {
+      margin: 0px;
+      .catching-text {
+        h3 {
+          font-size: 1em;
+        }
+      }
+
+      .signin-wrapper {
+        width: 42vw;
+        height: 55vw;
+        h1 {
+          font-size: 1.3rem;
+        }
+
+        p {
+          font-size: 0.6rem;
+        }
+
+        .form-signin {
+          p {
+            font-size: 0.8rem;
+          }
+
+          .name,
+          .email,
+          .password {
+            width: 35vw;
+            height: 4vw;
+          }
+
+          .mdp-container {
+            .mdp {
+              top: 2px;
+            }
+          }
+
+          .container-button {
+            .btn-inscription {
+              font-size: 1rem;
+              padding: 11px 35px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .header {
+    h1 {
+      font-size: 2rem;
+    }
+
+    .slogan {
+      h2,
+      span {
+        padding-right: 10px;
+        font-size: 1.4rem;
+      }
+    }
+
+    .container-signin {
+      margin: 0px;
+      .catching-text {
+        h3 {
+          font-size: 0.8em;
+        }
+      }
+
+      .signin-wrapper {
+        width: 45vw;
+        height: 70vw;
+        h1 {
+          font-size: 1.1rem;
+        }
+
+        p {
+          padding: 5%;
+          font-size: 0.6rem;
+        }
+
+        .form-signin {
+          p {
+            font-size: 0.8rem;
+          }
+
+          .name,
+          .email,
+          .password {
+            width: 35vw;
+            height: 4vh;
+          }
+
+          .mdp-container {
+            .mdp {
+              top: 2px;
+            }
+          }
+
+          .container-button {
+            margin-bottom: 30px;
+            .btn-inscription {
+              font-size: 0.8rem;
+              padding: 14px 35px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .header {
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    .slogan {
+      h2,
+      span {
+        padding-right: 10px;
+        font-size: 1.4rem;
+      }
+    }
+
+    .container-signin {
+      margin: 0px;
+      .catching-text {
+        h3 {
+          font-size: 0.8em;
+        }
+      }
+
+      .signin-wrapper {
+        width: 55vw;
+        height: 80vw;
+        h1 {
+          font-size: 1rem;
+        }
+
+        p {
+          padding: 5%;
+          font-size: 0.6rem;
+        }
+
+        .form-signin {
+          p {
             font-size: 0.7rem;
+          }
+
+          .name,
+          .email,
+          .password {
+            width: 45vw;
+            height: 4vh;
+          }
+
+          .mdp-container {
+            .mdp {
+              top: 2px;
+            }
+          }
+
+          .container-button {
+            margin-bottom: 45px;
+            .btn-inscription {
+              font-size: 0.8rem;
+              padding: 13px 35px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header {
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    .slogan {
+      h2,
+      span {
+        padding-right: 10px;
+        font-size: 1.2rem;
+      }
+    }
+
+    .container-signin {
+      margin: 0px;
+      .catching-text {
+        h3 {
+          font-size: 0.8em;
+        }
+      }
+
+      .signin-wrapper {
+        width: 60vw;
+        height: 90vw;
+        h1 {
+          font-size: 1.1rem;
+        }
+
+        p {
+          padding: 5%;
+          font-size: 0.6rem;
+        }
+
+        .form-signin {
+          p {
+            font-size: 0.7rem;
+          }
+
+          .name,
+          .email,
+          .password {
+            width: 45vw;
+            height: 4vh;
+          }
+
+          .mdp-container {
+            .mdp {
+              top: 2px;
+            }
+          }
+
+          .container-button {
+            margin-bottom: 45px;
+            .btn-inscription {
+              font-size: 0.8rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .header {
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    .slogan {
+      h2,
+      span {
+        padding-right: 10px;
+        font-size: 1.2rem;
+      }
+    }
+
+    .container-signin {
+      margin: 0px;
+      .catching-text {
+        h3 {
+          font-size: 0.8em;
+        }
+      }
+
+      .signin-wrapper {
+        width: 70vw;
+        height: 100vw;
+        h1 {
+          font-size: 1.1rem;
+        }
+
+        p {
+          padding: 5%;
+          font-size: 0.6rem;
+        }
+
+        .form-signin {
+          height: 70%;
+
+          p {
+            font-size: 0.7rem;
+          }
+
+          .name,
+          .email,
+          .password {
+            width: 55vw;
+            height: 4vh;
+          }
+
+          .mdp-container {
+            .mdp {
+              top: 2px;
+            }
+          }
+
+          .container-button {
+            .btn-inscription {
+              font-size: 0.8rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .header {
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    .slogan {
+      h2,
+      span {
+        padding-right: 10px;
+        font-size: 1.1rem;
+      }
+    }
+
+    .container-signin {
+      margin: 0px;
+      .catching-text {
+        h3 {
+          font-size: 0.7em;
+        }
+      }
+
+      .signin-wrapper {
+        width: 75vw;
+        height: 100vw;
+        h1 {
+          font-size: 1.1rem;
+        }
+
+        p {
+          padding: 5%;
+          font-size: 0.6rem;
+        }
+
+        .form-signin {
+            height: 72%;
+          p {
+            font-size: 0.7rem;
+          }
+
+          .name,
+          .email,
+          .password {
+            width: 55vw;
+            height: 3.5vh;
+          }
+
+          .mdp-container {
+            .mdp {
+              top: 2px;
+            }
+          }
+
+          .container-button {
+         
+            .btn-inscription {
+              font-size: 0.8rem;
+            }
           }
         }
       }

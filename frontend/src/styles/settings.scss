@@ -27,10 +27,7 @@ body {
   overflow-x: hidden;
   font-family: var(--font-style-text);
   color: var(--primary-color);
-  background-image: url("/images/background.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-
+  background-image: linear-gradient(120deg, #000000 0%, #2e2e2e 100%);
 }
 
 ::-webkit-scrollbar {

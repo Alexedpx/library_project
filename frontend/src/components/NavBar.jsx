@@ -1,6 +1,7 @@
 import { useNavigate, NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { MdOutlineBookmarkAdd } from "react-icons/md";
+import { slide as Menu } from "react-burger-menu";
 import userContext from "../context/userContext";
 
 export default function Navbar() {
@@ -46,7 +47,7 @@ export default function Navbar() {
           </NavLink>
         </div>
         <div className="accueil-container">
-          <MdOutlineBookmarkAdd   />
+          <MdOutlineBookmarkAdd />
           <NavLink to="/addbook">
             <h1>AJOUTER UN LIVRE</h1>
           </NavLink>

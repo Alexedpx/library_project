@@ -217,12 +217,6 @@ export default function BookById() {
     return date.toLocaleDateString("fr-FR", options);
   };
 
-  // useEffect(() => {
-  //   const hasBookInRead = userFavorite.some(
-  //     (book) => book.statut === "En cours"
-  //   );
-  //   setHasBookInRead(hasBookInRead);
-  // }, [userFavorite]);
 
   // TOAST LIVRE A LIRE
 
@@ -252,7 +246,7 @@ export default function BookById() {
     <>
       <NavBar />
       <Toaster />
-      <div className="background">
+      <div className="background1">
         <div className="header-title">
           <h1>
             My Little <span style={{ color: "#719a6b" }}>Library</span>
