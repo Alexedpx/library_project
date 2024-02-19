@@ -384,6 +384,7 @@
           .email,
           .password {
             width: 35vw;
+            font-size: 0.8rem;
           }
 
           .mdp-container {
@@ -445,6 +446,7 @@
           .password {
             width: 35vw;
             height: 4vw;
+            font-size: 0.8rem;
           }
 
           .mdp-container {
@@ -509,6 +511,7 @@
           .password {
             width: 35vw;
             height: 4vh;
+            font-size: 0.8rem;
           }
 
           .mdp-container {
@@ -574,6 +577,7 @@
           .password {
             width: 45vw;
             height: 4vh;
+            font-size: 0.6rem;
           }
 
           .mdp-container {
@@ -639,6 +643,7 @@
           .password {
             width: 45vw;
             height: 4vh;
+            font-size: 0.6rem;
           }
 
           .mdp-container {
@@ -705,6 +710,7 @@
           .password {
             width: 55vw;
             height: 4vh;
+            font-size: 0.6rem;
           }
 
           .mdp-container {
@@ -769,6 +775,7 @@
           .password {
             width: 55vw;
             height: 3.5vh;
+            font-size: 0.6rem;
           }
 
           .mdp-container {
@@ -788,3 +795,75 @@
     }
   }
 }
+
+@media screen and (max-width: 350px) {
+  .header {
+    h1 {
+      font-size: 1.5rem;
+    
+    }
+
+    .slogan {
+      h2,
+      span {
+        padding-right: 10px;
+        font-size: 1.1rem;
+      }
+    }
+
+    .container-signin {
+      margin: 0px;
+      .catching-text {
+        h3 {
+          font-size: 0.7em;
+        }
+      }
+
+      .signin-wrapper {
+        width: 75vw;
+        height: 100vw;
+        h1 {
+          font-size: 1.1rem;
+          padding-top: 10%;
+        }
+
+        p {
+          padding: 2%;
+          font-size: 0.6rem;
+        }
+
+        .form-signin {
+            height: 72%;
+            padding: 15px;
+           
+            
+          p {
+            font-size: 0.7rem;
+          }
+
+          .name,
+          .email,
+          .password {
+            width: 55vw;
+            height: 3.5vh;
+            font-size: 0.6rem;
+          }
+
+          .mdp-container {
+            .mdp {
+              top: 2px;
+            }
+          }
+
+          .container-button {
+     
+            .btn-inscription {
+              font-size: 0.8rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
