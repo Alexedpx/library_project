@@ -33,7 +33,7 @@ export default function Navbar() {
             <div className="login">
               <div className="profil">
              
-              {userConnected?.avatar && (
+              {userConnected && userConnected.avatar && (
                   <img
                     src={`${import.meta.env.VITE_BACKEND_URL}${
                       userConnected.avatar
@@ -46,7 +46,7 @@ export default function Navbar() {
               
 
                 <div className="info">
-                {userConnected?.pseudo && (
+                {userConnected && userConnected.pseudo && (
                     <p>{userConnected.pseudo}</p>
                   )}
                   <div className="logout-button">
@@ -93,6 +93,7 @@ export default function Navbar() {
             )}
           </Menu>
         </div>
+
 
         <div className="login-container">
           {userConnected && userConnected.avatar && (
