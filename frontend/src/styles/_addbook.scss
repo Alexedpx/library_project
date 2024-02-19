@@ -1,3 +1,16 @@
+.background1 { 
+  background-image: url("/images/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+.header-title {
+  h1 {
+    text-align: end;
+    font-size: 3rem;
+    padding: 2%;
+  }
+}
 .form-book {
   display: flex;
   margin-left: 15vw;
@@ -223,9 +236,20 @@
     }
   }
 }
+}
 
 @media screen and (max-width: 1450px) {
+ 
+  .background1 {
+    .header-title {
+      h1 {
+        font-size: 2.5rem;
+        padding: 2%;
+      }
+    }
+
   .form-book {
+    height: 100vh;
     .book-wrapper {
       height: 80vh;
       width: 28vw;
@@ -290,8 +314,16 @@
     }
   }
 }
+}
+@media screen and (max-width: 1290px) {
+  .background1 {
+    .header-title {
+      h1 {
+        font-size: 2.5rem;
+        padding: 2%;
+      }
+    }
 
-@media screen and (max-width: 1280px) {
   .form-book {
     .book-wrapper {
       height: 80vh;
@@ -356,8 +388,15 @@
     }
   }
 }
-
+}
 @media screen and (max-width: 1100px) {
+  .background1 {
+    .header-title {
+      h1 {
+        font-size: 2rem;
+        padding: 2%;
+      }
+    }
   .form-book {
     .book-wrapper {
       height: 80vh;
@@ -422,8 +461,15 @@
     }
   }
 }
-
+}
 @media screen and (max-width: 950px) {
+  .background1 {
+    .header-title {
+      h1 {
+        font-size: 2rem;
+        padding: 2%;
+      }
+    }
   .form-book {
     .book-wrapper {
       height: 80vh;
@@ -488,8 +534,15 @@
     }
   }
 }
-
+}
 @media screen and (max-width: 800px) {
+  .background1 {
+    .header-title {
+      h1 {
+        font-size: 2rem;
+        padding: 2%;
+      }
+    }
   .form-book {
     margin-left: 25vw;
     .book-wrapper {
@@ -556,8 +609,17 @@
     }
   }
 }
-
+}
 @media screen and (max-width: 650px) {
+  .background1 {
+    height: 100%;
+    background-image: url("/images/background.jpg");
+    .header-title {
+      h1 {
+        font-size: 2rem;
+        padding: 2%;
+      }
+    }
   .form-book {
     margin-left: 7vw;
     .book-wrapper {
@@ -624,8 +686,15 @@
     }
   }
 }
-
+}
 @media screen and (max-width: 540px) {
+  .background1 {
+    .header-title {
+      h1 {
+        font-size: 1.8rem;
+        padding: 5%;
+      }
+    }
   .form-book {
     margin-left: 7vw;
     .book-wrapper {
@@ -692,10 +761,17 @@
     }
   }
 }
-
+}
 @media screen and (max-width: 480px) {
+  .background1 {
+    .header-title {
+      h1 {
+        font-size: 1.8rem;
+        padding: 5%;
+      }
+    }
   .form-book {
-    margin-left: 7vw;
+    margin-left: 0vw;
     .book-wrapper {
       margin-top: 10%;
       height: 70vh;
@@ -714,16 +790,16 @@
         .langue,
         .cat {
           font-size: 0.7rem;
-          padding: 7px;
+          padding: 6px;
+          height: 5vh;
         }
 
         .desc {
           padding: 15px;
-         
         }
 
         .img-container {
-          padding: 6px;
+          padding: 4px;
 
           .input-file {
             width: 55vw;
@@ -737,14 +813,15 @@
         }
 
         .onread {
-          gap: 10px;
+          gap: 5px;
+         
           margin-bottom: 15px;
 
           .container {
             font-size: 13px;
           }
           p {
-            font-size: 0.6rem;
+            font-size: 0.57rem;
             padding: 0;
           }
         }
@@ -760,8 +837,15 @@
     }
   }
 }
-
+}
 @media screen and (max-width: 400px) {
+  .background1 {
+    .header-title {
+      h1 {
+        font-size: 1.8rem;
+        padding: 5%;
+      }
+    }
   .form-book {
     margin-left: 0;
     .book-wrapper {
@@ -785,7 +869,6 @@
           padding: 6px;
         }
 
-      
         .img-container {
           padding: 2px;
 
@@ -825,9 +908,17 @@
     }
   }
 }
-
+}
 @media screen and (max-width: 360px) {
+  .background1 {
+    .header-title {
+      h1 {
+        font-size: 1.6rem;
+        padding: 5%;
+      }
+    }
   .form-book {
+    padding-top: 10%;
     .book-wrapper {
       .uploadbook {
         padding: 30px;
@@ -842,4 +933,5 @@
       }
     }
   }
+}
 }

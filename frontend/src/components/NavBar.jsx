@@ -22,14 +22,17 @@ export default function Navbar() {
     navigate("/");
   };
 
+  
+
   return (
     <>
       <div className="container-navbar">
-        <img src="images/burger.png" alt="burger" className="burger" />
+        <img src="/images/burger.png" alt="burger" className="burger" />
         <div className="burger-menu">
           <Menu right width="300px">
             <div className="login">
               <div className="profil">
+             
                 {userConnected && userConnected.avatar && (
                   <img
                     src={`${import.meta.env.VITE_BACKEND_URL}${
@@ -40,6 +43,7 @@ export default function Navbar() {
                     role="presentation"
                   />
                 )}
+              
 
                 <div className="info">
                   {userConnected && userConnected.pseudo && (

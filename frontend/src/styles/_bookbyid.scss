@@ -1,11 +1,9 @@
 .background1 {
-  .header-title {
-    h1 {
-      text-align: end;
-      font-size: 3rem;
-      padding: 2%;
-    }
-  }
+  background-image: url("/images/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
 
   .form {
     .info-container {
@@ -318,6 +316,1254 @@
             border-radius: 8px;
             padding: 10px;
             cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1630px) {
+  .background1 {
+    .form {
+      height: 100vh;
+      .info-container {
+        margin-top: 4%;
+        height: 65vh;
+        margin-left: 20vw;
+        padding-left: 3%;
+
+        img {
+          width: 20%;
+        }
+
+        .book-information {
+          margin-left: 5%;
+
+          .header-details {
+            width: 100%;
+
+            label {
+              gap: 14px;
+            }
+
+            .icon-action {
+              .icon-info {
+                padding: 5px;
+                gap: 20px;
+                margin-right: 20%;
+
+                .edit,
+                .delete,
+                .favorite {
+                  width: 1.8vw;
+                }
+              }
+            }
+
+            h1 {
+              font-size: 1.6rem;
+            }
+            h2 {
+              font-size: 1.2rem;
+            }
+            h3 {
+              font-size: 1rem;
+            }
+            p {
+              padding-top: 5px;
+              font-size: 0.8rem;
+            }
+          }
+
+          .description-book {
+            width: 80%;
+
+            p {
+              font-size: 1rem;
+            }
+          }
+
+          .category-note {
+            p {
+              padding: 5px;
+              font-size: 1rem;
+            }
+          }
+
+          .edit-book {
+            .isread {
+              width: 80%;
+              gap: 10px;
+
+              .check {
+                p {
+                  margin-right: 3%;
+                }
+
+                .checkmark {
+                  top: 0;
+                  left: 0;
+                  height: 1em;
+                  width: 1em;
+                }
+
+                .checkmark:after {
+                  left: 0.3em;
+                  top: 0.1em;
+                  width: 0.25em;
+                  height: 0.5em;
+                }
+              }
+            }
+          }
+
+          .btn-return {
+            padding-right: 20%;
+            .return {
+              font-size: 0.9rem;
+
+              width: 18vw;
+              padding: 15px;
+            }
+          }
+        }
+
+        .category-note {
+          padding-top: 2%;
+
+          .range {
+            gap: 10px;
+
+            input {
+              width: 3vw;
+              padding: 5px;
+              font-size: 1rem;
+            }
+          }
+          .information-book {
+            input {
+              height: 4vh;
+
+              font-size: 1rem;
+              padding: 8px;
+            }
+          }
+
+          .progress {
+            padding-top: 2%;
+            width: 55%;
+
+            progress {
+              width: 50%;
+              height: 15px;
+            }
+          }
+          .save-btn {
+            padding-top: 20px;
+
+            .save {
+              width: 12vw;
+              font-size: 1rem;
+
+              padding: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1345px) {
+  .background1 {
+    .form {
+      .info-container {
+        margin-top: 4%;
+        height: 65vh;
+        margin-left: 20vw;
+        padding-left: 3%;
+
+        img {
+          width: 20%;
+        }
+
+        .book-information {
+          margin-left: 5%;
+
+          .header-details {
+            width: 100%;
+
+            label {
+              gap: 14px;
+            }
+
+            .icon-action {
+              .icon-info {
+                padding: 5px;
+                gap: 20px;
+                margin-right: 20%;
+
+                .edit,
+                .delete,
+                .favorite {
+                  width: 1.8vw;
+                }
+              }
+            }
+
+            h1 {
+              font-size: 1.6rem;
+            }
+            h2 {
+              font-size: 1.2rem;
+            }
+            h3 {
+              font-size: 1rem;
+            }
+            p {
+              padding-top: 5px;
+              font-size: 0.8rem;
+            }
+          }
+
+          .description-book {
+            width: 80%;
+
+            p {
+              font-size: 1rem;
+            }
+          }
+
+          .category-note {
+            padding-top: 2%;
+
+            .range {
+              gap: 10px;
+
+              input {
+                width: 3vw;
+                padding: 5px;
+                font-size: 0.9rem;
+              }
+            }
+            .information-book {
+              input {
+                height: 3vh;
+                font-size: 0.9rem;
+                padding: 8px;
+              }
+            }
+
+            .save-btn {
+              padding-top: 20px;
+
+              .save {
+                width: 15vw;
+                font-size: 1rem;
+                padding: 10px;
+              }
+            }
+            .progress {
+              padding-top: 2%;
+              width: 45%;
+              display: flex;
+    
+              progress {
+                appearance: none;
+                width: 70%;
+                height: 15px;
+    
+             
+              }
+            }
+          }
+          .btn-return {
+            padding-right: 20%;
+            .return {
+              font-size: 0.9rem;
+              width: 21vw;
+              padding: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 970px) {
+  .background1 {
+    .form {
+      .info-container {
+        margin-top: 20%;
+        height: 50vh;
+        margin-left: 25vw;
+        padding-left: 3%;
+
+        img {
+          width: 20%;
+        }
+
+        .book-information {
+          margin-left: 5%;
+
+          .header-details {
+            width: 100%;
+            height: 12vh;
+            label {
+              gap: 14px;
+            }
+
+            .icon-action {
+              .icon-info {
+                padding: 5px;
+                gap: 20px;
+                margin-right: 20%;
+
+                .edit,
+                .delete,
+                .favorite {
+                  width: 2vw;
+                }
+              }
+            }
+
+            h1 {
+              font-size: 1.1rem;
+            }
+            h2 {
+              font-size: 1rem;
+            }
+            h3 {
+              font-size: 0.8rem;
+            }
+            p {
+              padding-top: 5px;
+              font-size: 0.7rem;
+            }
+          }
+
+          .description-book {
+            width: 80%;
+
+            p {
+              font-size: 0.7rem;
+            }
+          }
+
+          .category-note {
+            padding-top: 2%;
+
+            p {
+              font-size: 0.7rem;
+            }
+            .range {
+              gap: 10px;
+
+              input {
+                width: 3vw;
+                padding: 5px;
+                font-size: 0.7rem;
+              }
+            }
+            .information-book {
+              input {
+                height: 3vh;
+                font-size: 0.7rem;
+                padding: 8px;
+              }
+            }
+
+            .save-btn {
+              padding-top: 20px;
+
+              .save {
+                width: 15vw;
+                font-size: 0.7rem;
+                padding: 8px;
+              }
+            }
+            .progress {
+              padding-top: 2%;
+              width: 60%;
+              display: flex;
+    
+              progress {
+                appearance: none;
+                width: 70%;
+                height: 15px;
+    
+             
+              }
+            }
+          }
+          .edit-book {
+            .isread {
+              width: 90%;
+              gap: 10px;
+
+              .check {
+                p {
+                  font-size: 0.8rem;
+                }
+
+                .checkmark {
+                  top: 0;
+                  left: 0;
+                  height: 0.8em;
+                  width: 0.8em;
+                }
+
+                .checkmark:after {
+                  left: 0.3em;
+                  top: 0.1em;
+                  width: 0.25em;
+                  height: 0.5em;
+                }
+              }
+            }
+          }
+          .btn-return {
+            padding-right: 10%;
+            .return {
+              font-size: 0.7rem;
+              width: 23vw;
+              padding: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .background1 {
+    .form {
+      margin-left: 5vw;
+      .info-container {
+        margin-top: 5%;
+        height: 85vh;
+        margin-left: 20vw;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        padding-left: 0px;
+
+        img {
+          width: 30%;
+        }
+
+        .book-information {
+          display: flex;
+          justify-content: center;
+          margin-left: 0px;
+          padding: 20px;
+          .header-details {
+            text-align: center;
+            height: 10vh;
+            label {
+              gap: 14px;
+            }
+
+            .icon-action {
+              display: flex;
+              flex-direction: column-reverse;
+
+              .icon-info {
+                margin-left: 20%;
+                align-items: center;
+
+                .edit,
+                .delete,
+                .favorite {
+                  width: 3vw;
+                }
+              }
+            }
+
+            h1 {
+              font-size: 1rem;
+            }
+            h2 {
+              font-size: 0.8rem;
+            }
+            h3 {
+              font-size: 0.7rem;
+            }
+            p {
+              padding-top: 5px;
+              font-size: 0.7rem;
+            }
+          }
+
+          .description-book {
+            margin-top: 5%;
+
+            width: 80%;
+            margin-left: 10%;
+
+            p {
+              font-size: 0.7rem;
+            }
+          }
+
+          .category-note {
+            padding-top: 2%;
+            margin-left: 10%;
+
+            p {
+              font-size: 0.7rem;
+            }
+            .range {
+              gap: 10px;
+
+              input {
+                width: 3vw;
+                padding: 3px;
+                font-size: 0.7rem;
+              }
+            }
+            .information-book {
+              input {
+                height: 2.5vh;
+                font-size: 0.6rem;
+                padding: 7px;
+              }
+            }
+
+            .save-btn {
+              padding-top: 0px;
+
+              .save {
+                width: 16vw;
+                font-size: 0.6rem;
+                padding: 5px;
+              }
+            }
+            .progress {
+              padding-top: 2%;
+              width: 65%;
+              display: flex;
+    
+              progress {
+                appearance: none;
+                width: 70%;
+                height: 15px;
+    
+             
+              }
+            }
+          }
+          .edit-book {
+            .isread {
+              display: flex;
+              justify-content: center;
+              width: 100%;
+
+              .check {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-bottom: 2%;
+
+                p {
+                  font-size: 0.7rem;
+                }
+
+                .checkmark {
+                  top: 0;
+                  left: 0;
+                  height: 0.8em;
+                  width: 0.8em;
+                }
+
+                .checkmark:after {
+                  left: 0.3em;
+                  top: 0.1em;
+                  width: 0.25em;
+                  height: 0.5em;
+                }
+              }
+            }
+          }
+          .btn-return {
+            display: flex;
+            justify-content: center;
+            padding-right: 0%;
+            padding-top: 5%;
+            .return {
+              font-size: 0.7rem;
+              width: 27vw;
+              padding: 9px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .background1 {
+    height: 100%;
+    background-image: url("/images/background.jpg");
+
+    .form {
+      display: flex;
+      justify-content: center;
+
+      .info-container {
+        margin-top: 10%;
+        height: 80vh;
+
+        padding-left: 0px;
+
+        margin-left: 0vw;
+
+        width: 70vw;
+
+        img {
+          width: 30%;
+        }
+
+        .book-information {
+          display: flex;
+          justify-content: center;
+          margin-left: 0px;
+
+          padding: 5px;
+          .header-details {
+            text-align: center;
+
+            label {
+              gap: 14px;
+            }
+
+            .icon-action {
+              display: flex;
+              flex-direction: column-reverse;
+
+              .icon-info {
+                margin-left: 20%;
+                align-items: center;
+
+                .edit,
+                .delete,
+                .favorite {
+                  width: 3vw;
+                }
+              }
+            }
+
+            h1 {
+              font-size: 1rem;
+            }
+            h2 {
+              font-size: 0.8rem;
+            }
+            h3 {
+              font-size: 0.7rem;
+            }
+            p {
+              padding-top: 5px;
+              font-size: 0.7rem;
+            }
+          }
+
+          .description-book {
+            margin-top: 5%;
+
+            width: 80%;
+            margin-left: 10%;
+
+            p {
+              font-size: 0.7rem;
+            }
+          }
+
+          .category-note {
+            padding-top: 2%;
+            margin-left: 10%;
+
+            p {
+              font-size: 0.7rem;
+            }
+            .range {
+              gap: 10px;
+
+              input {
+                width: 3vw;
+                padding: 5px;
+                font-size: 0.7rem;
+              }
+            }
+            .information-book {
+              input {
+                height: 2.5vh;
+                font-size: 0.6rem;
+                padding: 7px;
+              }
+            }
+
+            .save-btn {
+              padding-top: 0px;
+
+              .save {
+                width: 16vw;
+                font-size: 0.6rem;
+                padding: 3px;
+              }
+            }
+            .progress {
+              padding-top: 2%;
+              width: 75%;
+              display: flex;
+    
+              progress {
+                appearance: none;
+                width: 70%;
+                height: 15px;
+    
+             
+              }
+            }
+          }
+          .edit-book {
+            .isread {
+              display: flex;
+              justify-content: center;
+              width: 100%;
+
+              .check {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-bottom: 2%;
+
+                p {
+                  font-size: 0.7rem;
+                }
+
+                .checkmark {
+                  top: 0;
+                  left: 0;
+                  height: 0.8em;
+                  width: 0.8em;
+                }
+
+                .checkmark:after {
+                  left: 0.3em;
+                  top: 0.1em;
+                  width: 0.25em;
+                  height: 0.5em;
+                }
+              }
+            }
+          }
+          .btn-return {
+            display: flex;
+            justify-content: center;
+            padding-right: 0%;
+            padding-top: 2%;
+            .return {
+              font-size: 0.7rem;
+              width: 35vw;
+              padding: 9px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .background1 {
+    .form {
+      .info-container {
+        margin-top: 15%;
+        height: 75vh;
+
+        padding-left: 0px;
+
+        margin-left: 0vw;
+
+        width: 75vw;
+
+        img {
+          width: 35%;
+        }
+
+        .book-information {
+          display: flex;
+          justify-content: center;
+          margin-left: 0px;
+          padding: 5px;
+          .header-details {
+            text-align: center;
+
+            label {
+              gap: 14px;
+            }
+
+            .icon-action {
+              display: flex;
+              flex-direction: column-reverse;
+
+              .icon-info {
+                margin-left: 20%;
+                align-items: center;
+
+                .edit,
+                .delete,
+                .favorite {
+                  width: 3.5vw;
+                }
+              }
+            }
+
+            h1 {
+              font-size: 1rem;
+            }
+            h2 {
+              font-size: 0.8rem;
+            }
+            h3 {
+              font-size: 0.7rem;
+            }
+            p {
+              padding-top: 5px;
+              font-size: 0.7rem;
+            }
+          }
+
+          .description-book {
+            margin-top: 5%;
+
+            width: 80%;
+            margin-left: 10%;
+
+            p {
+              font-size: 0.7rem;
+            }
+          }
+
+          .category-note {
+            padding-top: 2%;
+            margin-left: 10%;
+            width: 100%;
+            p {
+              font-size: 0.7rem;
+            }
+            .range {
+              gap: 10px;
+
+              input {
+                width: 5vw;
+                padding: 5px;
+                font-size: 0.7rem;
+              }
+            }
+            .information-book {
+              input {
+                height: 2.5vh;
+                width: 33vw;
+                font-size: 0.6rem;
+                padding: 7px;
+              }
+            }
+
+            .save-btn {
+              padding-top: 0px;
+
+              .save {
+                width: 18vw;
+                font-size: 0.62rem;
+                padding: 4px;
+              }
+            }
+            .progress {
+              padding-top: 2%;
+              width: 75%;
+              display: flex;
+    
+              progress {
+                appearance: none;
+                width: 70%;
+                height: 15px;
+    
+             
+              }
+            }
+          }
+          .edit-book {
+            .isread {
+              display: flex;
+              justify-content: center;
+              width: 100%;
+
+              .check {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-bottom: 2%;
+
+                p {
+                  font-size: 0.7rem;
+                }
+
+                .checkmark {
+                  top: 0;
+                  left: 0;
+                  height: 0.7em;
+                  width: 0.7em;
+                }
+              }
+            }
+          }
+          .btn-return {
+            display: flex;
+            justify-content: center;
+            padding-right: 0%;
+            padding-top: 2%;
+            .return {
+              font-size: 0.7rem;
+              width: 42vw;
+              padding: 9px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .background1 {
+    .form {
+      margin-top: 0%;
+      .info-container {
+        margin-top: 15%;
+        height: 80vh;
+
+        padding-left: 0px;
+
+        margin-left: 0vw;
+
+        width: 80vw;
+
+      
+        img {
+          width: 40%;
+        }
+
+        .book-information {
+          .header-details {
+            text-align: center;
+
+            label {
+              gap: 14px;
+            }
+
+            .icon-action {
+              display: flex;
+              flex-direction: column-reverse;
+
+              .icon-info {
+                margin-left: 20%;
+                align-items: center;
+
+                .edit,
+                .delete,
+                .favorite {
+                  width: 5vw;
+                }
+              }
+            }
+
+            h1 {
+              font-size: 1rem;
+            }
+            h2 {
+              font-size: 0.8rem;
+            }
+            h3 {
+              font-size: 0.7rem;
+            }
+            p {
+              padding-top: 5px;
+              font-size: 0.6rem;
+            }
+          }
+
+          .description-book {
+            margin-top: 10%;
+
+            width: 80%;
+            margin-left: 10%;
+
+            p {
+              font-size: 0.6rem;
+            }
+          }
+
+          .category-note {
+            padding-top: 2%;
+            margin-left: 10%;
+            width: 100%;
+            p {
+              font-size: 0.6rem;
+            }
+            .range {
+              gap: 10px;
+
+              input {
+                width: 8vw;
+                padding: 3px;
+                font-size: 0.7rem;
+              }
+            }
+            .information-book {
+              input {
+                height: 2.5vh;
+                width: 32vw;
+                font-size: 0.6rem;
+                padding: 7px;
+              }
+            }
+
+            .save-btn {
+              padding-top: 0px;
+
+              .save {
+                width: 25vw;
+                font-size: 0.62rem;
+                padding: 4px;
+              }
+            }
+            .progress {
+              padding-top: 2%;
+              width: 65%;
+              display: flex;
+    
+              progress {
+                appearance: none;
+                width: 70%;
+                height: 15px;
+    
+             
+              }
+            }
+          }
+          .edit-book {
+            .isread {
+              display: flex;
+              justify-content: center;
+              width: 100%;
+
+              .check {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-bottom: 2%;
+
+                p {
+                  font-size: 0.6rem;
+                }
+
+                .checkmark {
+                  top: 0;
+                  left: 0;
+                  height: 0.6em;
+                  width: 0.6em;
+                }
+                .checkmark:after {
+                  left: 0.2em;
+                  top: 0.1em;
+                  width: 0.1em;
+                  height: 0.2em;
+                  
+                }
+              }
+            }
+          }
+          .btn-return {
+            display: flex;
+            justify-content: center;
+            padding-right: 0%;
+            padding-top: 5%;
+            .return {
+              font-size: 0.6rem;
+              width: 46vw;
+              padding: 9px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .background1 {
+    .form {
+      margin-top: 0;
+      display: flex;
+      justify-content: start;
+      .info-container {
+        margin-top: 15%;
+        height: 80vh;
+
+        padding-left: 0px;
+
+        margin-left: 0vw;
+
+        width: 90vw;
+
+        img {
+          width: 35%;
+        }
+
+        .book-information {
+          .header-details {
+            text-align: center;
+
+            label {
+              gap: 14px;
+            }
+
+            .icon-action {
+              display: flex;
+              flex-direction: column-reverse;
+
+              .icon-info {
+                margin-left: 20%;
+                align-items: center;
+
+                .edit,
+                .delete,
+                .favorite {
+                  width: 4vw;
+                }
+              }
+            }
+
+            h1 {
+              font-size: 1rem;
+            }
+            h2 {
+              font-size: 0.7rem;
+            }
+            h3 {
+              font-size: 0.7rem;
+            }
+            p {
+              padding-top: 5px;
+              font-size: 0.6rem;
+            }
+          }
+
+          .description-book {
+            margin-top: 10%;
+            width: 80%;
+            margin-left: 10%;
+
+            p {
+              font-size: 0.6rem;
+            }
+          }
+
+          .category-note {
+            padding-top: 2%;
+            margin-left: 10%;
+            width: 100%;
+            p {
+              font-size: 0.6rem;
+            }
+            .range {
+              gap: 10px;
+
+              input {
+                width: 8vw;
+                padding: 3px;
+                font-size: 0.7rem;
+              }
+            }
+            .information-book {
+              input {
+                height: 2.5vh;
+                width: 45vw;
+                font-size: 0.6rem;
+                padding: 7px;
+              }
+            }
+           
+
+            .save-btn {
+              padding-top: 0px;
+
+              .save {
+                width: 28vw;
+                font-size: 0.62rem;
+                padding: 4px;
+              }
+            }
+
+            .progress {
+              padding-top: 2%;
+              width: 70%;
+              display: flex;
+    
+              progress {
+                appearance: none;
+                width: 70%;
+                height: 15px;
+    
+             
+              }
+            }
+          }
+          .edit-book {
+            .isread {
+              display: flex;
+              justify-content: center;
+              width: 100%;
+
+              .check {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-bottom: 2%;
+
+                p {
+                  font-size: 0.6rem;
+                }
+
+                .checkmark {
+                  top: 0;
+                  left: 0;
+                  height: 0.6em;
+                  width: 0.6em;
+                }
+                
+               
+              }
+            }
+          }
+          .btn-return {
+            display: flex;
+            justify-content: center;
+            padding-right: 0%;
+            padding-top: 5%;
+            .return {
+              font-size: 0.6rem;
+              width: 48vw;
+              padding: 9px;
+            }
           }
         }
       }

@@ -1,5 +1,5 @@
 .background1 {
-  background-image: url("/images/background.png");
+background-image: url("/images/background.png");
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
@@ -15,6 +15,7 @@
   .book-fav {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
     width: 13vw;
@@ -358,6 +359,7 @@
 
 @media screen and (max-width: 675px) {
   .background1 {
+
     .livre-favoris {
       margin-left: 26vw;
       gap: 30px;
@@ -413,6 +415,7 @@
 
 @media screen and (max-width: 650px) {
   .background1 {
+    height: 100%;
     background-image: url("/images/background.jpg");
     .livre-favoris {
       margin-top: 10%;
@@ -528,10 +531,14 @@
   }
 }
 
-
 @media screen and (max-width: 370px) {
   .background1 {
-    height: 100%;
+    .header-title {
+      h1 {
+        font-size: 1.6rem;
+        padding: 5%;
+      }
+    }
     .livre-favoris {
       gap: 10px;
     }

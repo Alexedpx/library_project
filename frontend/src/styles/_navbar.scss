@@ -18,7 +18,8 @@
     padding: 8%;
 
     img {
-      width: 8vw;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
       border: 2px solid white;
     }
@@ -97,6 +98,28 @@
     }
   }
 }
+@media screen and (max-width: 1630px) {
+  .container-navbar {
+    .login-container {
+    
+      .logout-button {
+        .logout {
+          font-size: 0.8rem;
+          width: 8vw;
+          padding: 12px;
+        }
+      }
+    }
+
+    .navlink {
+      .accueil-container {
+        h1 {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
 
 @media screen and (max-width: 1450px) {
   .container-navbar {
@@ -111,10 +134,7 @@
     }
 
     .navlink {
-
-
       .accueil-container {
-
         h1 {
           font-size: 0.9rem;
         }
@@ -127,9 +147,8 @@
   .container-navbar {
     .login-container {
       padding: 6%;
-
       img {
-        width: 7vw;
+        width: 10vw;
       }
 
       .logout-button {
@@ -161,11 +180,13 @@
 
 @media screen and (max-width: 1070px) {
   .container-navbar {
+    width: 25vw;
     .login-container {
       padding: 8%;
 
       img {
-        width: 7vw;
+        width: 100px;
+        height: 100px;
       }
 
       .logout-button {
@@ -197,18 +218,19 @@
 
 @media screen and (max-width: 950px) {
   .container-navbar {
-    width: 25vw;
+    width: 28vw;
     .login-container {
-      padding: 8%;
+      padding-top: 8%;
 
       img {
-        width: 8vw;
+        width: 100px;
+        height: 100px;
       }
 
       .logout-button {
         .logout {
           width: 11vw;
-          padding: 7px;
+          padding: 9px;
           font-size: 0.5rem;
         }
       }
@@ -217,12 +239,14 @@
 }
 @media screen and (max-width: 750px) {
   .container-navbar {
-    width: 27vw;
+    width: 30vw;
     .login-container {
+      margin-top: 10%;
       padding: 8%;
 
       img {
-        width: 9vw;
+        width: 100px;
+        height: 100px;
       }
 
       .logout-button {
@@ -263,13 +287,20 @@
       visibility: visible;
     }
     .bm-overlay {
-      top: 0;
-      position: relative;
+      display: none;
     }
+    .bm-burger-button {
+      #react-burger-menu-btn {
+        height: 5% !important;
+        background: transparent !important;
+      }
+    }
+
     .bm-menu-wrap {
       top: 0;
       position: relative;
     }
+
     .bm-menu {
       background-color: rgba(0, 0, 0, 0.884);
 
@@ -389,7 +420,7 @@
       padding-top: 10%;
       margin-left: 10%;
       display: inherit;
-      width: 8vw;
+      width: 7vw;
     }
 
     .bm-menu {
@@ -429,7 +460,7 @@
 @media screen and (max-width: 380px) {
   .container-navbar {
     .burger {
-      width: 8vw;
+      width: 7vw;
     }
 
     .bm-menu {
@@ -449,7 +480,7 @@
   .login {
     .profil {
       .avatar {
-        width: 20vw;
+        width: 23vw;
       }
     }
     .info {

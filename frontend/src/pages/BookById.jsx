@@ -15,8 +15,6 @@ export default function BookById() {
   const [isFavorite, setIsFavorite] = useState(false);
   const param = useParams();
   const [isEditing, setIsEditing] = useState(false);
-  // const [hasBookInRead, setHasBookInRead] = useState(false);
-  const [pagesLues, setPagesLues] = useState(bookDetails.pageLue);
   const { id } = useParams();
 
   const [bookUpdate, setBookUpdate] = useState({
