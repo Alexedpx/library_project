@@ -30,9 +30,7 @@ export default function Navbar() {
           <Menu right width="300px">
             <div className="login">
               <div className="profil">
-               
                 {userConnected && userConnected.avatar && (
-                   <NavLink to="/profil">
                   <img
                     src={`${import.meta.env.VITE_BACKEND_URL}${
                       userConnected.avatar
@@ -41,11 +39,9 @@ export default function Navbar() {
                     alt="avataruser"
                     role="presentation"
                   />
-                  </NavLink>
                 )}
-                
+
                 <div className="info">
-                
                   {userConnected && userConnected.pseudo && (
                     <p>{userConnected.pseudo}</p>
                   )}
@@ -62,35 +58,38 @@ export default function Navbar() {
               </div>
             </div>
 
-            <a id="home" className="menu-item" href="/library">
-            <div className="icon">
-              <IoBookOutline size={22} style={{ marginRight: "20px" }} />
-              MA BIBLIOTHEQUE
+            <NavLink to="/library">
+              <div className="icon">
+                <IoBookOutline size={22} style={{ marginRight: "20px" }} />
+                MA BIBLIOTHEQUE
               </div>
-            </a>
-
-            <a id="addbook" className="menu-item" href="/addbook">
-            <div className="icon">
-              <MdOutlineBookmarkAdd size={22} style={{ marginRight: "20px" }} />
-           AJOUTER UN LIVRE
+            </NavLink>
+            <NavLink to="/addbook">
+              <div className="icon">
+                <MdOutlineBookmarkAdd
+                  size={22}
+                  style={{ marginRight: "20px" }}
+                />
+                AJOUTER UN LIVRE
               </div>
-            </a>
-            <a id="favoritebook" className="menu-item" href="/favoritebook">
+            </NavLink>
+            <NavLink to="/favoritebook">
               <div className="icon">
                 <FaRegHeart size={22} style={{ marginRight: "20px" }} />
                 MES FAVORIS
               </div>
-            </a>
-            {/* <a id="profil" className="menu-item" href="/profil">
-            <div className="icon">
-              <RxAvatar size={21} style={{ marginRight: "20px" }} />
-              MON PROFIL
-              </div>
-            </a> */}
+            </NavLink>
+            {userConnected && userConnected.avatar && (
+              <NavLink to="/profil">
+                <div className="icon">
+                  <RxAvatar size={21} style={{ marginRight: "20px" }} />
+                  MON PROFIL
+                </div>
+              </NavLink>
+            )}
           </Menu>
         </div>
 
-        
         <div className="login-container">
           {userConnected && userConnected.avatar && (
             <img
