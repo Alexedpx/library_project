@@ -131,7 +131,7 @@ export default function AddBook() {
               />
 
               <div className="img-container">
-                <img src="images/img.png" alt="img-upload" />
+                {/* <img src="images/img.png" alt="img-upload" /> */}
                 <input
                   name="filename"
                   onChange={(e) => setFile(e.target.files[0])}

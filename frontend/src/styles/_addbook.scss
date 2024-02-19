@@ -21,6 +21,10 @@
       justify-content: center;
       justify-content: space-between;
       height: 100%;
+      p {
+        padding: 2px;
+        font-size: 1rem;
+      }
 
       .titre,
       .auteur,
@@ -71,12 +75,12 @@
         justify-content: center;
         padding: 10px;
 
-        img {
-          position: absolute;
-          transform: translateX(-960%);
-          width: 15px;
-          height: 15px;
-        }
+        // img {
+        //   position: absolute;
+        //   transform: translateX(-960%);
+        //   width: 15px;
+        //   height: 15px;
+        // }
 
         .input-file {
           margin-left: 5%;
@@ -112,11 +116,6 @@
             margin-left: 20px;
           }
         }
-      }
-
-      p {
-        padding: 2px;
-        font-size: 1rem;
       }
 
       .onread {
@@ -221,6 +220,626 @@
     }
     .upload:hover {
       transform: scale(1.1);
+    }
+  }
+}
+
+@media screen and (max-width: 1450px) {
+  .form-book {
+    .book-wrapper {
+      height: 80vh;
+      width: 28vw;
+      .uploadbook {
+        padding: 40px;
+        height: 100%;
+        p {
+          padding: 2px;
+          font-size: 0.8rem;
+        }
+        .titre,
+        .auteur,
+        .date,
+        .pages,
+        .langue,
+        .cat {
+          font-size: 0.7rem;
+          padding: 10px;
+        }
+
+        .desc {
+          padding: 15px;
+          overflow: hidden;
+        }
+
+        .img-container {
+          padding: 10px;
+
+          .input-file {
+            margin-left: 0%;
+            width: 30vw;
+            font-size: 0.7rem;
+          }
+        }
+
+        p {
+          padding: 2px;
+          font-size: 0.8rem;
+        }
+
+        .onread {
+          gap: 5px;
+          margin-bottom: 15px;
+
+          .container {
+            font-size: 18px;
+          }
+          p {
+            font-size: 0.8rem;
+            padding: 0;
+          }
+        }
+      }
+    }
+
+    .btn-add {
+      .upload {
+        font-size: 1rem;
+        width: 18vw;
+        padding: 15px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .form-book {
+    .book-wrapper {
+      height: 80vh;
+      width: 35vw;
+      .uploadbook {
+        padding: 40px;
+        height: 100%;
+        p {
+          padding: 2px;
+          font-size: 0.8rem;
+        }
+        .titre,
+        .auteur,
+        .date,
+        .pages,
+        .langue,
+        .cat {
+          font-size: 0.7rem;
+          padding: 10px;
+        }
+
+        .desc {
+          padding: 15px;
+          overflow: hidden;
+        }
+
+        .img-container {
+          padding: 10px;
+
+          .input-file {
+            width: 40vw;
+            font-size: 0.7rem;
+          }
+        }
+
+        p {
+          padding: 2px;
+          font-size: 0.8rem;
+        }
+
+        .onread {
+          gap: 8px;
+          margin-bottom: 15px;
+
+          .container {
+            font-size: 18px;
+          }
+          p {
+            font-size: 0.8rem;
+            padding: 0;
+          }
+        }
+      }
+    }
+
+    .btn-add {
+      .upload {
+        font-size: 0.9rem;
+        width: 20vw;
+        padding: 15px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .form-book {
+    .book-wrapper {
+      height: 80vh;
+      width: 38vw;
+      .uploadbook {
+        padding: 40px;
+        height: 100%;
+        p {
+          padding: 2px;
+          font-size: 0.8rem;
+        }
+        .titre,
+        .auteur,
+        .date,
+        .pages,
+        .langue,
+        .cat {
+          font-size: 0.7rem;
+          padding: 10px;
+        }
+
+        .desc {
+          padding: 15px;
+          overflow: hidden;
+        }
+
+        .img-container {
+          padding: 10px;
+
+          .input-file {
+            width: 40vw;
+            font-size: 0.7rem;
+          }
+        }
+
+        p {
+          padding: 2px;
+          font-size: 0.8rem;
+        }
+
+        .onread {
+          gap: 8px;
+          margin-bottom: 15px;
+
+          .container {
+            font-size: 18px;
+          }
+          p {
+            font-size: 0.8rem;
+            padding: 0;
+          }
+        }
+      }
+    }
+
+    .btn-add {
+      .upload {
+        font-size: 0.9rem;
+        width: 23vw;
+        padding: 15px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .form-book {
+    .book-wrapper {
+      height: 80vh;
+      width: 45vw;
+      .uploadbook {
+        padding: 40px;
+        height: 100%;
+        p {
+          padding: 2px;
+          font-size: 0.7rem;
+        }
+        .titre,
+        .auteur,
+        .date,
+        .pages,
+        .langue,
+        .cat {
+          font-size: 0.7rem;
+          padding: 10px;
+        }
+
+        .desc {
+          padding: 15px;
+          overflow: hidden;
+        }
+
+        .img-container {
+          padding: 10px;
+
+          .input-file {
+            width: 40vw;
+            font-size: 0.7rem;
+          }
+        }
+
+        p {
+          padding: 2px;
+          font-size: 0.7rem;
+        }
+
+        .onread {
+          gap: 8px;
+          margin-bottom: 15px;
+
+          .container {
+            font-size: 18px;
+          }
+          p {
+            font-size: 0.7rem;
+            padding: 0;
+          }
+        }
+      }
+    }
+
+    .btn-add {
+      .upload {
+        font-size: 0.8rem;
+        width: 26vw;
+        padding: 15px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .form-book {
+    margin-left: 25vw;
+    .book-wrapper {
+      margin-top: 10%;
+      height: 75vh;
+      width: 55vw;
+      .uploadbook {
+        padding: 40px;
+        height: 100%;
+        p {
+          padding: 2px;
+          font-size: 0.7rem;
+        }
+        .titre,
+        .auteur,
+        .date,
+        .pages,
+        .langue,
+        .cat {
+          font-size: 0.7rem;
+          padding: 8px;
+        }
+
+        .desc {
+          padding: 15px;
+          overflow: hidden;
+        }
+
+        .img-container {
+          padding: 10px;
+
+          .input-file {
+            width: 40vw;
+            font-size: 0.7rem;
+          }
+        }
+
+        p {
+          padding: 2px;
+          font-size: 0.7rem;
+        }
+
+        .onread {
+          gap: 8px;
+          margin-bottom: 15px;
+
+          .container {
+            font-size: 18px;
+          }
+          p {
+            font-size: 0.7rem;
+            padding: 0;
+          }
+        }
+      }
+    }
+
+    .btn-add {
+      .upload {
+        font-size: 0.8rem;
+        width: 30vw;
+        padding: 12px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .form-book {
+    margin-left: 7vw;
+    .book-wrapper {
+      margin-top: 10%;
+      height: 70vh;
+      width: 60vw;
+      .uploadbook {
+        padding: 40px;
+        height: 100%;
+        p {
+          padding: 2px;
+          font-size: 0.7rem;
+        }
+        .titre,
+        .auteur,
+        .date,
+        .pages,
+        .langue,
+        .cat {
+          font-size: 0.7rem;
+          padding: 7px;
+        }
+
+        .desc {
+          padding: 15px;
+          overflow: hidden;
+        }
+
+        .img-container {
+          padding: 8px;
+
+          .input-file {
+            width: 50vw;
+            font-size: 0.7rem;
+          }
+        }
+
+        p {
+          padding: 2px;
+          font-size: 0.7rem;
+        }
+
+        .onread {
+          gap: 8px;
+          margin-bottom: 15px;
+
+          .container {
+            font-size: 18px;
+          }
+          p {
+            font-size: 0.7rem;
+            padding: 0;
+          }
+        }
+      }
+    }
+
+    .btn-add {
+      .upload {
+        font-size: 0.8rem;
+        width: 35vw;
+        padding: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .form-book {
+    margin-left: 7vw;
+    .book-wrapper {
+      margin-top: 10%;
+      height: 70vh;
+      width: 70vw;
+      .uploadbook {
+        padding: 40px;
+        height: 100%;
+        p {
+          padding: 2px;
+          font-size: 0.7rem;
+        }
+        .titre,
+        .auteur,
+        .date,
+        .pages,
+        .langue,
+        .cat {
+          font-size: 0.7rem;
+          padding: 7px;
+        }
+
+        .desc {
+          padding: 15px;
+          overflow: hidden;
+        }
+
+        .img-container {
+          padding: 8px;
+
+          .input-file {
+            width: 50vw;
+            font-size: 0.7rem;
+          }
+        }
+
+        p {
+          padding: 2px;
+          font-size: 0.7rem;
+        }
+
+        .onread {
+          gap: 6px;
+          margin-bottom: 15px;
+
+          .container {
+            font-size: 16px;
+          }
+          p {
+            font-size: 0.7rem;
+            padding: 0;
+          }
+        }
+      }
+    }
+
+    .btn-add {
+      .upload {
+        font-size: 0.8rem;
+        width: 40vw;
+        padding: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .form-book {
+    margin-left: 7vw;
+    .book-wrapper {
+      margin-top: 10%;
+      height: 70vh;
+      width: 75vw;
+      .uploadbook {
+        padding: 40px;
+        height: 100%;
+        p {
+          padding: 2px;
+          font-size: 0.7rem;
+        }
+        .titre,
+        .auteur,
+        .date,
+        .pages,
+        .langue,
+        .cat {
+          font-size: 0.7rem;
+          padding: 7px;
+        }
+
+        .desc {
+          padding: 15px;
+         
+        }
+
+        .img-container {
+          padding: 6px;
+
+          .input-file {
+            width: 55vw;
+            font-size: 0.6rem;
+          }
+        }
+
+        p {
+          padding: 2px;
+          font-size: 0.7rem;
+        }
+
+        .onread {
+          gap: 10px;
+          margin-bottom: 15px;
+
+          .container {
+            font-size: 13px;
+          }
+          p {
+            font-size: 0.6rem;
+            padding: 0;
+          }
+        }
+      }
+    }
+
+    .btn-add {
+      .upload {
+        font-size: 0.8rem;
+        width: 50vw;
+        padding: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .form-book {
+    margin-left: 0;
+    .book-wrapper {
+      margin-top: 10%;
+      height: 65vh;
+      width: 85vw;
+      .uploadbook {
+        padding: 40px;
+        height: 100%;
+        p {
+          padding: 2px;
+          font-size: 0.7rem;
+        }
+        .titre,
+        .auteur,
+        .date,
+        .pages,
+        .langue,
+        .cat {
+          font-size: 0.6rem;
+          padding: 6px;
+        }
+
+      
+        .img-container {
+          padding: 2px;
+
+          .input-file {
+            width: 75vw;
+            font-size: 0.6rem;
+          }
+        }
+
+        p {
+          padding: 2px;
+          font-size: 0.6rem;
+        }
+
+        .onread {
+          padding: 0;
+          gap: 5px;
+          margin-bottom: 15px;
+
+          .container {
+            font-size: 13px;
+          }
+          p {
+            font-size: 0.6rem;
+            padding: 0;
+          }
+        }
+      }
+    }
+
+    .btn-add {
+      .upload {
+        font-size: 0.7rem;
+        width: 58vw;
+        padding: 8px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .form-book {
+    .book-wrapper {
+      .uploadbook {
+        padding: 30px;
+      }
+    }
+
+    .btn-add {
+      .upload {
+        font-size: 0.7rem;
+        width: 58vw;
+        padding: 8px;
+      }
     }
   }
 }
