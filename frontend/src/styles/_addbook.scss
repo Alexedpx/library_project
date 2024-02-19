@@ -74,6 +74,7 @@
         border: none;
         padding: 5px;
         border-radius: 10px;
+        font-family: var(--font-style-text);
 
         &:focus {
           outline: none;
@@ -88,13 +89,7 @@
         justify-content: center;
         padding: 10px;
 
-        // img {
-        //   position: absolute;
-        //   transform: translateX(-960%);
-        //   width: 15px;
-        //   height: 15px;
-        // }
-
+     
         .input-file {
           margin-left: 5%;
           border-left: none;

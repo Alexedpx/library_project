@@ -33,7 +33,7 @@ export default function FavoriteBook() {
 
   useEffect(() => {
     favoriteUser();
-  }, []);
+  }, [userConnected]);
 
   return (
     <>

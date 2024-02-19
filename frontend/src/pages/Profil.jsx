@@ -15,10 +15,10 @@ export default function Profil() {
   const [deleteUser, setDeleteUser] = useState(userConnected);
   const [file, setFile] = useState(undefined);
   const [userUpdate, setUserUpdate] = useState({
-    pseudo: userConnected.pseudo,
-    email: userConnected.email,
-    avatar: userConnected.avatar,
-    style_favoris: userConnected.style_favoris,
+    pseudo: userConnected?.pseudo || "",
+    email: userConnected?.email || "",
+    avatar: userConnected?.avatar || "",
+    style_favoris: userConnected?.style_favoris || "",
   });
   const [isEditing, setIsEditing] = useState(false);
 
@@ -135,30 +135,30 @@ export default function Profil() {
                   />
                 )}
 
-                {!isEditing ? (
-                  <form id="form" className="pseudo-user">
-                    <h1>Informations du profil</h1>
-                    <div className="user-info">
-                      <h2>Pseudo</h2>
-                      {userConnected.pseudo && <p>{userConnected.pseudo}</p>}
-                      <h2>E-mail</h2>
-                      {userConnected.email && <p>{userConnected.email}</p>}
-                      <h2>Catégorie préférée</h2>
-                      <p>{userConnected.style_favoris}</p>
-                    </div>
+{!isEditing && userConnected ? (
+    <form id="form" className="pseudo-user">
+      <h1>Informations du profil</h1>
+      <div className="user-info">
+        <h2>Pseudo</h2>
+        <p>{userConnected.pseudo}</p>
+        <h2>E-mail</h2>
+        <p>{userConnected.email}</p>
+        <h2>Catégorie préférée</h2>
+        <p>{userConnected.style_favoris}</p>
+      </div>
 
-                    <div className="handle-edit">
-                      <button
-                        className="edit"
-                        type="button"
-                        onClick={handleEdit}
-                      >
-                        <MdEdit size={18} style={{ marginRight: "5px" }} />{" "}
-                        Editer mon profil
-                      </button>
-                    </div>
-                  </form>
-                ) : (
+      <div className="handle-edit">
+        <button
+          className="edit"
+          type="button"
+          onClick={handleEdit}
+        >
+          <MdEdit size={18} style={{ marginRight: "5px" }} />{" "}
+          Editer mon profil
+        </button>
+      </div>
+    </form>
+  ) : (
                   <>
                     <div className="upload">
                       <form onSubmit={handleUpload}>
