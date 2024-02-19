@@ -4,7 +4,6 @@
   justify-content: center;
   margin-left: 20vw;
 
-
   .profil-wrapper {
     background-image: linear-gradient(
       120deg,
@@ -196,6 +195,651 @@
             color: rgba(77, 77, 77, 0.89);
             text-decoration: none;
             cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1450px) {
+  .container-profil {
+    margin-left: 20vw;
+
+    .profil-wrapper {
+      height: 70vh;
+      width: 55vh;
+
+      .user-profile {
+        .avatar {
+          width: 170px;
+          height: 170px;
+        }
+
+        .pseudo-user {
+          h1 {
+            font-size: 1.2rem;
+          }
+
+          .user-info {
+            padding: 5px;
+
+            h2 {
+              font-size: 1rem;
+            }
+            p {
+              font-size: 1rem;
+            }
+          }
+
+          .handle-edit {
+            .edit {
+              font-size: 1.1rem;
+
+              padding: 15px;
+              width: 18vw;
+            }
+          }
+        }
+      }
+
+      .upload {
+        form {
+          width: 20vw;
+          height: 50px;
+
+          .input-file {
+            display: none;
+          }
+
+          .upload-avatar {
+            padding-top: 5%;
+            width: 100%;
+            .label-file {
+              padding: 6px;
+              width: 15vw;
+              font-size: 0.7rem;
+            }
+
+            .save-avatar {
+              padding: 6px;
+              width: 2vw;
+            }
+          }
+        }
+      }
+      .edit-user {
+        p {
+          padding: 5px;
+          align-self: flex-start;
+          margin-left: 70px;
+          font-size: 1rem;
+        }
+
+        .input-edit {
+          width: 22vw;
+          padding: 8px;
+          font-size: 0.9rem;
+        }
+
+        .edit-profil {
+          padding-top: 5%;
+          width: 100%;
+          .saveprofil {
+            width: 15vw;
+            font-size: 1rem;
+
+            padding: 10px;
+          }
+
+          .delete {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .container-profil {
+    margin-left: 20vw;
+
+    .profil-wrapper {
+      height: 70vh;
+      width: 55vh;
+
+      .user-profile {
+        .avatar {
+          width: 170px;
+          height: 170px;
+        }
+
+        .pseudo-user {
+          h1 {
+            font-size: 1.2rem;
+          }
+
+          .user-info {
+            padding: 5px;
+
+            h2 {
+              font-size: 1rem;
+            }
+            p {
+              font-size: 1rem;
+            }
+          }
+
+          .handle-edit {
+            .edit {
+              font-size: 1.1rem;
+
+              padding: 15px;
+              width: 18vw;
+            }
+          }
+        }
+      }
+
+      .upload {
+        form {
+          width: 20vw;
+          height: 50px;
+
+          .input-file {
+            display: none;
+          }
+
+          .upload-avatar {
+            padding-top: 5%;
+            width: 100%;
+            .label-file {
+              padding: 6px;
+              width: 15vw;
+              font-size: 0.7rem;
+            }
+
+            .save-avatar {
+              padding: 6px;
+              width: 2vw;
+            }
+          }
+        }
+      }
+      .edit-user {
+        p {
+          padding: 5px;
+          align-self: flex-start;
+          margin-left: 70px;
+          font-size: 1rem;
+        }
+
+        .input-edit {
+          width: 22vw;
+          padding: 8px;
+          font-size: 0.9rem;
+        }
+
+        .edit-profil {
+          padding-top: 5%;
+          width: 100%;
+          .saveprofil {
+            width: 15vw;
+            font-size: 1rem;
+
+            padding: 10px;
+          }
+
+          .delete {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1130px) {
+  .container-profil {
+    .profil-wrapper {
+      height: 65vh;
+      width: 50vh;
+
+      .user-profile {
+        .avatar {
+          width: 150px;
+          height: 150px;
+        }
+
+        .pseudo-user {
+          h1 {
+            font-size: 1rem;
+          }
+
+          .user-info {
+            padding: 5px;
+
+            h2 {
+              font-size: 0.9rem;
+            }
+            p {
+              font-size: 0.8rem;
+            }
+          }
+
+          .handle-edit {
+            .edit {
+              font-size: 1rem;
+
+              padding: 13px;
+              width: 22vw;
+            }
+          }
+        }
+      }
+
+      .upload {
+        form {
+          .upload-avatar {
+            .label-file {
+              padding: 6px;
+              width: 20vw;
+              font-size: 0.7rem;
+            }
+
+            .save-avatar {
+              padding: 6px;
+              width: 3vw;
+            }
+          }
+        }
+      }
+      .edit-user {
+        p {
+          padding: 4px;
+
+          font-size: 0.9rem;
+        }
+
+        .input-edit {
+          width: 23vw;
+          padding: 8px;
+          font-size: 0.8rem;
+        }
+
+        .edit-profil {
+          padding-top: 5%;
+          width: 100%;
+          .saveprofil {
+            width: 18vw;
+            font-size: 0.9rem;
+            padding: 10px;
+          }
+
+          .delete {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .container-profil {
+    padding-top: 5%;
+    .profil-wrapper {
+      height: 65vh;
+      width: 45vh;
+
+      .user-profile {
+        .avatar {
+          width: 150px;
+          height: 150px;
+        }
+
+        .pseudo-user {
+          h1 {
+            font-size: 1rem;
+          }
+
+          .user-info {
+            padding: 5px;
+
+            h2 {
+              font-size: 0.9rem;
+            }
+            p {
+              font-size: 0.8rem;
+            }
+          }
+
+          .handle-edit {
+            .edit {
+              font-size: 0.9rem;
+              padding: 13px;
+              width: 26vw;
+            }
+          }
+        }
+      }
+
+      .upload {
+        form {
+          width: 100%;
+          .upload-avatar {
+            .label-file {
+              padding: 6px;
+              width: 25vw;
+              font-size: 0.7rem;
+            }
+
+            .save-avatar {
+              padding: 6px;
+              width: 3vw;
+            }
+          }
+        }
+      }
+      .edit-user {
+        p {
+          font-size: 0.8rem;
+        }
+
+        .input-edit {
+          width: 30vw;
+          padding: 5px;
+          font-size: 0.8rem;
+        }
+
+        .edit-profil {
+          padding-top: 10%;
+          width: 100%;
+          .saveprofil {
+            width: 23vw;
+            font-size: 0.8rem;
+            padding: 10px;
+          }
+
+          .delete {
+            font-size: 0.7rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 665px) {
+  .container-profil {
+    padding-top: 10%;
+    margin-left: 25vw;
+    .profil-wrapper {
+      height: 60vh;
+      width: 42vh;
+
+      .user-profile {
+        .avatar {
+          width: 130px;
+          height: 130px;
+        }
+
+        .pseudo-user {
+          h1 {
+            font-size: 0.9rem;
+          }
+
+          .user-info {
+            padding: 5px;
+
+            h2 {
+              font-size: 0.9rem;
+            }
+            p {
+              font-size: 0.8rem;
+            }
+          }
+
+          .handle-edit {
+            .edit {
+              font-size: 0.8rem;
+              padding: 13px;
+              width: 30vw;
+            }
+          }
+        }
+      }
+
+      .upload {
+        form {
+          .upload-avatar {
+            .label-file {
+              padding: 5px;
+              width: 25vw;
+              font-size: 0.6rem;
+            }
+
+            .save-avatar {
+              padding: 5px;
+              width: 4vw;
+            }
+          }
+        }
+      }
+      .edit-user {
+        p {
+          margin-left: 60px;
+          font-size: 0.8rem;
+        }
+
+        .input-edit {
+          width: 35vw;
+          padding: 5px;
+          font-size: 0.7rem;
+        }
+
+        .edit-profil {
+          padding-top: 10%;
+          width: 100%;
+          .saveprofil {
+            width: 28vw;
+            font-size: 0.8rem;
+            padding: 8px;
+          }
+
+          .delete {
+            font-size: 0.7rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 665px) {
+  .container-profil {
+    margin-left: 4vw;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .container-profil {
+    margin-left: 4vw;
+
+    .profil-wrapper {
+      height: 60vh;
+      width: 40vh;
+
+      .user-profile {
+        padding-top: 5%;
+        .avatar {
+          width: 130px;
+          height: 130px;
+        }
+
+        .pseudo-user {
+          .handle-edit {
+            .edit {
+              font-size: 0.8rem;
+              padding: 11px;
+              width: 38vw;
+            }
+          }
+        }
+      }
+
+      .upload {
+        form {
+          .upload-avatar {
+            .label-file {
+              padding: 5px;
+              width: 30vw;
+              font-size: 0.6rem;
+            }
+
+            .save-avatar {
+              padding: 5px;
+              width: 5vw;
+            }
+          }
+        }
+      }
+      .edit-user {
+        p {
+          margin-left: 55px;
+          font-size: 0.8rem;
+        }
+
+        .input-edit {
+          width: 40vw;
+          padding: 5px;
+          font-size: 0.7rem;
+        }
+
+        .edit-profil {
+          padding-top: 10%;
+          width: 100%;
+          .saveprofil {
+            width: 35vw;
+            font-size: 0.8rem;
+            padding: 8px;
+          }
+
+          .delete {
+            font-size: 0.7rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .container-profil {
+    padding-top: 20%;
+    .profil-wrapper {
+      height: 55vh;
+      width: 38vh;
+
+      .user-profile {
+        padding-top: 5%;
+        .avatar {
+          width: 130px;
+          height: 130px;
+        }
+
+        .pseudo-user {
+          .user-info {
+            h2 {
+              font-size: 0.8rem;
+            }
+          }
+          .handle-edit {
+            .edit {
+              font-size: 0.8rem;
+              padding: 11px;
+              width: 45vw;
+            }
+          }
+        }
+      }
+
+      .upload {
+        form {
+          .upload-avatar {
+            .label-file {
+              padding: 3px;
+              width: 35vw;
+              font-size: 0.6rem;
+            }
+
+            .save-avatar {
+              padding: 3px;
+              width: 5vw;
+            }
+          }
+        }
+      }
+      .edit-user {
+        p {
+          margin-left: 45px;
+          font-size: 0.7rem;
+        }
+
+        .input-edit {
+          width: 55vw;
+          padding: 6px;
+          font-size: 0.7rem;
+        }
+
+        .edit-profil {
+          padding-top: 10%;
+          width: 100%;
+          .saveprofil {
+            width: 40vw;
+            font-size: 0.8rem;
+            padding: 8px;
+          }
+
+          .delete {
+            font-size: 0.6rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .container-profil {
+    .profil-wrapper {
+      height: 55vh;
+      width: 35vh;
+
+      .user-profile {
+        .pseudo-user {
+          .handle-edit {
+            .edit {
+              width: 50vw;
+            }
+          }
+        }
+      }
+
+      .upload {
+        form {
+          .upload-avatar {
+            .save-avatar {
+              width: 6vw;
+            }
+          }
+        }
+      }
+      .edit-user {
+        .edit-profil {
+          .saveprofil {
+            width: 45vw;
           }
         }
       }
