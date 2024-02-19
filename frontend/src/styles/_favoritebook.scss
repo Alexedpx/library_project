@@ -92,8 +92,8 @@ background-image: url("/images/background.png");
 @media screen and (max-width: 1450px) {
   .background1 {
     .livre-favoris {
+      height: 100vh;
       margin-left: 20vw;
-
       gap: 40px;
     }
 

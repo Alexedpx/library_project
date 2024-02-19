@@ -33,7 +33,7 @@ export default function Navbar() {
             <div className="login">
               <div className="profil">
              
-                {userConnected && userConnected.avatar && (
+              {userConnected?.avatar && (
                   <img
                     src={`${import.meta.env.VITE_BACKEND_URL}${
                       userConnected.avatar
@@ -46,7 +46,7 @@ export default function Navbar() {
               
 
                 <div className="info">
-                  {userConnected && userConnected.pseudo && (
+                {userConnected?.pseudo && (
                     <p>{userConnected.pseudo}</p>
                   )}
                   <div className="logout-button">
@@ -83,7 +83,7 @@ export default function Navbar() {
                 MES FAVORIS
               </div>
             </NavLink>
-            {userConnected && userConnected.avatar && (
+            {userConnected?.pseudo &&  (
               <NavLink to="/profil">
                 <div className="icon">
                   <RxAvatar size={21} style={{ marginRight: "20px" }} />

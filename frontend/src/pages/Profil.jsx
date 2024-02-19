@@ -1,6 +1,6 @@
 import axios from "axios";
 import { NavLink } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import userContext from "../context/userContext";
 import { IoImage } from "react-icons/io5";
 import { MdEdit } from "react-icons/md";
@@ -107,6 +107,8 @@ export default function Profil() {
       console.error(error);
     }
   };
+
+
   return (
     <>
       <NavBar />
