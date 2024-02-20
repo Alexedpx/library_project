@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+
   h1 {
     font-size: 3rem;
     padding: 2%;
@@ -16,6 +17,7 @@
     display: flex;
     padding-bottom: 4%;
     justify-content: end;
+
     span,
     h2 {
       font-size: 2.2rem;
@@ -59,11 +61,13 @@
         text-align: center;
         font-size: 0.9rem;
       }
+
       a {
         text-decoration: none;
         color: #000000;
         font-weight: bold;
       }
+
       a:hover {
         color: white;
       }
@@ -98,6 +102,7 @@
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
           }
         }
+
         .mdp-container {
           position: relative;
           display: flex;
@@ -131,7 +136,6 @@
             font-size: 1.6rem;
             border: none;
             border-radius: 30px;
-
             padding: 14px 30px;
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -148,11 +152,13 @@
             animation: button-particles 1s ease-in-out infinite;
             transform: translateY(-2px);
           }
+
           .btn-inscription:active {
             transform: scale(0.95);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
           }
         }
+
         @keyframes button-shimmer {
           0% {
             background-position: left top;
@@ -185,20 +191,10 @@
 
     .slogan {
       width: 35%;
-    display: flex;
-    padding-bottom: 4%;
-    justify-content: end;
-      span,
-      h2 {
-     
-        font-size: 1.8rem;
-      }
     }
 
     .container-login {
-
       .catching-text {
-        
         h3 {
           font-size: 1.3em;
         }
@@ -217,18 +213,6 @@
           p {
             font-size: 1rem;
           }
-
-          .mdp-container {
-            .mdp {
-              top: 8px;
-            }
-          }
-
-          .container-button {
-            .btn-inscription {
-              font-size: 1.4rem;
-            }
-          }
         }
       }
     }
@@ -241,16 +225,12 @@
       font-size: 2rem;
     }
 
-    
     .slogan {
-  
       span,
       h2 {
-     
         font-size: 1.8rem;
       }
     }
-    
 
     .container-login {
       .catching-text {
@@ -272,18 +252,6 @@
           p {
             font-size: 0.8rem;
           }
-
-          .mdp-container {
-            .mdp {
-              top: 8px;
-            }
-          }
-
-          .container-button {
-            .btn-inscription {
-              font-size: 1.2rem;
-            }
-          }
         }
       }
     }
@@ -293,15 +261,12 @@
 @media screen and (max-width: 1000px) {
   .header {
     background-size: cover;
+
     h1 {
       font-size: 2rem;
     }
 
     .slogan {
-      display: flex;
-
-      justify-content: end;
-      width: 100%;
       h2,
       span {
         padding-right: 10px;
@@ -311,6 +276,7 @@
 
     .container-login {
       margin: 0px;
+
       .catching-text {
         h3 {
           font-size: 1em;
@@ -330,18 +296,6 @@
         .form-login {
           p {
             font-size: 0.8rem;
-          }
-
-          .mdp-container {
-            .mdp {
-              top: 8px;
-            }
-          }
-
-          .container-button {
-            .btn-inscription {
-              font-size: 1.2rem;
-            }
           }
         }
       }
@@ -466,7 +420,6 @@
             margin-bottom: 20px;
             .btn-inscription {
               font-size: 0.8rem;
-             
             }
           }
         }
@@ -531,7 +484,6 @@
             margin-bottom: 20px;
             .btn-inscription {
               font-size: 0.8rem;
-             
             }
           }
         }
@@ -539,7 +491,6 @@
     }
   }
 }
-
 
 @media screen and (max-width: 450px) {
   .header {
@@ -576,7 +527,6 @@
         }
 
         .form-login {
-
           p {
             font-size: 0.7rem;
           }
@@ -597,7 +547,6 @@
             margin-bottom: 20px;
             .btn-inscription {
               font-size: 0.8rem;
-             
             }
           }
         }
@@ -641,7 +590,6 @@
         }
 
         .form-login {
-          
           p {
             font-size: 0.7rem;
           }
@@ -662,7 +610,6 @@
             margin-bottom: 20px;
             .btn-inscription {
               font-size: 0.8rem;
-             
             }
           }
         }

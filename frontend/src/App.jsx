@@ -14,11 +14,6 @@ import "./styles/index.scss";
 export default function App() {
   const [userConnected, setUserConnected] = useState(null);
 
-
-
-
-  
-
   const router = createBrowserRouter([
     {
       path: "/",
@@ -68,8 +63,6 @@ export default function App() {
       ),
     },
   ]);
-
-
 
   return (
     <userContext.Provider

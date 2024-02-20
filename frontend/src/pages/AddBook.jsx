@@ -35,6 +35,24 @@ export default function AddBook() {
     event.preventDefault();
     const user = JSON.parse(localStorage.getItem("token"));
 
+    if ( 
+      !titleBook ||
+      !autorBook ||
+      !file ||
+      !pageBook ||
+      !languageBook ||
+      !dateBook ||
+      !categoryBook ||
+      !descriptionBook ||
+      !statutBook
+    
+     ) {
+      toast.error("Veuillez remplir tous les champs", {
+        position: "top-center",
+      });
+      return;
+     }
+
     try {
       const data = new FormData();
       data.append("image", file);
@@ -47,6 +65,11 @@ export default function AddBook() {
       data.append("description", descriptionBook);
       data.append("statut", statutBook);
       data.append("userId", userConnected.id);
+
+    
+ 
+
+
       const res = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/books/addbook`,
         data,
