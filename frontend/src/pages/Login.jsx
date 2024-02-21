@@ -41,6 +41,8 @@ export default function Login() {
           ...userLocal,
         })
       );
+      console.log(localStorage.getItem('token'));
+
       navigate("/library");
     } catch (error) {
       toast.error("Identifiants incorrects, veuillez réessayer", {

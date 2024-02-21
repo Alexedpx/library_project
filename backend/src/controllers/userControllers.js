@@ -96,19 +96,52 @@ const edit = async (req, res, next) => {
   }
 };
 
+const getUploadImage = async (req, res, next) => {
+  try {
+    const [result] = await tables.user.updateAvatar(
+      `/images/avatar/${req.body.url}`,
+      req.auth.sub
+    );
+    if (result.affectedRows) {
+      res.sendStatus(204);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
-  // Extract the item data from the request body
-  const users = req.body;
-
   try {
-    // Insert the item into the database
-    const insertId = await tables.user.create(users);
+    const { pseudo, email, hashed_password, avatar } = req.body;
 
-    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
-    res.status(201).json({ insertId });
+    const result = await tables.user.create({
+      pseudo,
+      email,
+      hashed_password,
+      avatar,
+    });
+
+    if (result) {
+      const newUser = {
+        id: result,
+        pseudo,
+        email,
+        hashed_password,
+        avatar,
+      };
+
+      res.status(201).json({
+        pseudo: newUser.pseudo,
+        email: newUser.email,
+        avatar: newUser.avatar,
+      });
+    } else {
+      res.sendStatus(400);
+    }
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
   }
 };
@@ -127,21 +160,7 @@ const destroy = async (req, res, next) => {
   }
 };
 
-const getUploadImage = async (req, res, next) => {
-  try {
-    const [result] = await tables.user.insert(
-      `/images/avatar/${req.body.url}`,
-      req.auth.sub
-    );
-    if (result.affectedRows) {
-      res.sendStatus(204);
-    } else {
-      res.sendStatus(404);
-    }
-  } catch (err) {
-    next(err);
-  }
-};
+
 
 const getByToken = async (req, res) => {
   const userInfo = req.auth;

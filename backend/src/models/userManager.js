@@ -6,6 +6,19 @@ class userManager extends AbstractManager {
     super({ table: "user" });
   }
 
+
+  async getByPseudo(pseudo) {
+    const [result] = await this.database.query(
+      `SELECT * FROM ${this.table} WHERE pseudo = ?`,
+      [pseudo]
+      
+    );
+    console.log("getByPseudo result:", result);
+    return result;
+  }
+
+
+
   // The C of CRUD - Create operation
 
   async create({ pseudo, email, hashed_password, avatar }) {
@@ -42,20 +55,19 @@ class userManager extends AbstractManager {
     return result;
   }
 
+  async updateAvatar(avatar, userId) {
+    return this.database.query(
+      `UPDATE ${this.table} SET avatar = ? WHERE id = ?`,
+      [avatar, userId]
+    );
+  }
+
   // The D of CRUD - Delete operation
 
   async delete(id) {
     const [result] = await this.database.query(
       `DELETE from ${this.table} where id = ?`,
       [id]
-    );
-    return result;
-  }
-
-  async getByPseudo(pseudo) {
-    const [result] = await this.database.query(
-      `SELECT * FROM ${this.table} WHERE pseudo = ?`,
-      [pseudo]
     );
     return result;
   }
@@ -82,15 +94,7 @@ class userManager extends AbstractManager {
     return result;
   }
 
-  insert(avatar, userId) {
-    return this.database.query(
-      `UPDATE ${this.table} SET avatar = ? WHERE id = ?`,
-      [avatar, userId]
-    );
-  }
 
-
-  
 }
 
 module.exports = userManager;

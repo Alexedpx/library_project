@@ -20,6 +20,11 @@ export default function Signin() {
       setFormValid(true);
     }
   };
+
+  useEffect(() => {
+    validateForm();
+  }, [inputPseudo, inputEmail, inputPassword]);
+
   const handleInputClick = (e) => {
     e.stopPropagation();
   };
@@ -28,15 +33,12 @@ export default function Signin() {
     setMotDePasseVisible(!motDePasseVisible);
   };
 
-  useEffect(() => {
-    validateForm();
-  }, [inputPseudo, inputEmail, inputPassword]);
+
 
   const handleInscription = async (e) => {
     e.preventDefault();
     validateForm();
     if (formValid) {
-      
       const userSignin = {
         pseudo: inputPseudo,
         email: inputEmail,
@@ -45,9 +47,10 @@ export default function Signin() {
       };
       try {
         const dataUser = await axios.post(
-          `${import.meta.env.VITE_BACKEND_URL}/api/signin/`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/users/`,
           userSignin
         );
+      
         toast.success(
           `Inscription réussie, bienvenue ${dataUser.data.pseudo}!`,
           {
@@ -58,16 +61,6 @@ export default function Signin() {
         await new Promise((resolve) => setTimeout(resolve, 2000));
         navigate("/");
         setUserConnected(dataUser.data);
-        const userLocal = {
-          ...dataUser.data,
-          token: dataUser.data.token,
-        };
-        localStorage.setItem(
-          "token",
-          JSON.stringify({
-            ...userLocal,
-          })
-        );
       } catch (error) {
         console.error(error.message);
       }

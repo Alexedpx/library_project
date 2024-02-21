@@ -16,7 +16,6 @@ const login = async (req, res, next) => {
       req.body.password
     );
     if (verified) {
-      // Respond with the user in JSON format (but without the hashed password)
       delete users[0].hashed_password;
 
       const token = await jwt.sign(
@@ -38,47 +37,6 @@ const login = async (req, res, next) => {
   }
 };
 
-const signin = async (req, res, next) => {
-  try {
-    const { pseudo, email, hashed_password, avatar } = req.body;
-
-    const result = await tables.user.create({
-      pseudo,
-      email,
-      hashed_password,
-      avatar,
-      
-    });
-    if (result) {
-      const newUser = {
-        id: result,
-        pseudo,
-        email,
-        hashed_password,
-        avatar,
-      };
-      const token = await jwt.sign(
-        { sub: newUser.id },
-        process.env.APP_SECRET,
-        {
-          expiresIn: "1h",
-        }
-      );
-      res.status(201).json({
-        token,
-        pseudo: newUser.pseudo,
-        email: newUser.email,
-        avatar: newUser.avatar,
-      });
-    } else {
-      res.sendStatus(400);
-    }
-  } catch (err) {
-    next(err);
-  }
-};
-
 module.exports = {
   login,
-  signin,
 };

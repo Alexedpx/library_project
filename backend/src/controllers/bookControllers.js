@@ -94,20 +94,6 @@ const add = async (req, res, next) => {
   }
 };
 
-const destroy = async (req, res, next) => {
-  // Extract the item data from the request body
-  try {
-    // Insert the item into the database
-    const result = await tables.book.delete(req.params.id);
-
-    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
-    res.status(201).send(result);
-  } catch (err) {
-    // Pass any errors to the error-handling middleware
-    next(err);
-  }
-};
-
 const getUploadImage = async (req, res, next) => {
   try {
     const {
@@ -153,6 +139,24 @@ const getUploadImage = async (req, res, next) => {
     next(err);
   }
 };
+
+
+
+const destroy = async (req, res, next) => {
+  // Extract the item data from the request body
+  try {
+    // Insert the item into the database
+    const result = await tables.book.delete(req.params.id);
+
+    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
+    res.status(201).send(result);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
+
 
 // Ready to export the controller functions
 module.exports = {

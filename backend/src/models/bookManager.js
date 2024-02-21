@@ -15,39 +15,7 @@ class bookManager extends AbstractManager {
   }
 
   // The C of CRUD - Create operation
-  insert(
-    image,
-    titre,
-    auteur,
-    nombre_pages,
-    date,
-    langue,
-    categorie,
-    description,
-    pageLue,
-    commentaire,
-    statut,
-    userId
-  ) {
-    return this.database.query(
-      `INSERT INTO ${this.table} (image, titre, auteur, nombre_pages, date, langue, categorie, description, pageLue, commentaire, user_id, statut) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`,
-      [
-        image,
-        titre,
-        auteur,
-        nombre_pages,
-        date,
-        langue,
-        categorie,
-        description,
-        pageLue,
-        commentaire,
-        statut,
-        userId,
-      ]
-    );
-  }
-
+  
   async create({
     image,
     titre,
