@@ -6,18 +6,14 @@ class userManager extends AbstractManager {
     super({ table: "user" });
   }
 
-
   async getByPseudo(pseudo) {
     const [result] = await this.database.query(
       `SELECT * FROM ${this.table} WHERE pseudo = ?`,
       [pseudo]
-      
     );
     console.log("getByPseudo result:", result);
     return result;
   }
-
-
 
   // The C of CRUD - Create operation
 
@@ -44,6 +40,7 @@ class userManager extends AbstractManager {
     const [result] = await this.database.query(`select * from ${this.table}`);
     return result;
   }
+
 
   // The U of CRUD - Update operation
 
@@ -93,8 +90,6 @@ class userManager extends AbstractManager {
     );
     return result;
   }
-
-
 }
 
 module.exports = userManager;

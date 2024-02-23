@@ -78,7 +78,6 @@ export default function BookById() {
   // SUPPRIME UN FAVORIS
 
   const handleFavoriteClick = async (bookIdSelected) => {
-    console.log("Book ID Selected:", bookIdSelected);
     const user = JSON.parse(localStorage.getItem("token"));
     if (isFavorite) {
       try {
@@ -119,6 +118,7 @@ export default function BookById() {
         console.error(`Error adding to favorites:`, error);
       }
     }
+    setIsFavorite(!isFavorite);
     favoriteUser();
   };
 
@@ -214,7 +214,6 @@ export default function BookById() {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return date.toLocaleDateString("fr-FR", options);
   };
-
 
   // TOAST LIVRE A LIRE
 

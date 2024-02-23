@@ -33,8 +33,6 @@ export default function Signin() {
     setMotDePasseVisible(!motDePasseVisible);
   };
 
-
-
   const handleInscription = async (e) => {
     e.preventDefault();
     validateForm();
@@ -50,7 +48,7 @@ export default function Signin() {
           `${import.meta.env.VITE_BACKEND_URL}/api/users/`,
           userSignin
         );
-      
+
         toast.success(
           `Inscription réussie, bienvenue ${dataUser.data.pseudo}!`,
           {

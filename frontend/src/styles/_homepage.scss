@@ -108,7 +108,6 @@
 
   .container-books {
     margin-left: 20vw;
-   
 
     h2 {
       padding: 1vw;
@@ -118,13 +117,11 @@
     .livres-nonlus {
       height: 270px;
       background-color: rgba(0, 0, 0, 0.732);
-      
 
       .book-list {
         display: flex;
         align-items: center;
         padding: 20px;
-        
 
         img {
           border-radius: 5px;
@@ -893,7 +890,7 @@
       .livres-encours {
         gap: 12px;
         width: 38vw;
-       
+
         height: 55vw;
 
         .icon-mark {
@@ -943,10 +940,7 @@
 
     .search {
       .search_input {
-    
         width: 70vw;
-      
-
       }
 
       .selectcategory {
@@ -967,9 +961,8 @@
       .livres-encours {
         gap: 12px;
         width: 42vw;
-       
-        height: 65vw;
 
+        height: 65vw;
 
         .icon-mark {
           margin-right: 20%;

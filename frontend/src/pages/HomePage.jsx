@@ -24,7 +24,7 @@ export default function HomePage() {
       items: 5,
       slidesToSlide: 5,
     },
-    tablet: {
+    tablet2: {
       breakpoint: { max: 800, min: 464 },
       items: 4,
       slidesToSlide: 4,
@@ -34,7 +34,7 @@ export default function HomePage() {
       items: 3,
       slidesToSlide: 3, 
     },
-    mobile: {
+    mobile2: {
       breakpoint: { max: 464, min: 0 },
       items: 3,
       slidesToSlide: 3, 
