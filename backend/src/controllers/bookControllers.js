@@ -78,23 +78,8 @@ const edit = async (req, res, next) => {
 };
 
 // The A of BREAD - Add (Create) operation
+
 const add = async (req, res, next) => {
-  // Extract the item data from the request body
-  const books = req.body;
-
-  try {
-    // Insert the item into the database
-    const insertId = await tables.book.create(books);
-
-    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
-    res.status(201).json({ insertId });
-  } catch (err) {
-    // Pass any errors to the error-handling middleware
-    next(err);
-  }
-};
-
-const getUploadImage = async (req, res, next) => {
   try {
     const {
       titre,
@@ -165,6 +150,5 @@ module.exports = {
   edit,
   add,
   destroy,
-  getUploadImage,
   readByUserId,
 };

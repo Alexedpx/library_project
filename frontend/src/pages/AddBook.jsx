@@ -35,7 +35,7 @@ export default function AddBook() {
     event.preventDefault();
     const user = JSON.parse(localStorage.getItem("token"));
 
-    if ( 
+    if (
       !titleBook ||
       !autorBook ||
       !file ||
@@ -45,13 +45,12 @@ export default function AddBook() {
       !categoryBook ||
       !descriptionBook ||
       !statutBook
-    
-     ) {
+    ) {
       toast.error("Veuillez remplir tous les champs", {
         position: "top-center",
       });
       return;
-     }
+    }
 
     try {
       const data = new FormData();
@@ -65,10 +64,6 @@ export default function AddBook() {
       data.append("description", descriptionBook);
       data.append("statut", statutBook);
       data.append("userId", userConnected.id);
-
-    
- 
-
 
       const res = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/books/addbook`,
@@ -84,7 +79,6 @@ export default function AddBook() {
           position: "top-center",
         });
         await new Promise((resolve) => setTimeout(resolve, 2000));
-
         navigate("/library");
       } else {
         console.error(error);
@@ -154,7 +148,6 @@ export default function AddBook() {
               />
 
               <div className="img-container">
-                {/* <img src="images/img.png" alt="img-upload" /> */}
                 <input
                   name="filename"
                   onChange={(e) => setFile(e.target.files[0])}

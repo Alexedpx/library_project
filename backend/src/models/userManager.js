@@ -11,7 +11,6 @@ class userManager extends AbstractManager {
       `SELECT * FROM ${this.table} WHERE pseudo = ?`,
       [pseudo]
     );
-    console.log("getByPseudo result:", result);
     return result;
   }
 
@@ -81,7 +80,7 @@ class userManager extends AbstractManager {
 
   async getFavoritesBooks(id) {
     const [result] = await this.database.query(
-      `SELECT favoris.user_id AS userId, favoris.book_id AS bookId, book.titre, book.auteur, book.categorie, book.commentaire, book.date, book.image, book.description 
+      `SELECT favoris.user_id AS userId, favoris.book_id AS bookId, book.titre, book.auteur, book.categorie, book.image
        FROM favoris
        JOIN ${this.table} ON ${this.table}.id = favoris.user_id
        JOIN book ON book.id = favoris.book_id

@@ -917,6 +917,16 @@
     .book-wrapper {
       .uploadbook {
         padding: 30px;
+        .titre,
+        .auteur,
+        .date,
+        .pages,
+        .langue,
+        .cat {
+          font-size: 0.5rem;
+          padding: 3px;
+          height: 3vh;
+        }
       }
     }
 

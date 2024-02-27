@@ -17,12 +17,12 @@ const uploadBook = require("./middlewares/uploadBook");
 const uploadAvatar = require("./middlewares/uploadAvatar");
 
 router.post("/login", authControllers.login);
+router.use(verifyToken);
 router.post("/users", hashPassword, userControllers.add);
 
 // Route to get a list of items
 
 router.use(verifyToken);
-
 router.get("/users", userControllers.browse);
 router.get("/books", bookControllers.browse);
 
@@ -36,7 +36,7 @@ router.get("/books/book-by-user/:id", bookControllers.readByUserId);
 
 // Route to add a new item
 
-router.post("/books/addbook", uploadBook, bookControllers.getUploadImage);
+router.post("/books/addbook", uploadBook, bookControllers.add);
 router.post(
   "/users/image",
   uploadAvatar.single("image"),
