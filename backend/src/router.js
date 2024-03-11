@@ -16,9 +16,9 @@ const favorisControllers = require("./controllers/favorisControllers");
 const uploadBook = require("./middlewares/uploadBook");
 const uploadAvatar = require("./middlewares/uploadAvatar");
 
-router.post("/login", authControllers.login);
-router.use(verifyToken);
+
 router.post("/users", hashPassword, userControllers.add);
+router.post("/login", authControllers.login);
 
 // Route to get a list of items
 

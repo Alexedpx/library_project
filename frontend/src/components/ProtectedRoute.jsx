@@ -32,7 +32,6 @@ function ProtectedRoute({ children }) {
       axios.interceptors.response.eject(interceptor);
     };
   }, []);
-  
 
   const fetchUser = async () => {
     const user = JSON.parse(localStorage.getItem("token"));
@@ -56,10 +55,6 @@ function ProtectedRoute({ children }) {
     fetchUser();
   }, [location.pathname]);
   return children;
-
-
-
-  
 }
 
 export default ProtectedRoute;

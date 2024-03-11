@@ -5,7 +5,12 @@ CREATE DATABASE library;
 USE library;
 
 CREATE TABLE user (
-    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL, pseudo VARCHAR(80) NOT NULL, email VARCHAR(80) NOT NULL, hashed_password VARCHAR(255) NOT NULL, avatar VARCHAR(80) NOT NULL, style_favoris VARCHAR(80) NULL
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL, 
+    pseudo VARCHAR(80) NOT NULL, 
+    email VARCHAR(80) NOT NULL, 
+    hashed_password VARCHAR(255) NOT NULL, 
+    avatar VARCHAR(80) NOT NULL, 
+    style_favoris VARCHAR(80) NULL
 );
 
 CREATE TABLE book (
@@ -13,7 +18,7 @@ CREATE TABLE book (
 );
 
 CREATE TABLE favoris (
-    user_id INT, book_id INT, CONSTRAINT pk_favoris_book_user PRIMARY KEY (user_id, book_id), CONSTRAINT fk_favorite_user FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE ON UPDATE NO ACTION, CONSTRAINT fk_favorite_book FOREIGN KEY (book_id) REFERENCES book (id) ON DELETE CASCADE ON UPDATE NO ACTION
+    user_id INT, book_id INT, CONSTRAINT fk_favorite_user FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE ON UPDATE NO ACTION, CONSTRAINT fk_favorite_book FOREIGN KEY (book_id) REFERENCES book (id) ON DELETE CASCADE ON UPDATE NO ACTION
 );
 
 INSERT INTO
@@ -77,6 +82,7 @@ VALUES (
 "Non lu",
  1
 
+
 ), 
 
  (
@@ -126,8 +132,6 @@ VALUES (
 "",
 "Non lu",
 1
-
-
 ), 
 
  (

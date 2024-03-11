@@ -125,8 +125,6 @@ const add = async (req, res, next) => {
   }
 };
 
-
-
 const destroy = async (req, res, next) => {
   // Extract the item data from the request body
   try {
@@ -140,8 +138,6 @@ const destroy = async (req, res, next) => {
     next(err);
   }
 };
-
-
 
 // Ready to export the controller functions
 module.exports = {
