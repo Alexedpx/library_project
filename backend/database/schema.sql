@@ -5,12 +5,7 @@ CREATE DATABASE library;
 USE library;
 
 CREATE TABLE user (
-    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL, 
-    pseudo VARCHAR(80) NOT NULL, 
-    email VARCHAR(80) NOT NULL, 
-    hashed_password VARCHAR(255) NOT NULL, 
-    avatar VARCHAR(80) NOT NULL, 
-    style_favoris VARCHAR(80) NULL
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL, pseudo VARCHAR(80) NOT NULL, email VARCHAR(80) NOT NULL, hashed_password VARCHAR(255) NOT NULL, avatar VARCHAR(80) NOT NULL, style_favoris VARCHAR(80) NULL
 );
 
 CREATE TABLE book (
@@ -18,22 +13,19 @@ CREATE TABLE book (
 );
 
 CREATE TABLE favoris (
-    user_id INT, book_id INT, CONSTRAINT fk_favorite_user FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE ON UPDATE NO ACTION, CONSTRAINT fk_favorite_book FOREIGN KEY (book_id) REFERENCES book (id) ON DELETE CASCADE ON UPDATE NO ACTION
+    user_id INT, 
+    book_id INT, 
+    CONSTRAINT fk_favorite_user FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE ON UPDATE NO ACTION, 
+    CONSTRAINT fk_favorite_book FOREIGN KEY (book_id) REFERENCES book (id) ON DELETE CASCADE ON UPDATE NO ACTION
 );
+
 
 INSERT INTO
-    user (
-        pseudo, email, hashed_password, avatar, style_favoris
-    )
+    user (pseudo, email, hashed_password, avatar, style_favoris)
+VALUES
+    ("Alexe", "alexe@mail.com", "$argon2id$v=19$m=19456,t=2,p=1$gWObmHZS7rgNOWKBgjk6XA$+LgiRcEh1raCasFsV9bqRXahgiNdZdW1ww+v2WOP8Mc", "/images/avatar.jpg", "Thriller");
 
-VALUES ( 
 
-    "Alexe",
-    "alexe@mail.com",
-    "$argon2id$v=19$m=19456,t=2,p=1$gWObmHZS7rgNOWKBgjk6XA$+LgiRcEh1raCasFsV9bqRXahgiNdZdW1ww+v2WOP8Mc",
-    "/images/avatar.jpg",
-    "Thriller"
-);
 
 INSERT INTO book ( 
 
@@ -120,19 +112,8 @@ VALUES (
 ), 
 
 (
-    "/images/holly.jpg",
-"Holly",
-"Stephen King",
-568,
-"2024-02-28",
-"Edition en Français",
-"Thriller",
-"Dans une jolie maison victorienne d'une petite ville du Midwest, Emily et Rodney Harris, anciens professeurs d'université, mènent une vie de retraités actifs. Malgré leur grand âge, les années semblent n'avoir pas avoir de prise sur eux.À quelques pas de leur demeure, on a retrouvé le vélo de Bonnie Dahl, récemment disparue. Elle n'est pas la première à se volatiliser dans ce périmètre. Chose étrange : à chaque fois, il s'agit de jeunes gens.Quels secrets inavouables cachent les murs tapissés de livres des époux Harris ?",
-0,
-"",
-"Non lu",
-1
-), 
+    "/images/holly.jpg", "Holly", "Stephen King", 568, "2024-02-28", "Edition en Français", "Thriller", "Dans une jolie maison victorienne d'une petite ville du Midwest, Emily et Rodney Harris, anciens professeurs d'université, mènent une vie de retraités actifs. Malgré leur grand âge, les années semblent n'avoir pas avoir de prise sur eux.À quelques pas de leur demeure, on a retrouvé le vélo de Bonnie Dahl, récemment disparue. Elle n'est pas la première à se volatiliser dans ce périmètre. Chose étrange : à chaque fois, il s'agit de jeunes gens.Quels secrets inavouables cachent les murs tapissés de livres des époux Harris ?", 0, "", "Non lu", 1
+),
 
  (
     "/images/silmarillion.jpg",
@@ -237,3 +218,9 @@ Faites-vous partie de ceux qui rêvent de partir en voyage dans l'Ouest américa
 
 
 );
+
+INSERT INTO
+    favoris (user_id, book_id)
+VALUES
+    (1, 1),
+    (1, 2); 
