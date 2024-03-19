@@ -8,5 +8,3 @@ La technologie que j'ai utilisée pour ce projet est React.js pour le front-end 
 
 N'hésitez pas à explorer le site !
 
-
-(ps: vous pouvez retrouver dans mon dossier "ressources" la modélisation de ma BDD ainsi que mes user stories)
